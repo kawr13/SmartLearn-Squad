@@ -1,7 +1,7 @@
 from django.db import models
 
 from profileapp.models import Teacher, User
-
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -22,3 +22,9 @@ class Schedule(models.Model):
     url = models.URLField()
     date_create = models.DateTimeField(null=True, blank=True)
     date_end = models.DateTimeField(null=True, blank=True)
+    an_dellet = models.BooleanField(default=False)
+
+    def time_end(self):
+        if now() > self.date_end:
+            pass
+
