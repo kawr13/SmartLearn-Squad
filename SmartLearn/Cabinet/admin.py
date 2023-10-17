@@ -17,5 +17,5 @@ class ScheduleAdmin(TabularInline):
 @admin.register(Cabinet)
 class CabinetAdmin(admin.ModelAdmin):
     list_display = ('name',)
-    fields = ('name', 'teachers', 'users')
+    fields = ('name', 'teacher', 'users')
     inlines = [ScheduleAdmin]

@@ -77,3 +77,7 @@ class ServiceForm(UserChangeForm):
     class Meta:
         model = Service
         fields = ('name', 'description', 'price')
+
+class CabinetTransferForm(forms.Form):
+    target_cabinet = forms.ModelChoiceField(queryset=Cabinet.objects.all(), empty_label="Выберите кабинет")
+    users_to_transfer = forms.ModelMultipleChoiceField(queryset=User.objects.all(), widget=forms.CheckboxSelectMultiple)

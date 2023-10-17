@@ -9,7 +9,7 @@ from django.utils.timezone import now
 
 class Cabinet(models.Model):
     name = models.CharField(max_length=100)
-    teachers = models.ManyToManyField(Teacher, related_name='cabinets')
+    teacher = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='cabinets', null=True, blank=True)
     users = models.ManyToManyField(User, related_name='cabinets')
 
     def __str__(self):
@@ -25,6 +25,5 @@ class Schedule(models.Model):
     an_dellet = models.BooleanField(default=False)
 
     def time_end(self):
-        if now() > self.date_end:
-            pass
+        return now() > self.date_end if self.date_end else False
 

@@ -24,6 +24,9 @@ class User(AbstractUser):
 
     is_verified_email = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.username
+
 
 class Teacher(models.Model):
     description = models.TextField(blank=True, null=True)

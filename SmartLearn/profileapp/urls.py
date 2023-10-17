@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import path
 
 from .views import sort_category, blog, login, UserRegisterViews, logout, profiluser, profilusercabinet, delete_post, \
-    services, edit_service
+    services, edit_service, users_list
 
 app_name = 'profile'
 
@@ -32,5 +32,6 @@ urlpatterns = [
     path('delete_post/<int:post_id>/', delete_post, name='delete_post'),
     path('services/', services, name='services'),
     path('edit_serv/<int:service_id>/', edit_service, name='edit_service'),
+    path('users/', users_list, name='users_list'),
 
 ]

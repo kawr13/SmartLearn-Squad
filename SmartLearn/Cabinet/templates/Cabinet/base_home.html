@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:type" content="website">
+    <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <!-- Подключение JavaScript-файлов Bootstrap (перед закрывающимhttps://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.jsся тегом </body>) -->
+    <link rel="stylesheet" href="{% static 'userfull/css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'userfull/css/Главная.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'userfull/css/Страница-1.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'userfull/scripts/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'userfull/scripts/nicepage.js' %}" defer=""></script
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .navbar-nav.mr-auto .nav-item {
+            margin-right: -50px; /* Убираем правый отступ между элементами */
+        }
+        .card-body {
+          padding: 10px;
+        }
+        .card-text {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+    </style>
+    {% block scripts %}{% endblock %}
+    {% block styles %}{% endblock %}
+    {% block modals %}{% endblock %}
+</head>
+<body>
+    <header>
+        <!-- Шапка сайта -->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">главная</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+{% block content %}{% endblock %}
+{% block script %}{% endblock %}
+    <footer>
+        <!-- Футер сайта -->
+        <p>&copy; 2023 Мой учебный сайт</p>
+    </footer>
+</body>
+</html>

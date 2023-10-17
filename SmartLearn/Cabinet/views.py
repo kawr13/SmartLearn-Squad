@@ -2,7 +2,7 @@ from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render, redirect
 
 from Cabinet.models import Cabinet, Schedule
-from profileapp.models import User
+from profileapp.models import User, Post
 
 
 # Create your views her
@@ -11,7 +11,6 @@ def get_events(request, cabinet_id):
     events = Schedule.objects.filter(cabinet=cabinet).values('date_create', 'date_end', 'url', 'title')
     event_data = []
     for event in events:
-        print()
         event_data.append({
             'title': event['title'],
             'urls': event['url'],
@@ -44,7 +43,6 @@ def update_calend(request: HttpRequest, cabinet_id) -> render:
         date_string = request.POST
         print(date_string)
         if date_string:
-            # Получите объект Cabinet
             cabinet = Cabinet.objects.get(pk=cabinet_id)
             schedule = Schedule.objects.create(
                 cabinet=cabinet,
@@ -55,7 +53,37 @@ def update_calend(request: HttpRequest, cabinet_id) -> render:
             )
             print(schedule)
             schedule.save()
-            # Создайте новый объект Schedule и свяжите его с Cabinet
-
 
             return redirect('cabinet:cabinet', cab_id=cabinet_id)
+
+
+def user_full(request: HttpRequest, cabinet_id) -> render:
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id)
+    else:
+        pers = False
+    teachs = Cabinet.objects.get(pk=cabinet_id).teacher
+    post = Post.objects.filter(teacher=teachs, is_private=True).order_by('-date_create')
+    context = {
+        'title': 'Полезная информация',
+        'autentic': pers.is_authenticated,
+        'teach': teachs,
+        'user_id': pers.id,
+        'posts': post,
+    }
+    return render(request, 'Cabinet/userfull_info_cab.html', context=context)
+
+
+def user_full_view(request: HttpRequest, post_id: int) -> render:
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id)
+    else:
+        pers = False
+    post = Post.objects.get(id=post_id)
+    context = {
+        'title': 'Полезная информация',
+        'user_id': pers.id,
+        'autentic': pers.is_authenticated,
+        'posts': post,
+    }
+    return render(request, 'Cabinet/userfull_detailed.html', context=context)

@@ -6,7 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
 from Cabinet.models import Schedule, Cabinet
-from profileapp.forms import UserForm, UserRegisterForm, CabinetForm, BlogForm, ServiceForm
+from profileapp.forms import UserForm, UserRegisterForm, CabinetForm, BlogForm, ServiceForm, CabinetTransferForm
 from profileapp.models import Teacher, User, Tag, Post, EmailVerification, Service
 # from Cabinet.models import Schedule
 from django.contrib import auth
@@ -46,13 +46,14 @@ def sort_category(request: HttpRequest, tag_id: int=None) -> render:
 
 def blog(request: HttpRequest, user_id: int) -> render:
     if request.method == 'POST':
-        form = BlogForm(request.POST)
+        form = BlogForm(request.POST, request.FILES)
         user_t = User.objects.get(id=user_id)
         if form.is_valid():
             post = Post.objects.create(
                 title=form.cleaned_data['title'],
                 content=form.cleaned_data['content'],
                 teacher=user_t.teacher,
+                images=form.cleaned_data['images'],
                 is_published=form.cleaned_data['is_published'],
                 is_pinned=form.cleaned_data['is_pinned'],
                 is_private=form.cleaned_data['is_private'],
@@ -74,7 +75,7 @@ def blog(request: HttpRequest, user_id: int) -> render:
         'user': user,
         'autentic': pers,
         'teach': teach,
-        'posts': Post.objects.filter(teacher=teacher),
+        'posts': Post.objects.filter(teacher=teacher, is_private=False).order_by('-date_create'),
         'form': form,
     }
     return render(request, 'profileapp/profile/blog.html', context=context)
@@ -151,7 +152,7 @@ def profilusercabinet(request: HttpRequest, user_id: int) -> render:
         pers = False
     teach = User.objects.get(id=user_id).teacher
     if teach:
-        cabinets = Cabinet.objects.filter(teachers=teach)
+        cabinets = Cabinet.objects.filter(teacher=teach)
     else:
         user = User.objects.get(id=user_id)
         teach = Cabinet.objects.filter(users=user)
@@ -163,7 +164,7 @@ def profilusercabinet(request: HttpRequest, user_id: int) -> render:
         users_by_cabinet[cabinet] = cabinet.users.filter(is_teacher=False)
     context = {
         'title': 'Кабинеты',
-        'teach': User.objects.get(id=user_id),
+        'teach': teach,
         'autentic': pers,
         'users_by_cab': users_by_cabinet,
         'form': CabinetForm(),
@@ -233,3 +234,20 @@ def edit_service(request, service_id):
     }
 
     return render(request, 'profileapp/profile/service_edit.html', context=context)
+
+
+def users_list(request: HTTPResponse) -> render:
+    teach = Teacher.objects.get(id=request.user.id)
+    print(teach)
+    cab = Cabinet.objects.filter(teacher=teach).values('users')
+    lst_user = []
+    for i in cab:
+        users = User.objects.get(id=i['users'])
+        lst_user.append(users)
+    print(lst_user)
+
+    context = {
+        'users': lst_user,
+        'form': CabinetTransferForm(),
+    }
+    return render(request, 'profileapp/profile/users_list.html', context=context)
