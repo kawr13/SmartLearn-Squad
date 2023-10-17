@@ -6,11 +6,12 @@ from django.utils.timezone import now
 # Create your models here.
 
 
-
 class Cabinet(models.Model):
     name = models.CharField(max_length=100)
-    teacher = models.OneToOneField(Teacher, on_delete=models.CASCADE, related_name='cabinets', null=True, blank=True)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='cabinets', null=True, blank=True)
     users = models.ManyToManyField(User, related_name='cabinets')
+
+
 
     def __str__(self):
         return self.name

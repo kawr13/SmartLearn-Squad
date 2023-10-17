@@ -113,45 +113,27 @@
             </div>
         </div>
     </div>
-    {% if teach %}
-        <div class="blog-header">
-            <form action="{% url 'profile:blog' user.id %}" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-{#                <div class="form-group">#}
-{#                    <label for="post-title">Заголовок поста:</label>#}
-{#                    <input type="text" id="post-title" placeholder="Заголовок поста">#}
-{#                </div>#}
-{#                <div class="form-group">#}
-{#                    <label for="post-text">Текст поста:</label>#}
-{#                    <textarea id="post-text" placeholder="Текст поста"></textarea>#}
-{#                </div>#}
-{#                <div class="form-group">#}
-{#                    <label for="image-upload">Загрузить изображение:</label>#}
-{#                    <input type="file" id="image-upload" accept="image/*"> <!-- Кнопка для загрузки изображения -->#}
-{#                </div>#}
-                <button type="submit">Сохранить пост</button>
-            </form>
-        </div>
-    {% endif %}
+
 
     {% for post in posts %}
-        <div class="blog-header">
-            <div class="blog-post">
-                <img src="{% if post.images %}{{ post.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" alt="Изображение поста">
-                <div>
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.content }}</p>
+        {% if post.is_published %}
+            <div class="blog-header">
+                <div class="blog-post">
+                    <img src="{% if post.images %}{{ post.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" alt="Изображение поста">
+                    <div>
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content }}</p>
+                    </div>
                 </div>
-            </div>
-            <p>{{ post.date_create }}</p>
-            {% if teach %}
-                <a href="{% url 'profile:delete_post' post.id %}">
-                    <button class="btn btn-primary">
-                      <i class="bi bi-cart-fill"></i> Удалить
-                    </button>
-                </a>
-            {% endif %}
+                <p>{{ post.date_create }}</p>
+                {% if teach %}
+                    <a href="{% url 'profile:delete_post' post.id %}">
+                        <button class="btn btn-primary">
+                          <i class="bi bi-cart-fill"></i> Удалить
+                        </button>
+                    </a>
+                {% endif %}
+        {% endif %}
         </div>
         </div>
     {% endfor %}

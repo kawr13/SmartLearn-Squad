@@ -1,16 +1,17 @@
 from http.client import HTTPResponse
 
 from django.http import JsonResponse, HttpRequest, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
 from Cabinet.models import Schedule, Cabinet
 from profileapp.forms import UserForm, UserRegisterForm, CabinetForm, BlogForm, ServiceForm, CabinetTransferForm
-from profileapp.models import Teacher, User, Tag, Post, EmailVerification, Service
+from profileapp.models import Teacher, User, Tag, Post, EmailVerification, Service, Students
 # from Cabinet.models import Schedule
 from django.contrib import auth
 from django.shortcuts import render
+from django.contrib import messages
 
 
 def index(request: HttpRequest) -> render:
@@ -29,7 +30,7 @@ def index(request: HttpRequest) -> render:
     return render(request, 'profileapp/profile/index.html', context=context)
 
 
-def sort_category(request: HttpRequest, tag_id: int=None) -> render:
+def sort_category(request: HttpRequest, tag_id: int = None) -> render:
     if tag_id:
         context = {
             'users': User.objects.filter(teacher__tags__id=tag_id),
@@ -45,24 +46,8 @@ def sort_category(request: HttpRequest, tag_id: int=None) -> render:
 
 
 def blog(request: HttpRequest, user_id: int) -> render:
-    if request.method == 'POST':
-        form = BlogForm(request.POST, request.FILES)
-        user_t = User.objects.get(id=user_id)
-        if form.is_valid():
-            post = Post.objects.create(
-                title=form.cleaned_data['title'],
-                content=form.cleaned_data['content'],
-                teacher=user_t.teacher,
-                images=form.cleaned_data['images'],
-                is_published=form.cleaned_data['is_published'],
-                is_pinned=form.cleaned_data['is_pinned'],
-                is_private=form.cleaned_data['is_private'],
-            )
-            post.save()
-            return HttpResponseRedirect(reverse('profile:blog', args=(user_id,)))
     user = User.objects.select_related('teacher').get(id=user_id)
     teach = False
-    form = BlogForm()
     if request.user.id:
         pers = User.objects.get(id=request.user.id).is_authenticated
     else:
@@ -76,7 +61,6 @@ def blog(request: HttpRequest, user_id: int) -> render:
         'autentic': pers,
         'teach': teach,
         'posts': Post.objects.filter(teacher=teacher, is_private=False).order_by('-date_create'),
-        'form': form,
     }
     return render(request, 'profileapp/profile/blog.html', context=context)
 
@@ -90,8 +74,11 @@ def login(request: HttpRequest) -> render:
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-            return HttpResponseRedirect(reverse('index'))
-    form = UserForm()
+                return HttpResponseRedirect(reverse('index'))
+        else:
+            messages.error(request, 'Неверный логин или пароль')
+    else:
+        form = UserForm()
     context = {
         'title': 'Авторизация',
         'form': form,
@@ -106,20 +93,23 @@ class UserRegisterViews(CreateView):
     success_url = reverse_lazy('profile:login')
 
     def form_valid(self, form):
-        user = form.save()
-
-        # Проверяем, установлена ли галочка "Преподаватель"
-        is_teacher = form.cleaned_data.get('is_teacher')
+        is_teacher = form.cleaned_data['is_teacher']
+        user = form.save(commit=False)
         if is_teacher:
-            # Создаем связанную запись Teacher и привязываем к пользователю
-            teacher = Teacher.objects.create(description='', )  # Добавьте нужные атрибуты
             user.is_teacher = True
-            user.teacher = teacher
-            user.save()
-            return HttpResponseRedirect(reverse('profile:login'))
         else:
-            return HttpResponseRedirect(reverse('profile:login'))
+            user.is_student = True
+        user.save()
+        if user.is_student:
+            Students.objects.create(
+                user=user,
+            )
+        elif user.is_teacher:
+            teacher = Teacher.objects.create(description='', )
+            user.teacher = teacher
+        # Проверяем, установлена ли галочка "Преподаватель"
 
+        return HttpResponseRedirect(reverse('profile:login'))
 
     def get_context_data(self, **kwargs):
         context = super(UserRegisterViews, self).get_context_data()
@@ -236,18 +226,73 @@ def edit_service(request, service_id):
     return render(request, 'profileapp/profile/service_edit.html', context=context)
 
 
-def users_list(request: HTTPResponse) -> render:
+def users_list(request: HttpRequest) -> render:
+    if request.method == 'POST':
+        form = CabinetTransferForm(request.POST)
+        if form.is_valid():
+            target_cabinet = form.cleaned_data['target_cabinet']
+            users_to_transfer = form.cleaned_data['users_to_transfer']
+            # Для каждого пользователя, обновите их кабинет
+            for user in users_to_transfer:
+                # Удалите пользователя из текущего кабинета, если он уже принадлежит какому-либо кабинету
+                if user.cabinets.exists():
+                    current_cabinet = user.cabinets.first()
+                    current_cabinet.users.remove(user)
+
+                # Добавьте пользователя в выбранный кабинет
+                target_cabinet.users.add(user)
+
+            return redirect('profile:users_list')
+    else:
+        form = CabinetTransferForm()
+
     teach = Teacher.objects.get(id=request.user.id)
-    print(teach)
-    cab = Cabinet.objects.filter(teacher=teach).values('users')
+    cab = Students.objects.filter(teacher=teach)
     lst_user = []
     for i in cab:
-        users = User.objects.get(id=i['users'])
+        print(i)
+        users = i.user
         lst_user.append(users)
-    print(lst_user)
-
+        print(users.username)
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id).is_authenticated
     context = {
         'users': lst_user,
-        'form': CabinetTransferForm(),
+        'form': form,
+        'autentic': pers,
     }
     return render(request, 'profileapp/profile/users_list.html', context=context)
+
+
+def publish_post(request):
+    user_t = User.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = Post.objects.create(
+                title=form.cleaned_data['title'],
+                content=form.cleaned_data['content'],
+                teacher=user_t.teacher,
+                images=form.cleaned_data['images'],
+                is_published=form.cleaned_data['is_published'],
+                is_pinned=form.cleaned_data['is_pinned'],
+                is_private=form.cleaned_data['is_private'],
+            )
+            post.save()
+            return HttpResponseRedirect(reverse('profile:blog', args=(user_t.id,)))
+    else:
+        form = BlogForm()
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id).is_authenticated
+    else:
+        pers = False
+    if user_t.username == request.user.username:
+        teach = True
+    context = {
+        'title': 'Блог',
+        'user': user_t,
+        'autentic': pers,
+        'teach': teach,
+        'form': form,
+    }
+    return render(request, 'profileapp/profile/post_poblich.html', context=context)

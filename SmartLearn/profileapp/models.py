@@ -21,16 +21,22 @@ class User(AbstractUser):
     teacher = models.OneToOneField('Teacher', on_delete=models.CASCADE, related_name='user_teacher', null=True, blank=True)
     images = models.ImageField(upload_to='users/images', null=True, blank=True)
     requisites = models.OneToOneField('Requisites', on_delete=models.CASCADE, related_name='user_requisites', null=True, blank=True)
-
     is_verified_email = models.BooleanField(default=False)
+    is_student = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.username
 
 
+
+
+
+
 class Teacher(models.Model):
     description = models.TextField(blank=True, null=True)
     tags = models.ManyToManyField('Tag', related_name='teachers')
+
 
     def __str__(self):
         return f'{self.description} {self.pk}'
@@ -121,7 +127,14 @@ class EmailVerification(models.Model):
     #     return True if now() >= self.expirations else False
 
 
+class Students(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student')
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='user_student', null=True, blank=True)
 
+    # Другие поля студента
+
+    def __str__(self):
+        return f"Student {self.user.username}"
 
 
 

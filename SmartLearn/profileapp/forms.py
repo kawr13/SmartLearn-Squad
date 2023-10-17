@@ -1,6 +1,7 @@
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django import forms
-
+from django.core.exceptions import ValidationError
 from Cabinet.models import Cabinet
 from profileapp.models import User, EmailVerification, Service
 from django.utils.timezone import now
@@ -17,6 +18,18 @@ class UserForm(AuthenticationForm):
         fields = '__all__'
 
 
+    def clean(self):
+        cleaned_data = super().clean()
+        username = cleaned_data.get('username')
+        password = cleaned_data.get('password')
+
+        if username and password:
+            user = authenticate(username=username, password=password)
+            if not user:
+                raise forms.ValidationError('Логин или пароль неверны.')
+        return cleaned_data
+
+
 class UserRegisterForm(UserCreationForm):
     username = forms.CharField(label='Username', widget=forms.TextInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -25,15 +38,23 @@ class UserRegisterForm(UserCreationForm):
     phone_number = forms.CharField(label='Номер телефона', widget=forms.TextInput(attrs={'class': 'form-control'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    is_teacher = forms.BooleanField(label='Преподаватель', widget=forms.CheckboxInput(attrs={'class': 'form-check'}),
-                                    required=False)
+    is_teacher = forms.BooleanField(
+        required=False,
+        widget=forms.RadioSelect(choices=[(True, 'Преподаватель'), (False, 'Студент')]),
+        label="Роль"
+    )
     images = forms.ImageField(label='Изображение', widget=forms.FileInput(attrs={'class': 'form-control'}))
 
+    # def student_teacher(self):
+    #     if self.is_teacher:
+    #         return True
+    #     else:
+    #         return False
 
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'phone_number',
-                  'is_teacher', 'images']
+                  'is_teacher', 'images', 'is_student']
 
     # def save(self, commit=True):
     #     user = super(UserRegisterForm, self).save(commit=True)

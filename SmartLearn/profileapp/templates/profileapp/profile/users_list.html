@@ -56,49 +56,53 @@
          <section class="u-align-center u-clearfix u-section-1" id="sec-bd9a">
           <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <div class="u-expanded-width u-table u-table-responsive u-table-1">
-            <form method="post" action="#">
-            {% csrf_token %}
-            {{ form.target_cabinet }}
-              <table class="u-table-entity u-table-entity-1">
-                <colgroup>
-                  <col width="auto">
-                  <col width="auto">
-                  <col width="auto">
-                  <col width="auto">
-                </colgroup>
-                <thead class="u-palette-4-base u-table-header u-table-header-1">
-                  <tr style="height: 5px;">
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">high </th>
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">USERNAME</th>
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">ИМЯ</th>
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">ФАМИЛИЯ</th>
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">ПОЧТА</th>
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">ТЕЛЕФОН</th>
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">ОПЛАТА</th>
-                    <th class="u-border-1 u-border-palette-4-base u-table-cell">КАБИНЕТ</th>
-                  </tr>
-                </thead>
-                <tbody class="u-table-body">
-                  <tr style="height: 1px; width: 1px">
-                      {% for us in users %}
+            <form method="POST" action="{% url 'profile:users_list' %}">
+                {% csrf_token %}
+                {{ form.target_cabinet }}
+                  <table class="u-table-entity u-table-entity-1">
+                      <colgroup>
+                        <col width="auto">
+                        <col width="auto">
+                        <col width="auto">
+                        <col width="auto">
+                      </colgroup>
+                      <thead class="u-palette-4-base u-table-header u-table-header-1">
+                        <tr>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Выбор</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">USERNAME</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ИМЯ</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ФАМИЛИЯ</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ПОЧТА</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ТЕЛЕФОН</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ОПЛАТА</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">КАБИНЕТ</th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-table-body">
+                        {% for us in users %}
                           {% if not us.is_teacher %}
-                            <td>
-                                <input type="checkbox" name="selected_users" value="{{ us.id }}">
-                            </td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.username }}</td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.first_name }}</td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.last_name }}</td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.email }}</td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.phone_number }}</td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">none</td>
-                            <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.cabinets.name }}</td>
-
+                            <tr>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                <input type="checkbox" name="users_to_transfer" value="{{ us.id }}">
+                              </td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.username }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.first_name }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.last_name }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.email }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.phone_number }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">none</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                  {% for cabinet in us.cabinets.all %}
+                                    <p>{{ cabinet.name }}</p>
+                                  {% endfor %}
+                              </td>
+                            </tr>
                           {% endif %}
-                      {% endfor %}
-                  </tr>
-                </tbody>
-              </table>
-            <button type="submit">Перенести</button>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                <button type="submit">Перенести</button>
+              </form>
             </div>
           </div>
         </section>

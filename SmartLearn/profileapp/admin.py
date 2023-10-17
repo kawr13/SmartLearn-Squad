@@ -4,7 +4,6 @@ from django.contrib import admin
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 from django.utils.safestring import mark_safe
-
 from .models import *
 # Register your models here.
 
@@ -16,11 +15,18 @@ class TagTabular(TabularInline):
     extra = 0
 
 
+class StudentTabular(TabularInline):
+    model = Students
+    list_display = ('id',)
+    extra = 0
+
+
 @admin.register(Teacher)
 class TeacherUsAdmin(admin.ModelAdmin):
-    inlines = [TagTabular]
+    inlines = [TagTabular, StudentTabular]
     list_display = ('id', 'description',)
     fields = ('description',)
+
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -70,8 +76,13 @@ class RecordAdmin(admin.ModelAdmin):
     list_display = ('url', 'teacher', 'date_create')
 
 
+@admin.register(Students)
+class StudentsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user')
+
 # @admin.register(EmailVerification)
 # class EmailVerificationAdmin(admin.ModelAdmin):
 #     list_display = ('code', 'user', 'expirations')
 #     fields = ('code', 'user', 'expirations', 'created')
 #     readonly_fields = ('created',)
+
