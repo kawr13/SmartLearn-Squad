@@ -3,52 +3,65 @@
         <div id='calendar' class="p-3"></div>
     </div>
     {% csrf_token %}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            headerToolbar: {
-                left: 'prevYear,prev,next,nextYear today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-            },
-            initialDate: new Date(),
-            navLinks: true,
-            editable: true,
-            dayMaxEvents: true,
-            selectable: true,
-            selectMirror: true,
-            events: getEventsURL,
-            eventClick: function(info) {
-                alert('Event: ' + info.event.title);
-            },
-            select: function(info) {
-                var eventData = prompt('Введите информацию о событии:');
+        <div id="eventDataDialog" style="display: none;">
+            <label for="eventData">Информация о событии:</label>
+            <input type="text" id="eventData" />
+            <label for="urls">Ссылка:</label>
+            <input type="text" id="urls" />
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    headerToolbar: {
+                        left: 'prevYear,prev,next,nextYear today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    },
+                    initialDate: new Date(),
+                    navLinks: true,
+                    editable: true,
+                    dayMaxEvents: true,
+                    selectable: true,
+                    selectMirror: true,
+                    events: getEventsURL,
+                    eventClick: function(info) {
+                        // Получите ссылку из события
+                        var url = info.event.extendedProps.urls;
 
-                var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
-                if (eventData) {
-                    $.ajax({
-                        url: getUrl, // Замените на URL для сохранения события в базе данных
-                        type: 'POST',
-                        data: {
-                            csrfmiddlewaretoken: csrfToken,
-                            title: eventData,
-                            start: info.startStr,
-                            end: info.endStr
-                        },
-                        success: function(response) {
-                            // Обновить календарь, получив новые события с getEventsURL
-                            calendar.refetchEvents();
+                        // Переход на страницу по ссылке
+                        window.location.href = url;
+                    },
+                    select: function(info) {
+                        var eventData = prompt('Введите информацию о событии:');
+                        var urlsData = prompt('Введите ссылку на занятие:');
+
+                        var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+                        if (eventData) {
+                            $.ajax({
+                                url: getUrl, // Замените на URL для сохранения события в базе данных
+                                type: 'POST',
+                                data: {
+                                    csrfmiddlewaretoken: csrfToken,
+                                    title: eventData,
+                                    urls: urlsData,
+                                    start: info.startStr,
+                                    end: info.endStr
+                                },
+                                success: function(response) {
+                                    // Обновить календарь, получив новые события с getEventsURL
+                                    calendar.refetchEvents();
+                                }
+                            });
                         }
-                    });
-                }
-            },
-            // Установите формат времени
-            locale: 'ru',
-            timeFormat: 'H:mm'
-        });
+                    },
+                    // Установите формат времени
+                    locale: 'ru',
+                    timeFormat: 'H:mm'
+                });
 
-        calendar.render();
-    });
-</script>
+                calendar.render();
+            });
+        </script>
+
 

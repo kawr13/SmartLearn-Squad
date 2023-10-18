@@ -1,4 +1,4 @@
-{% extends 'profileapp/profile/base_home.html' %}
+{% extends 'Cabinet/base_home.html' %}
 {% load static %}
 
 {% block title %}
@@ -7,10 +7,12 @@
 {% block scripts %}
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.js"></script>
     <script src="{% static 'fullcalendar/dist/index.global.js' %}"></script>
-    <script>
-        var getEventsURL = "{% url 'cabinet:get_events' cabinet_id %}";
-        var getUrl = "{% url 'cabinet:get_update' cabinet_id %}";
-    </script>
+{#    <script type="application/ld+json">{#}
+{#		"@context": "http://schema.org",#}
+{#		"@type": "Organization",#}
+{#		"name": "",#}
+{#		"logo": "images/default-logo.png"#}
+{#    }</script>#}
 {% endblock %}
 {% block styles %}
     <style>
@@ -87,21 +89,45 @@
 {% block content %}
     <!-- Боковая панель навигации -->
     <div class="sidenav">
-        <a href="{%  url 'profile:profile_cabinet' user.id %}">Кабинеты</a>
+        <a href="#" class="active">Статистика</a>
+        <a href="#">Услуги</a>
+        <a href="{%  url 'profile:profile_cabinet' user_id %}">Кабинеты</a>
         {% if title != 'Полезная информация' %}
             <a href="{%  url 'cabinet:userfull_info_cab' cabinet_id %}">Полезные материалы</a>
-        {% endif %}
-        {% if user.is_teacher %}
-            <a href="{%  url 'profile:users_list' %}">Пользователи</a>
         {% endif %}
     </div>
 
     <!-- Основной контент -->
     <div class="content">
         <div class="container my-4">
-        <div id='calendar' class="p-3"></div>
-    </div>
-        {% include 'Cabinet/calend.html' %}
+           <section class="u-clearfix u-section-1" id="sec-969d">
+              <div class="u-clearfix u-sheet u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
+                <div class="u-blog u-expanded-width u-blog-1">
+                  <div class="u-repeater u-repeater-1"><!--blog_post-->
+                    {% for post in posts %}
+                        <div class="u-align-left u-blog-post u-container-style u-repeater-item u-video-cover">
+                          <div class="u-container-layout u-similar-container u-container-layout-1">
+                            <a class="u-post-header-link" href="{% url 'cabinet:userfull_detailed' post.id %}"><!--blog_post_image-->
+                              <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" src="{% if post.images %}{{ post.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}""><!--/blog_post_image-->
+                            </a><!--blog_post_header-->
+                            <h4 class="u-blog-control u-text u-text-1">
+                              <a class="u-post-header-link" href="{% url 'cabinet:userfull_detailed' post.id %}">{{ post.title }}</a>
+                            </h4><!--/blog_post_header--><!--blog_post_metadata-->
+                            <div class="u-blog-control u-metadata u-text-grey-30 u-metadata-1"><!--blog_post_metadata_date-->
+                              <span class="u-meta-date u-meta-icon">{{ post.date_create }}</span><!--/blog_post_metadata_date--><!--blog_post_metadata_comments-->
+                              <!--/blog_post_metadata_comments-->
+                            </div><!--/blog_post_metadata-->
+                          </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div><!--/blog-->
+          </div>
+        </section>
+        <section class="u-clearfix u-section-2" id="sec-d944">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"></div>
+        </section>
+
     </div>
 {% endblock %}
 {% block script %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}

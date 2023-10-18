@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django import forms
-
+from django.core.exceptions import ValidationError
 from CabinetApp.models import Cabinet
 from ProfileApp.models import User, EmailVerification, Service
 from django.utils.timezone import now
@@ -26,7 +26,6 @@ class UserForm(AuthenticationForm):
             user = authenticate(username=username, password=password)
             if not user:
                 raise forms.ValidationError('Логин или пароль неверны.')
-
         return cleaned_data
 
 
@@ -38,25 +37,19 @@ class UserRegisterForm(UserCreationForm):
     phone_number = forms.CharField(label='Номер телефона', widget=forms.TextInput(attrs={'class': 'form-control'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    is_teacher = forms.BooleanField(label='Преподаватель', widget=forms.CheckboxInput(attrs={'class': 'form-check'}),
-                                    required=False)
-    images = forms.ImageField(label='Изображение', widget=forms.FileInput(attrs={'class': 'form-control'}))
+    is_teacher = forms.BooleanField(
+        required=False,
+        widget=forms.RadioSelect(choices=[(True, 'Преподаватель'), (False, 'Студент')]),
+        label="Роль"
+    )
+    images = forms.ImageField(label='Изображение', widget=forms.FileInput(attrs={'class': 'form-control'}), required=False)
+
 
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'phone_number',
-                  'is_teacher', 'images']
+                  'is_teacher', 'images', 'is_student']
 
-    # def save(self, commit=True):
-    #     user = super(UserRegisterForm, self).save(commit=True)
-    #     expirations = now() + timedelta(hours=48)
-    #     record = EmailVerification.objects.create(
-    #         code=uuid.uuid4(),
-    #         user=user,
-    #         expirations=expirations,
-    #     )
-    #     record.send_verifications_email()
-    #     return user
 
 
 class CabinetForm(forms.ModelForm):
@@ -89,3 +82,8 @@ class ServiceForm(UserChangeForm):
     class Meta:
         model = Service
         fields = ('name', 'description', 'price')
+
+
+class CabinetTransferForm(forms.Form):
+    target_cabinet = forms.ModelChoiceField(queryset=Cabinet.objects.all(), empty_label="Выберите кабинет")
+    users_to_transfer = forms.ModelMultipleChoiceField(queryset=User.objects.all(), widget=forms.CheckboxSelectMultiple)

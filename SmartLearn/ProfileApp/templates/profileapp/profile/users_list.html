@@ -1,0 +1,110 @@
+{% extends 'profileapp/profile/base_home.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block styles %}
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333; /* Цвет фона */
+            padding-top: 20px;
+            z-index: 1; /* Устанавливаем z-index для боковой панели */
+        }
+
+        /* Стили для пунктов меню */
+        .sidenav a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff; /* Цвет текста */
+            display: block;
+        }
+
+        /* Стили для активного пункта меню */
+        .sidenav a.active {
+            background-color: #4CAF50; /* Цвет активного пункта */
+        }
+
+        /* Стили для контента, сдвигаемого вправо */
+        .content {
+            margin-left: 250px; /* Ширина боковой панели */
+            padding: 20px;
+            z-index: 1; /* Устанавливаем z-index для контента */
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- Боковая панель навигации -->
+    <div class="sidenav">
+        <a href="#" class="active">Статистика</a>
+        <a href="{%  url 'profile:services' %}">Услуги</a>
+        <a href="{%  url 'profile:profile_cabinet' user.id %}">Кабинеты</a>
+        {% if user.is_teacher %}
+            <a href="{%  url 'profile:users_list' %}">Пользователи</a>
+        {% endif %}
+    </div>
+    <!-- Основной контент -->
+    <div class="content">
+        <h1>Добро пожаловать в ваш кабинет</h1>
+         <section class="u-align-center u-clearfix u-section-1" id="sec-bd9a">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <div class="u-expanded-width u-table u-table-responsive u-table-1">
+            <form method="POST" action="{% url 'profile:users_list' %}">
+                {% csrf_token %}
+                {{ form.target_cabinet }}
+                  <table class="u-table-entity u-table-entity-1">
+                      <colgroup>
+                        <col width="auto">
+                        <col width="auto">
+                        <col width="auto">
+                        <col width="auto">
+                      </colgroup>
+                      <thead class="u-palette-4-base u-table-header u-table-header-1">
+                        <tr>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">Выбор</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">USERNAME</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ИМЯ</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ФАМИЛИЯ</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ПОЧТА</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ТЕЛЕФОН</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">ОПЛАТА</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell">КАБИНЕТ</th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-table-body">
+                        {% for us in users %}
+                          {% if not us.is_teacher %}
+                            <tr>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                <input type="checkbox" name="users_to_transfer" value="{{ us.id }}">
+                              </td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.username }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.first_name }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.last_name }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.email }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">{{ us.phone_number }}</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">none</td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                  {% for cabinet in us.cabinets.all %}
+                                    <p>{{ cabinet.name }}</p>
+                                  {% endfor %}
+                              </td>
+                            </tr>
+                          {% endif %}
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                <button type="submit">Перенести</button>
+              </form>
+            </div>
+          </div>
+        </section>
+    </div>
+{% endblock %}

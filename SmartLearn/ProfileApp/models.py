@@ -21,13 +21,21 @@ class User(AbstractUser):
     teacher = models.OneToOneField('Teacher', on_delete=models.CASCADE, related_name='user_teacher', null=True, blank=True)
     images = models.ImageField(upload_to='users/images', null=True, blank=True)
     requisites = models.OneToOneField('Requisites', on_delete=models.CASCADE, related_name='user_requisites', null=True, blank=True)
-
     is_verified_email = models.BooleanField(default=False)
+    is_student = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.username
 
 
 class Teacher(models.Model):
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     tags = models.ManyToManyField('Tag', related_name='teachers')
+    max_peaple = models.IntegerField()
+    count_peaple = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.description} {self.pk}'
 
 
 class Tag(models.Model):
@@ -98,22 +106,15 @@ class EmailVerification(models.Model):
     def __str__(self):
         return f'Email verification for {self.user} - {self.code} - {self.created}'
 
-    # def send_verifications_email(self):
-    #     link = reverse('accept', kwargs={'email': self.user.email, 'code': self.code})
-    #     verifications_link = f'{settings.DOMAIN_NAME}{link}'
-    #     subject = f'Подтверждение учетной записи для {self.user.username}'
-    #     message = f'Для подтверждения учетной записи перейдите по ссылке: {verifications_link}'
-    #     send_mail(
-    #         subject=subject,
-    #         message=message,
-    #         from_email=settings.EMAIL_HOST_USER,
-    #         recipient_list=[self.user.email],
-    #         fail_silently=False
-    #     )
-    #
-    # def is_expired(self):
-    #     return True if now() >= self.expirations else False
 
+class Students(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student')
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='user_student', null=True, blank=True)
+
+    # Другие поля студента
+
+    def __str__(self):
+        return f"Student {self.user.username}"
 
 
 

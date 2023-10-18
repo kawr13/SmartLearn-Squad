@@ -17,7 +17,10 @@
         <a href="#" class="active">Статистика</a>
         <a href="{%  url 'profile:services' %}">Услуги</a>
         <a href="{%  url 'profile:profile_cabinet' user.id %}">Кабинеты</a>
-        <a href="{%  url 'profile:profile_info_teacher' user.id %}">Информация</a>
+        {% if user.is_teacher %}
+            <a href="{%  url 'profile:publish_post' %}">Создать пост</a>
+            <a href="{%  url 'profile:users_list' %}">Пользователи</a>
+        {% endif %}
     </div>
 
     <!-- Основной контент -->
@@ -26,15 +29,14 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Имя: {{ teach.username }}</h5>
-                <p class="card-text">Учитель: {{ teach.teacher.description }}</p>
+                <h5 class="card-title">Учитель: {{ teach.username }}</h5>
+
                 {% for cabinet, users in users_by_cab.items %}
-                    <a href="{% url 'cabinet:cabinet' cab_id=cabinet.id %}" class="card-text">Кабинет: {{ cabinet.name }}</a>
+                    <p><a href="{% url 'cabinet:cabinet' cab_id=cabinet.id %}" class="card-text">Кабинет: {{ cabinet.name }}</a></p>
                     {% for user in users %}
                         <p class="card-text">Пользователь: {{ user.username }}</p>
                     {% endfor %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
