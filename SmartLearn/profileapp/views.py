@@ -1,6 +1,6 @@
 from http.client import HTTPResponse
 
-from django.http import JsonResponse, HttpRequest, HttpResponseRedirect
+from django.http import JsonResponse, HttpRequest, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
@@ -14,7 +14,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.db import transaction
-
+from .func_therd import main
 
 def index(request: HttpRequest) -> render:
     pers = request.user.is_authenticated
@@ -146,10 +146,8 @@ def profilusercabinet(request: HttpRequest, user_id: int) -> render:
         teach = Cabinet.objects.filter(users=user)
         cabinets = Cabinet.objects.filter(users=user)
 
-    users_by_cabinet = {}
+    users_by_cabinet = main(cabinets)
 
-    for cabinet in cabinets:
-        users_by_cabinet[cabinet] = cabinet.users.filter(is_teacher=False)
     context = {
         'title': 'Кабинеты',
         'teach': teach,
@@ -175,9 +173,8 @@ def logout(request):
 #     return render(request, 'profileapp/profile/accept.html')
 
 def delete_post(request, post_id):
-    post = Post.objects.get(id=post_id)
-    post.delete()
-    return HttpResponseRedirect(reverse('profile:blog', args=(request.user.id,)))
+    Post.objects.filter(id=post_id).delete()
+    return HttpResponseRedirect(reverse_lazy('profile:blog', args=(request.user.id,)))
 
 
 def services(request):
@@ -224,42 +221,40 @@ def edit_service(request, service_id):
     return render(request, 'profileapp/profile/service_edit.html', context=context)
 
 
-def users_list(request: HttpRequest) -> render:
-    if request.method == 'POST':
-        form = CabinetTransferForm(request.POST)
-        if form.is_valid():
-            target_cabinet = form.cleaned_data['target_cabinet']
-            users_to_transfer = form.cleaned_data['users_to_transfer']
-            # Для каждого пользователя, обновите их кабинет
-            for user in users_to_transfer:
-                # Удалите пользователя из текущего кабинета, если он уже принадлежит какому-либо кабинету
-                if user.cabinets.exists():
-                    current_cabinet = user.cabinets.first()
-                    current_cabinet.users.remove(user)
-
-                # Добавьте пользователя в выбранный кабинет
-                target_cabinet.users.add(user)
-
-            return redirect('profile:users_list')
-    else:
-        form = CabinetTransferForm()
-
-    teach = Teacher.objects.get(id=request.user.id)
-    cab = Students.objects.filter(teacher=teach)
-    lst_user = []
-    for i in cab:
-        print(i)
-        users = i.user
-        lst_user.append(users)
-        print(users.username)
-    if request.user.id:
-        pers = User.objects.get(id=request.user.id).is_authenticated
-    context = {
-        'users': lst_user,
-        'form': form,
-        'autentic': pers,
-    }
-    return render(request, 'profileapp/profile/users_list.html', context=context)
+def users_list(request: HttpRequest) -> HttpResponse:
+    try:
+        if request.method == 'POST':
+            form = CabinetTransferForm(request.POST)
+            if form.is_valid():
+                target_cabinet = form.cleaned_data['target_cabinet']
+                users_to_transfer = form.cleaned_data['users_to_transfer']
+                # Для каждого пользователя, обновите их кабинет
+                for user in users_to_transfer:
+                    # Удалите пользователя из текущего кабинета, если он уже принадлежит какому-либо кабинету
+                    if user and user.cabinets.exists():
+                        current_cabinet = user.cabinets.first()
+                        current_cabinet.users.remove(user)
+                    # Добавьте пользователя в выбранный кабинет
+                    target_cabinet.users.add(user)
+                return redirect('profile:users_list')
+        else:
+            form = CabinetTransferForm()
+        teach = Teacher.objects.filter(id=request.user.id).first()
+        cab = Students.objects.filter(teacher=teach)
+        lst_user = []
+        for i in cab:
+            print(i)
+            users = i.user
+            lst_user.append(users)
+        pers = request.user.is_authenticated
+        context = {
+            'users': lst_user,
+            'form': form,
+            'autentic': pers,
+        }
+        return render(request, 'profileapp/profile/users_list.html', context=context)
+    except (Teacher.DoesNotExist, User.DoesNotExist):
+        pass
 
 
 def publish_post(request):

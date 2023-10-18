@@ -43,7 +43,7 @@ class UserRegisterForm(UserCreationForm):
         widget=forms.RadioSelect(choices=[(True, 'Преподаватель'), (False, 'Студент')]),
         label="Роль"
     )
-    images = forms.ImageField(label='Изображение', widget=forms.FileInput(attrs={'class': 'form-control'}))
+    images = forms.ImageField(label='Изображение', widget=forms.FileInput(attrs={'class': 'form-control'}), required=False)
 
     # def student_teacher(self):
     #     if self.is_teacher:

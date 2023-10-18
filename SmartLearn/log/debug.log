@@ -20465,3 +20465,625 @@ INFO 2023-10-18 08:01:57,671 basehttp 9772 19668 "GET /static/userfull/css/%D0%A
 INFO 2023-10-18 08:01:57,724 basehttp 9772 11820 "GET /static/userfull/scripts/nicepage.js HTTP/1.1" 304 0
 INFO 2023-10-18 08:01:57,724 basehttp 9772 19668 "GET /static/userfull/scripts/jquery.js HTTP/1.1" 304 0
 INFO 2023-10-18 08:01:59,762 basehttp 9772 19668 "GET / HTTP/1.1" 200 6709
+INFO 2023-10-18 11:18:03,965 autoreload 18196 3324 Watching for file changes with StatReloader
+INFO 2023-10-18 11:18:41,976 autoreload 20376 13096 Watching for file changes with StatReloader
+INFO 2023-10-18 11:18:52,992 autoreload 13144 16852 Watching for file changes with StatReloader
+INFO 2023-10-18 11:19:14,730 basehttp 13144 12948 "GET / HTTP/1.1" 200 6709
+INFO 2023-10-18 11:19:14,764 basehttp 13144 12948 "GET /static/userfull/css/%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0-2.css HTTP/1.1" 304 0
+INFO 2023-10-18 11:19:14,788 basehttp 13144 12948 "GET /media/users/images/75927-ksyu_UT4ngQF.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 11:19:14,797 basehttp 13144 8220 "GET /static/userfull/scripts/nicepage.js HTTP/1.1" 304 0
+INFO 2023-10-18 11:19:14,798 basehttp 13144 12948 "GET /static/userfull/scripts/jquery.js HTTP/1.1" 304 0
+INFO 2023-10-18 11:19:17,114 basehttp 13144 12948 "GET /profile/profils/1/ HTTP/1.1" 200 5028
+INFO 2023-10-18 11:19:21,664 basehttp 13144 12948 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:19:22,501 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:23,351 basehttp 13144 12948 "GET /profile/users/ HTTP/1.1" 200 10057
+INFO 2023-10-18 11:19:26,286 basehttp 13144 12948 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 11:19:27,408 basehttp 13144 12948 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:19:28,637 basehttp 13144 12948 "GET /profile/users/ HTTP/1.1" 200 10057
+WARNING 2023-10-18 11:19:29,597 log 13144 12948 Not Found: /profile/users/' user.id %}
+WARNING 2023-10-18 11:19:29,597 basehttp 13144 12948 "GET /profile/users/'%20user.id%20%%7D HTTP/1.1" 404 4948
+INFO 2023-10-18 11:19:31,738 basehttp 13144 12948 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:19:32,553 basehttp 13144 12948 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 11:19:40,208 basehttp 13144 12948 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:19:41,690 basehttp 13144 12948 "GET /cabinet/cabinets/14/ HTTP/1.1" 200 12365
+INFO 2023-10-18 11:19:41,750 basehttp 13144 12948 "GET /cabinet/get_events/14/?start=2023-10-01T00%3A00%3A00%2B05%3A00&end=2023-11-12T00%3A00%3A00%2B05%3A00 HTTP/1.1" 200 265
+INFO 2023-10-18 11:19:44,360 basehttp 13144 12948 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:19:48,923 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:50,573 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:52,237 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:52,456 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:52,653 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:52,847 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:53,044 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:53,222 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:53,454 basehttp 13144 12948 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:19:54,018 basehttp 13144 12948 "GET /profile/users/ HTTP/1.1" 200 10057
+WARNING 2023-10-18 11:20:37,191 log 13144 12948 Not Found: /profile/users/' user.id %}
+WARNING 2023-10-18 11:20:37,192 basehttp 13144 12948 "GET /profile/users/'%20user.id%20%%7D HTTP/1.1" 404 4948
+INFO 2023-10-18 11:21:24,065 autoreload 9820 14672 Watching for file changes with StatReloader
+WARNING 2023-10-18 11:21:26,357 log 9820 9360 Not Found: /profile/users/' user.id %}
+WARNING 2023-10-18 11:21:26,358 basehttp 9820 9360 "GET /profile/users/'%20user.id%20%%7D HTTP/1.1" 404 4948
+INFO 2023-10-18 11:21:29,436 basehttp 9820 9360 "GET /profile/users/ HTTP/1.1" 200 10049
+WARNING 2023-10-18 11:21:31,039 log 9820 9360 Not Found: /profile/users/' %}
+WARNING 2023-10-18 11:21:31,039 basehttp 9820 9360 "GET /profile/users/'%20%%7D HTTP/1.1" 404 4922
+INFO 2023-10-18 11:21:33,768 basehttp 9820 9360 "GET /profile/users/ HTTP/1.1" 200 10049
+INFO 2023-10-18 11:21:33,856 basehttp 9820 9360 "GET /static/userfull/css/%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0-2.css HTTP/1.1" 200 651
+INFO 2023-10-18 11:21:33,922 basehttp 9820 9360 "GET /static/userfull/scripts/jquery.js HTTP/1.1" 200 89476
+INFO 2023-10-18 11:21:33,942 basehttp 9820 9360 "GET /static/userfull/scripts/nicepage.js HTTP/1.1" 200 342963
+WARNING 2023-10-18 11:21:34,114 log 9820 9360 Not Found: /favicon.ico
+WARNING 2023-10-18 11:21:34,115 basehttp 9820 9360 "GET /favicon.ico HTTP/1.1" 404 2694
+INFO 2023-10-18 11:21:34,761 basehttp 9820 9360 "GET /profile/users/ HTTP/1.1" 200 10049
+INFO 2023-10-18 11:21:34,784 basehttp 9820 9360 "GET /static/userfull/css/%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0-2.css HTTP/1.1" 200 651
+INFO 2023-10-18 11:21:34,950 basehttp 9820 9360 "GET /static/userfull/scripts/jquery.js HTTP/1.1" 200 89476
+INFO 2023-10-18 11:21:34,957 basehttp 9820 9360 "GET /static/userfull/scripts/nicepage.js HTTP/1.1" 200 342963
+WARNING 2023-10-18 11:21:35,005 log 9820 9360 Not Found: /favicon.ico
+WARNING 2023-10-18 11:21:35,005 basehttp 9820 9360 "GET /favicon.ico HTTP/1.1" 404 2694
+WARNING 2023-10-18 11:21:35,790 log 9820 9360 Not Found: /profile/users/' %}
+WARNING 2023-10-18 11:21:35,791 basehttp 9820 9360 "GET /profile/users/'%20%%7D HTTP/1.1" 404 4922
+INFO 2023-10-18 11:21:53,031 autoreload 18112 10540 Watching for file changes with StatReloader
+INFO 2023-10-18 11:21:55,133 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:21:56,088 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:21:56,672 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:21:56,880 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:21:57,091 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:21:57,482 basehttp 18112 16336 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:21:58,083 basehttp 18112 16336 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 11:21:59,017 basehttp 18112 16336 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:21:59,426 basehttp 18112 16336 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:22:00,187 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:22:00,911 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:22:01,530 basehttp 18112 16336 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:22:02,484 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:22:03,199 basehttp 18112 16336 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 11:22:03,630 basehttp 18112 16336 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:22:04,280 basehttp 18112 16336 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 11:22:05,422 basehttp 18112 16336 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9133
+INFO 2023-10-18 11:22:06,144 basehttp 18112 16336 "GET /cabinet/cabinets/14/ HTTP/1.1" 200 12365
+INFO 2023-10-18 11:22:06,197 basehttp 18112 16336 "GET /cabinet/get_events/14/?start=2023-10-01T00%3A00%3A00%2B05%3A00&end=2023-11-12T00%3A00%3A00%2B05%3A00 HTTP/1.1" 200 265
+INFO 2023-10-18 11:22:07,123 basehttp 18112 16336 "GET /cabinet/userfull_info_cab/14/ HTTP/1.1" 200 13720
+INFO 2023-10-18 11:22:07,147 basehttp 18112 16336 "GET /static/userfull/css/nicepage.css HTTP/1.1" 304 0
+INFO 2023-10-18 11:22:07,156 basehttp 18112 16268 "GET /media/posts/images/1648646701_11-kartinkof-club-p-mozg-smeshnie-kartinki-11_tLaMJYZ.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 11:22:07,158 basehttp 18112 16336 "GET /static/userfull/css/%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.css HTTP/1.1" 304 0
+INFO 2023-10-18 11:22:07,161 basehttp 18112 18196 "GET /media/posts/images/mqdefault.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 11:22:07,162 basehttp 18112 17712 "GET /static/userfull/css/%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0-1.css HTTP/1.1" 304 0
+INFO 2023-10-18 11:22:07,167 basehttp 18112 18196 "GET /static/image/profile_img/img.png HTTP/1.1" 304 0
+INFO 2023-10-18 11:22:07,171 basehttp 18112 18196 "GET /media/posts/images/1648646701_11-kartinkof-club-p-mozg-smeshnie-kartinki-11_ZKoaz5y.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 12:05:19,991 autoreload 18112 10540 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py changed, reloading.
+INFO 2023-10-18 12:05:20,504 autoreload 7988 21648 Watching for file changes with StatReloader
+INFO 2023-10-18 12:19:29,551 basehttp 7988 20000 "GET / HTTP/1.1" 200 6709
+INFO 2023-10-18 12:19:29,576 basehttp 7988 20000 "GET /media/users/images/75927-ksyu_UT4ngQF.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 12:19:32,286 basehttp 7988 20000 "GET /profile/logout/ HTTP/1.1" 302 0
+INFO 2023-10-18 12:19:32,294 basehttp 7988 20000 "GET / HTTP/1.1" 200 6531
+INFO 2023-10-18 12:19:33,542 basehttp 7988 20000 "GET /profile/login/ HTTP/1.1" 200 4579
+INFO 2023-10-18 12:19:34,785 basehttp 7988 20000 "GET /profile/register/ HTTP/1.1" 200 5673
+INFO 2023-10-18 12:22:26,886 autoreload 1260 11172 Watching for file changes with StatReloader
+INFO 2023-10-18 12:22:41,182 basehttp 1260 17964 "GET /profile/register/ HTTP/1.1" 200 5664
+INFO 2023-10-18 12:23:54,300 basehttp 1260 17964 "GET /profile/register/ HTTP/1.1" 200 5664
+INFO 2023-10-18 12:23:57,048 basehttp 1260 17964 "GET /profile/login/ HTTP/1.1" 200 4579
+INFO 2023-10-18 12:23:58,120 basehttp 1260 17964 "GET /profile/register/ HTTP/1.1" 200 5664
+INFO 2023-10-18 12:24:17,989 basehttp 1260 17964 "POST /profile/register/ HTTP/1.1" 302 0
+INFO 2023-10-18 12:24:17,995 basehttp 1260 17964 "GET /profile/login/ HTTP/1.1" 200 4579
+INFO 2023-10-18 12:24:30,003 basehttp 1260 17964 "POST /profile/login/ HTTP/1.1" 302 0
+INFO 2023-10-18 12:24:30,015 basehttp 1260 17964 "GET / HTTP/1.1" 200 6740
+INFO 2023-10-18 12:24:33,660 basehttp 1260 17964 "GET /profile/profils/32/ HTTP/1.1" 200 4886
+INFO 2023-10-18 12:30:22,471 autoreload 14788 20376 Watching for file changes with StatReloader
+INFO 2023-10-18 12:30:28,965 basehttp 14788 2472 "GET /profile/profils/32/ HTTP/1.1" 200 4886
+INFO 2023-10-18 12:30:30,106 basehttp 14788 2472 "GET /profile/profils/cabinet/32/ HTTP/1.1" 200 5544
+INFO 2023-10-18 12:30:32,656 basehttp 14788 2472 "GET /profile/logout/ HTTP/1.1" 302 0
+INFO 2023-10-18 12:30:32,666 basehttp 14788 2472 "GET / HTTP/1.1" 200 6561
+INFO 2023-10-18 12:30:33,796 basehttp 14788 2472 "GET /profile/login/ HTTP/1.1" 200 4579
+INFO 2023-10-18 12:30:38,747 basehttp 14788 2472 "POST /profile/login/ HTTP/1.1" 302 0
+INFO 2023-10-18 12:30:38,758 basehttp 14788 2472 "GET / HTTP/1.1" 200 6739
+INFO 2023-10-18 12:30:41,130 basehttp 14788 2472 "GET /profile/profils/1/ HTTP/1.1" 200 5028
+INFO 2023-10-18 12:30:42,916 basehttp 14788 2472 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9174
+INFO 2023-10-18 12:30:43,884 basehttp 14788 2472 "GET /cabinet/cabinets/14/ HTTP/1.1" 200 12365
+INFO 2023-10-18 12:30:43,957 basehttp 14788 2472 "GET /cabinet/get_events/14/?start=2023-10-01T00%3A00%3A00%2B05%3A00&end=2023-11-12T00%3A00%3A00%2B05%3A00 HTTP/1.1" 200 265
+ERROR 2023-10-18 12:30:46,351 log 14788 2472 Internal Server Error: /profile/users/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 239, in users_list
+    teach = get_object_or_404(Teacher, id=request.user.id)
+NameError: name 'get_object_or_404' is not defined
+ERROR 2023-10-18 12:30:46,352 basehttp 14788 2472 "GET /profile/users/ HTTP/1.1" 500 76499
+INFO 2023-10-18 12:31:08,658 autoreload 4560 21860 Watching for file changes with StatReloader
+INFO 2023-10-18 12:31:11,442 basehttp 4560 912 "GET /cabinet/cabinets/14/ HTTP/1.1" 200 12365
+INFO 2023-10-18 12:31:11,509 basehttp 4560 912 "GET /cabinet/get_events/14/?start=2023-10-01T00%3A00%3A00%2B05%3A00&end=2023-11-12T00%3A00%3A00%2B05%3A00 HTTP/1.1" 200 265
+INFO 2023-10-18 12:31:12,398 basehttp 4560 912 "GET /profile/users/ HTTP/1.1" 200 9694
+INFO 2023-10-18 12:31:16,445 basehttp 4560 912 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9174
+INFO 2023-10-18 12:31:18,418 basehttp 4560 912 "GET /cabinet/cabinets/14/ HTTP/1.1" 200 12365
+INFO 2023-10-18 12:31:18,475 basehttp 4560 912 "GET /cabinet/get_events/14/?start=2023-10-01T00%3A00%3A00%2B05%3A00&end=2023-11-12T00%3A00%3A00%2B05%3A00 HTTP/1.1" 200 265
+INFO 2023-10-18 12:31:19,563 basehttp 4560 912 "GET /profile/users/ HTTP/1.1" 200 9694
+INFO 2023-10-18 12:31:20,678 basehttp 4560 912 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9174
+INFO 2023-10-18 12:31:21,692 basehttp 4560 912 "GET /profile/users/ HTTP/1.1" 200 9694
+INFO 2023-10-18 12:31:22,607 basehttp 4560 912 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9174
+INFO 2023-10-18 12:32:19,041 autoreload 4560 21860 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py changed, reloading.
+INFO 2023-10-18 12:32:19,581 autoreload 18172 21768 Watching for file changes with StatReloader
+INFO 2023-10-18 12:34:50,734 autoreload 17992 14128 Watching for file changes with StatReloader
+INFO 2023-10-18 12:35:05,120 autoreload 9620 7428 Watching for file changes with StatReloader
+INFO 2023-10-18 12:35:08,425 basehttp 9620 14428 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9174
+INFO 2023-10-18 12:35:10,089 basehttp 9620 14428 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 12:35:10,919 basehttp 9620 14428 "GET /profile/users/ HTTP/1.1" 200 10045
+INFO 2023-10-18 12:35:17,715 basehttp 9620 14428 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9174
+INFO 2023-10-18 12:35:31,986 basehttp 9620 14792 "POST /profile/profils/cabinet/1/ HTTP/1.1" 302 0
+INFO 2023-10-18 12:35:32,005 basehttp 9620 14792 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:35:33,258 basehttp 9620 14792 "GET /profile/users/ HTTP/1.1" 200 10091
+INFO 2023-10-18 12:35:36,807 basehttp 9620 14792 "POST /profile/users/ HTTP/1.1" 302 0
+INFO 2023-10-18 12:35:36,819 basehttp 9620 14792 "GET /profile/users/ HTTP/1.1" 200 10079
+INFO 2023-10-18 12:35:38,298 basehttp 9620 14792 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:35:40,100 basehttp 9620 14792 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:35:58,365 basehttp 9620 14792 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 12:35:59,218 basehttp 9620 14792 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:36:00,037 basehttp 9620 14792 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 12:36:00,599 basehttp 9620 14792 "GET /profile/users/ HTTP/1.1" 200 10079
+INFO 2023-10-18 12:36:01,430 basehttp 9620 14792 "GET /profile/users/ HTTP/1.1" 200 10079
+INFO 2023-10-18 12:36:01,898 basehttp 9620 14792 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:36:02,541 basehttp 9620 14792 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 12:39:48,196 autoreload 8076 5424 Watching for file changes with StatReloader
+INFO 2023-10-18 12:39:59,756 basehttp 8076 22368 "GET /profile/publish/ HTTP/1.1" 200 7127
+ERROR 2023-10-18 12:40:01,156 log 8076 22368 Internal Server Error: /profile/profils/cabinet/1/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 142, in profilusercabinet
+    cabinets = Cabinet.objects.filter(teacher=teach)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1464, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1275, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1252, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "user": Must be "Teacher" instance.
+ERROR 2023-10-18 12:40:01,158 basehttp 8076 22368 "GET /profile/profils/cabinet/1/ HTTP/1.1" 500 120888
+INFO 2023-10-18 12:40:39,292 autoreload 8076 5424 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py changed, reloading.
+INFO 2023-10-18 12:40:39,768 autoreload 19028 4332 Watching for file changes with StatReloader
+INFO 2023-10-18 12:41:22,225 autoreload 18292 19824 Watching for file changes with StatReloader
+INFO 2023-10-18 12:41:26,279 basehttp 18292 18944 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:44:09,229 autoreload 18292 19824 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py changed, reloading.
+INFO 2023-10-18 12:44:09,768 autoreload 16848 19896 Watching for file changes with StatReloader
+INFO 2023-10-18 12:47:49,207 autoreload 21388 2196 Watching for file changes with StatReloader
+INFO 2023-10-18 12:47:54,531 basehttp 21388 608 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:47:56,407 basehttp 21388 608 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:47:57,961 basehttp 21388 608 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:47:58,621 basehttp 21388 608 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 12:47:59,294 basehttp 21388 608 "GET /profile/users/ HTTP/1.1" 200 10079
+INFO 2023-10-18 12:48:00,378 basehttp 21388 608 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:49:04,979 autoreload 21388 2196 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py changed, reloading.
+INFO 2023-10-18 12:49:05,603 autoreload 18400 5712 Watching for file changes with StatReloader
+INFO 2023-10-18 12:49:34,790 autoreload 19388 15208 Watching for file changes with StatReloader
+ERROR 2023-10-18 12:49:40,795 log 19388 11656 Internal Server Error: /profile/profils/cabinet/1/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 145, in profilusercabinet
+    print(teach_and_cabinets)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 374, in __repr__
+    data = list(self[: REPR_OUTPUT_SIZE + 1])
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1549, in execute_sql
+    sql, params = self.as_sql()
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\compiler.py", line 736, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\compiler.py", line 84, in pre_sql_setup
+    self.setup_query(with_col_aliases=with_col_aliases)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\compiler.py", line 73, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\compiler.py", line 279, in get_select
+    related_klass_infos = self.get_related_selections(select, select_mask)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1367, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'users'. Choices are: teacher
+ERROR 2023-10-18 12:49:40,798 basehttp 19388 11656 "GET /profile/profils/cabinet/1/ HTTP/1.1" 500 127394
+INFO 2023-10-18 12:50:00,651 autoreload 16124 21660 Watching for file changes with StatReloader
+INFO 2023-10-18 12:50:04,844 basehttp 16124 3888 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:06,021 basehttp 16124 3888 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:13,193 basehttp 16124 3888 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:25,647 autoreload 13992 20548 Watching for file changes with StatReloader
+INFO 2023-10-18 12:50:27,747 basehttp 13992 20104 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:29,564 basehttp 13992 20104 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:30,421 basehttp 13992 20104 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 12:50:31,297 basehttp 13992 20104 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:32,897 basehttp 13992 20104 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:34,320 basehttp 13992 20104 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:34,387 basehttp 13992 20104 "GET /static/userfull/css/%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0-2.css HTTP/1.1" 200 651
+INFO 2023-10-18 12:50:34,497 basehttp 13992 20104 "GET /static/userfull/scripts/jquery.js HTTP/1.1" 200 89476
+INFO 2023-10-18 12:50:34,507 basehttp 13992 20104 "GET /static/userfull/scripts/nicepage.js HTTP/1.1" 200 342963
+WARNING 2023-10-18 12:50:34,756 log 13992 20104 Not Found: /favicon.ico
+WARNING 2023-10-18 12:50:34,756 basehttp 13992 20104 "GET /favicon.ico HTTP/1.1" 404 2694
+INFO 2023-10-18 12:50:34,889 basehttp 13992 20104 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:50:34,910 basehttp 13992 20104 "GET /static/userfull/css/%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0-2.css HTTP/1.1" 200 651
+INFO 2023-10-18 12:50:35,009 basehttp 13992 20104 "GET /static/userfull/scripts/jquery.js HTTP/1.1" 200 89476
+INFO 2023-10-18 12:50:35,019 basehttp 13992 20104 "GET /static/userfull/scripts/nicepage.js HTTP/1.1" 200 342963
+WARNING 2023-10-18 12:50:35,116 log 13992 20104 Not Found: /favicon.ico
+WARNING 2023-10-18 12:50:35,116 basehttp 13992 20104 "GET /favicon.ico HTTP/1.1" 404 2694
+INFO 2023-10-18 12:50:49,584 autoreload 17872 3324 Watching for file changes with StatReloader
+INFO 2023-10-18 12:50:52,134 basehttp 17872 11628 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:52:28,648 autoreload 17872 3324 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py changed, reloading.
+INFO 2023-10-18 12:52:29,126 autoreload 8536 17948 Watching for file changes with StatReloader
+INFO 2023-10-18 12:52:49,261 autoreload 12376 20728 Watching for file changes with StatReloader
+INFO 2023-10-18 12:52:52,128 basehttp 12376 16296 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:52:54,438 basehttp 12376 16296 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:52:55,052 basehttp 12376 16296 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 12:52:55,735 basehttp 12376 16296 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:52:56,940 basehttp 12376 16296 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 8812
+INFO 2023-10-18 12:53:41,120 autoreload 12376 20728 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py changed, reloading.
+INFO 2023-10-18 12:53:41,687 autoreload 21424 2472 Watching for file changes with StatReloader
+INFO 2023-10-18 12:53:56,816 autoreload 9804 17876 Watching for file changes with StatReloader
+ERROR 2023-10-18 12:53:59,624 log 9804 18180 Internal Server Error: /profile/profils/cabinet/1/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 142, in profilusercabinet
+    teach_and_cabinets = Cabinet.objects.filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1404, in build_filter
+    return self._add_q(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1464, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1270, in check_related_objects
+    raise ValueError(
+ValueError: Cannot use QuerySet for "User": Use a QuerySet for "Teacher".
+ERROR 2023-10-18 12:53:59,625 basehttp 9804 18180 "GET /profile/profils/cabinet/1/ HTTP/1.1" 500 128669
+INFO 2023-10-18 12:54:27,851 autoreload 11828 17224 Watching for file changes with StatReloader
+ERROR 2023-10-18 12:54:30,745 log 11828 12712 Internal Server Error: /profile/profils/cabinet/1/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 142, in profilusercabinet
+    teach_and_cabinets = Cabinet.objects.filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1404, in build_filter
+    return self._add_q(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1464, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1275, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1252, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "user": Must be "Teacher" instance.
+ERROR 2023-10-18 12:54:30,748 basehttp 11828 12712 "GET /profile/profils/cabinet/1/ HTTP/1.1" 500 132785
+INFO 2023-10-18 12:55:02,249 autoreload 21444 21716 Watching for file changes with StatReloader
+ERROR 2023-10-18 12:55:06,039 log 21444 3660 Internal Server Error: /profile/profils/cabinet/1/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 142, in profilusercabinet
+    teach_and_cabinets = Cabinet.objects.filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1404, in build_filter
+    return self._add_q(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1464, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1275, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1252, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "user": Must be "Teacher" instance.
+ERROR 2023-10-18 12:55:06,041 basehttp 21444 3660 "GET /profile/profils/cabinet/1/ HTTP/1.1" 500 132782
+INFO 2023-10-18 12:56:08,740 autoreload 21440 4176 Watching for file changes with StatReloader
+ERROR 2023-10-18 12:56:15,180 log 21440 6220 Internal Server Error: /profile/profils/cabinet/1/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 144, in profilusercabinet
+    cabinets = Cabinet.objects.filter(teacher=teach)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1464, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1275, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1252, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "user": Must be "Teacher" instance.
+ERROR 2023-10-18 12:56:15,182 basehttp 21440 6220 "GET /profile/profils/cabinet/1/ HTTP/1.1" 500 121026
+ERROR 2023-10-18 12:56:17,924 log 21440 6220 Internal Server Error: /profile/profils/cabinet/1/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 144, in profilusercabinet
+    cabinets = Cabinet.objects.filter(teacher=teach)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1464, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1275, in check_related_objects
+    self.check_query_object_type(value, opts, field)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\db\models\sql\query.py", line 1252, in check_query_object_type
+    raise ValueError(
+ValueError: Cannot query "user": Must be "Teacher" instance.
+ERROR 2023-10-18 12:56:17,925 basehttp 21440 6220 "GET /profile/profils/cabinet/1/ HTTP/1.1" 500 120889
+INFO 2023-10-18 12:56:52,754 autoreload 16904 14520 Watching for file changes with StatReloader
+INFO 2023-10-18 12:57:12,315 autoreload 18336 10404 Watching for file changes with StatReloader
+INFO 2023-10-18 12:57:14,445 basehttp 18336 9968 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 12:57:16,052 basehttp 18336 9968 "GET /profile/publish/ HTTP/1.1" 200 7127
+INFO 2023-10-18 12:57:16,725 basehttp 18336 9968 "GET /profile/users/ HTTP/1.1" 200 10079
+INFO 2023-10-18 12:57:17,344 basehttp 18336 9968 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 13:03:09,168 autoreload 7308 16840 Watching for file changes with StatReloader
+INFO 2023-10-18 13:03:14,276 basehttp 7308 9828 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 13:03:16,960 basehttp 7308 9828 "GET /profile/users/ HTTP/1.1" 200 10079
+INFO 2023-10-18 13:03:19,125 basehttp 7308 9828 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 13:03:22,048 basehttp 7308 9828 "GET /cabinet/cabinets/14/ HTTP/1.1" 200 12365
+INFO 2023-10-18 13:03:22,109 basehttp 7308 9828 "GET /cabinet/get_events/14/?start=2023-10-01T00%3A00%3A00%2B05%3A00&end=2023-11-12T00%3A00%3A00%2B05%3A00 HTTP/1.1" 200 265
+INFO 2023-10-18 13:03:22,986 basehttp 7308 9828 "GET /cabinet/userfull_info_cab/14/ HTTP/1.1" 200 13720
+INFO 2023-10-18 13:03:23,011 basehttp 7308 9828 "GET /media/posts/images/1648646701_11-kartinkof-club-p-mozg-smeshnie-kartinki-11_tLaMJYZ.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 13:03:24,308 basehttp 7308 9828 "GET / HTTP/1.1" 200 6739
+INFO 2023-10-18 13:03:24,329 basehttp 7308 9828 "GET /media/users/images/75927-ksyu_AuIFUiV.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 13:03:25,344 basehttp 7308 9828 "GET /profile/blog/1/ HTTP/1.1" 200 10257
+INFO 2023-10-18 13:03:25,366 basehttp 7308 9828 "GET /media/posts/images/mqdefault_Bb9XDCo.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 13:03:25,369 basehttp 7308 9828 "GET /media/posts/images/1648646701_11-kartinkof-club-p-mozg-smeshnie-kartinki-11_6IgEbz8.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 13:03:25,379 basehttp 7308 9828 "GET /media/posts/images/gift-card-items-sidebar.jpg HTTP/1.1" 304 0
+INFO 2023-10-18 13:03:27,115 basehttp 7308 9828 "GET /profile/delete_post/12/ HTTP/1.1" 302 0
+INFO 2023-10-18 13:03:27,124 basehttp 7308 9828 "GET /profile/blog/1/ HTTP/1.1" 200 9527
+INFO 2023-10-18 13:03:29,460 basehttp 7308 9828 "GET /profile/delete_post/5/ HTTP/1.1" 302 0
+INFO 2023-10-18 13:03:29,472 basehttp 7308 9828 "GET /profile/blog/1/ HTTP/1.1" 200 8748
+INFO 2023-10-18 13:03:33,735 basehttp 7308 9828 "GET / HTTP/1.1" 200 6739
+INFO 2023-10-18 13:07:11,311 autoreload 14020 19968 Watching for file changes with StatReloader
+INFO 2023-10-18 13:07:14,968 basehttp 14020 21336 "GET /profile/profils/1/ HTTP/1.1" 200 5028
+ERROR 2023-10-18 13:07:16,812 log 14020 21336 Internal Server Error: /profile/services/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 207, in services
+    return render(request, 'profileapp/profile/services.html', context=context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_service' with arguments '('',)' not found. 1 pattern(s) tried: ['profile/edit_serv/(?P<service_id>[0-9]+)/\\Z']
+ERROR 2023-10-18 13:07:16,814 basehttp 14020 21336 "GET /profile/services/ HTTP/1.1" 500 216167
+INFO 2023-10-18 13:07:43,530 autoreload 16452 12916 Watching for file changes with StatReloader
+ERROR 2023-10-18 13:07:46,561 log 16452 4328 Internal Server Error: /profile/services/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 206, in services
+    return render(request, 'profileapp/profile/services.html', context=context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_service' with arguments '('',)' not found. 1 pattern(s) tried: ['profile/edit_serv/(?P<service_id>[0-9]+)/\\Z']
+ERROR 2023-10-18 13:07:46,566 basehttp 16452 4328 "GET /profile/services/ HTTP/1.1" 500 216077
+ERROR 2023-10-18 13:07:49,820 log 16452 13404 Internal Server Error: /profile/services/
+Traceback (most recent call last):
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\views.py", line 206, in services
+    return render(request, 'profileapp/profile/services.html', context=context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_service' with arguments '('',)' not found. 1 pattern(s) tried: ['profile/edit_serv/(?P<service_id>[0-9]+)/\\Z']
+ERROR 2023-10-18 13:07:49,826 basehttp 16452 13404 "GET /profile/services/ HTTP/1.1" 500 215940
+INFO 2023-10-18 13:10:10,170 autoreload 22340 16688 Watching for file changes with StatReloader
+INFO 2023-10-18 13:10:20,428 basehttp 22340 3392 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 13:10:26,175 basehttp 22340 21972 "GET /profile/edit_serv/1/ HTTP/1.1" 200 2757
+INFO 2023-10-18 13:10:38,490 basehttp 22340 17552 "POST /profile/edit_serv/1/ HTTP/1.1" 302 0
+INFO 2023-10-18 13:10:38,500 basehttp 22340 17552 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 13:18:48,547 autoreload 22340 16688 F:\projects_1\repair_proj\SmartLearn-Squad\SmartLearn\profileapp\models.py changed, reloading.
+INFO 2023-10-18 13:18:49,090 autoreload 21964 11652 Watching for file changes with StatReloader
+INFO 2023-10-18 13:22:04,438 autoreload 14144 22436 Watching for file changes with StatReloader
+INFO 2023-10-18 13:22:10,172 basehttp 14144 16068 "GET /profile/services/ HTTP/1.1" 200 13829
+INFO 2023-10-18 13:22:11,167 basehttp 14144 16068 "GET /profile/users/ HTTP/1.1" 200 10079
+INFO 2023-10-18 13:22:12,272 basehttp 14144 16068 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 9317
+INFO 2023-10-18 13:22:13,309 basehttp 14144 16068 "GET /profile/users/ HTTP/1.1" 200 10079

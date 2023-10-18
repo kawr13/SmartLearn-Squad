@@ -29,14 +29,9 @@ class User(AbstractUser):
         return self.username
 
 
-
-
-
-
 class Teacher(models.Model):
     description = models.TextField(blank=True, null=True)
     tags = models.ManyToManyField('Tag', related_name='teachers')
-
 
     def __str__(self):
         return f'{self.description} {self.pk}'
