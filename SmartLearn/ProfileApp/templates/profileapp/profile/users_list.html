@@ -76,6 +76,7 @@
                           <th class="u-border-1 u-border-palette-4-base u-table-cell">ТЕЛЕФОН</th>
                           <th class="u-border-1 u-border-palette-4-base u-table-cell">ОПЛАТА</th>
                           <th class="u-border-1 u-border-palette-4-base u-table-cell">КАБИНЕТ</th>
+                          <th class="u-border-1 u-border-palette-4-base u-table-cell hidden" style="display: none;">Действие</th>
                         </tr>
                       </thead>
                       <tbody class="u-table-body">
@@ -93,8 +94,13 @@
                               <td class="u-border-1 u-border-grey-30 u-table-cell">none</td>
                               <td class="u-border-1 u-border-grey-30 u-table-cell">
                                   {% for cabinet in us.cabinets.all %}
-                                    <p>{{ cabinet.name }}</p>
+                                      {% if cabinet.teacher == user.teacher %}
+                                          <p>{{ cabinet.name }}</p>
+                                      {% endif %}
                                   {% endfor %}
+                              </td>
+                              <td class="u-border-1 u-border-grey-30 u-table-cell">
+                                  <button type="submit" name="delete_cabinet" value="{{ us.id }} " style="display: none;">Удалить кабинет</button>
                               </td>
                             </tr>
                           {% endif %}

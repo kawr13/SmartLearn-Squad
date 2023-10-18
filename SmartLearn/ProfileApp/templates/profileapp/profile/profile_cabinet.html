@@ -29,14 +29,18 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Учитель: {{ teach.username }}</h5>
+            <h5 class="card-title">Учитель: </h5>
+            {% for cabinet, users in users_by_cab.items %}
+                <p><a href="{% url 'cabinet:cabinet' cab_id=cabinet.id %}" class="card-text">Кабинет: {{ cabinet.name }}</a></p>
 
-                {% for cabinet, users in users_by_cab.items %}
-                    <p><a href="{% url 'cabinet:cabinet' cab_id=cabinet.id %}" class="card-text">Кабинет: {{ cabinet.name }}</a></p>
-                    {% for user in users %}
+                {% for user in users|dictsort:"is_teacher"|dictsort:"username" %}
+                    {% if user.is_teacher %}
+                        <p class="card-text">Учитель: {{ user.username }}</p>
+                    {% elif not user.is_teacher %}
                         <p class="card-text">Пользователь: {{ user.username }}</p>
-                    {% endfor %}
+                    {% endif %}
                 {% endfor %}
+            {% endfor %}
             </div>
         </div>
     </div>

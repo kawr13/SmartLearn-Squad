@@ -90,8 +90,8 @@
     <!-- Боковая панель навигации -->
     <div class="sidenav">
         <a href="#" class="active">Статистика</a>
-        <a href="#">Услуги</a>
-        <a href="{%  url 'profile:profil_cabinet' user_id %}">Кабинеты</a>
+        <a href="{%  url 'profile:services' %}">Услуги</a>
+        <a href="{%  url 'profile:profile_cabinet' user_id %}">Кабинеты</a>
         {% if title != 'Полезная информация' %}
             <a href="{%  url 'cabinet:userfull_info_cab' cabinet_id %}">Полезные материалы</a>
         {% endif %}

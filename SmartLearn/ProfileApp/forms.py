@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, User
 from django import forms
 from django.core.exceptions import ValidationError
 from CabinetApp.models import Cabinet
-from ProfileApp.models import User, EmailVerification, Service
+from ProfileApp.models import User, EmailVerification, Service, Students
 from django.utils.timezone import now
 import uuid
 from datetime import timedelta

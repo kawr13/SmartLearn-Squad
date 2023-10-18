@@ -31,8 +31,8 @@ class User(AbstractUser):
 class Teacher(models.Model):
     description = models.TextField(blank=True, null=True)
     tags = models.ManyToManyField('Tag', related_name='teachers')
-    max_peaple = models.IntegerField()
-    count_peaple = models.IntegerField()
+    max_peaple = models.IntegerField(blank=True, null=True)
+    count_peaple = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return f'{self.description} {self.pk}'
