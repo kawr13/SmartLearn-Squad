@@ -12,17 +12,16 @@ from profileapp.models import Teacher, User, Tag, Post, EmailVerification, Servi
 from django.contrib import auth
 from django.shortcuts import render
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.db import transaction
 
 
 def index(request: HttpRequest) -> render:
-    if request.user.id:
-        pers = User.objects.get(id=request.user.id).is_authenticated
-    else:
-        pers = False
-    print(pers)
+    pers = request.user.is_authenticated
+
     context = {
         'title': 'Список учителей',
-        'users': User.objects.select_related('teacher'),
+        'users': User.objects.prefetch_related('teacher'),
         'regis': request.user,
         'autentic': pers,
         'categories': Tag.objects.all(),
@@ -31,29 +30,27 @@ def index(request: HttpRequest) -> render:
 
 
 def sort_category(request: HttpRequest, tag_id: int = None) -> render:
+    categories = Tag.objects.all()
     if tag_id:
-        context = {
-            'users': User.objects.filter(teacher__tags__id=tag_id),
-            'categories': Tag.objects.all(),
-        }
+        users = User.objects.filter(teacher__tags__id=tag_id).prefetch_related('teacher')
     else:
-        context = {
-            'users': User.objects.select_related('teacher'),
-            'categories': Tag.objects.all(),
-        }
-
+        users = User.objects.select_related('teacher').prefetch_related('teacher')
+    context = {
+        'users': users,
+        'categories': categories,
+    }
     return render(request, 'profileapp/profile/index.html', context=context)
 
 
 def blog(request: HttpRequest, user_id: int) -> render:
-    user = User.objects.select_related('teacher').get(id=user_id)
+    user = User.objects.get(id=user_id)
     teach = False
-    if request.user.id:
-        pers = User.objects.get(id=request.user.id).is_authenticated
+    if request.user.is_authenticated:
+        pers = True
     else:
         pers = False
     teacher = user.teacher
-    if user.username == request.user.username:
+    if user == request.user:
         teach = True
     context = {
         'title': 'Блог',
@@ -65,18 +62,21 @@ def blog(request: HttpRequest, user_id: int) -> render:
     return render(request, 'profileapp/profile/blog.html', context=context)
 
 
-def login(request: HttpRequest) -> render:
+
+def logining(request):
     if request.method == 'POST':
         form = UserForm(data=request.POST)
         if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
-            user = auth.authenticate(username=username, password=password)
-            if user:
-                auth.login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+            else:
+                messages.error(request, 'Неверный логин или пароль')
         else:
-            messages.error(request, 'Неверный логин или пароль')
+            messages.error(request, 'Неверный логин или пароль')
     else:
         form = UserForm()
     context = {
@@ -95,24 +95,22 @@ class UserRegisterViews(CreateView):
     def form_valid(self, form):
         is_teacher = form.cleaned_data['is_teacher']
         user = form.save(commit=False)
+
         if is_teacher:
             user.is_teacher = True
+            teacher = Teacher.objects.create(description='')
+            user.teacher = teacher
+            teacher.users.add(user)
         else:
             user.is_student = True
         user.save()
         if user.is_student:
-            Students.objects.create(
-                user=user,
-            )
-        elif user.is_teacher:
-            teacher = Teacher.objects.create(description='', )
-            user.teacher = teacher
-        # Проверяем, установлена ли галочка "Преподаватель"
-
-        return HttpResponseRedirect(reverse('profile:login'))
+            with transaction.atomic():
+                Students.objects.create(user=user)
+        return redirect(self.success_url)
 
     def get_context_data(self, **kwargs):
-        context = super(UserRegisterViews, self).get_context_data()
+        context = super(UserRegisterViews, self).get_context_data(**kwargs)
         return context
 
 

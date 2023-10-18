@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import sort_category, blog, login, UserRegisterViews, logout, profiluser, profilusercabinet, delete_post, \
+from .views import sort_category, blog, logining, UserRegisterViews, logout, profiluser, profilusercabinet, delete_post, \
     services, edit_service, users_list, publish_post
 
 app_name = 'profile'
@@ -24,7 +24,7 @@ app_name = 'profile'
 urlpatterns = [
     path('tag/<int:tag_id>/', sort_category, name='tag'),
     path('blog/<int:user_id>/', blog, name='blog'),
-    path('login/', login, name='login'),
+    path('login/', logining, name='login'),
     path('register/', UserRegisterViews.as_view(), name='register'),
     path('logout/', logout, name='logout'),
     path('profils/<int:user_id>/', profiluser, name='updateViews'),
