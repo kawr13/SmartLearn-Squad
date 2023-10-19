@@ -111,16 +111,25 @@ class UserRegisterViews(CreateView):
 
 
 def profiluser(request: HttpRequest, user_id: int) -> render:
+    status = None
     if request.user.id:
         pers = User.objects.get(id=request.user.id).is_authenticated
+        user = User.objects.get(id=user_id)
+        if user.is_teacher:
+            status = 'teacher'
+        else:
+            status = 'student'
     else:
         pers = False
+
     context = {
         'title': 'Профиль',
         'user': User.objects.get(id=user_id),
         'autentic': pers,
         'teacher': User.objects.select_related('teacher').get(id=user_id),
+        'status': status
     }
+    print(status)
     return render(request, 'profileapp/profile/profile.html', context=context)
 
 
