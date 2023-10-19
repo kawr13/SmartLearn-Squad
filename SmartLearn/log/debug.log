@@ -23290,3 +23290,742 @@ INFO 2023-10-19 01:16:32,869 basehttp 20860 17816 "GET /profile/tag/1/ HTTP/1.1"
 INFO 2023-10-19 01:16:33,334 basehttp 20860 17816 "GET /profile/tag/2/ HTTP/1.1" 200 4363
 INFO 2023-10-19 01:16:33,701 basehttp 20860 17816 "GET /profile/tag/1/ HTTP/1.1" 200 4320
 INFO 2023-10-19 01:16:34,095 basehttp 20860 17816 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 01:22:52,531 autoreload 15072 21424 Watching for file changes with StatReloader
+INFO 2023-10-19 01:22:54,053 basehttp 15072 19064 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 01:22:55,574 basehttp 15072 19064 "GET /profile/profils/1/ HTTP/1.1" 200 2838
+INFO 2023-10-19 01:22:55,601 basehttp 15072 19064 "GET /static/ProfileApp/css/profile.css HTTP/1.1" 304 0
+INFO 2023-10-19 01:22:57,495 basehttp 15072 19064 "GET /profile/profils/cabinet/1/ HTTP/1.1" 200 4124
+INFO 2023-10-19 01:22:59,263 basehttp 15072 19064 "GET /cabinet/cabinets/6/ HTTP/1.1" 200 9064
+INFO 2023-10-19 01:22:59,310 basehttp 15072 19064 "GET /cabinet/get_events/6/?start=2023-10-01T00%3A00%3A00%2B05%3A00&end=2023-11-12T00%3A00%3A00%2B05%3A00 HTTP/1.1" 200 2
+INFO 2023-10-19 01:23:00,876 basehttp 15072 19064 "GET /cabinet/userfull_info_cab/6/ HTTP/1.1" 200 8206
+INFO 2023-10-19 01:23:00,904 basehttp 15072 19064 "GET /media/posts/images/%D0%91%D0%B5%D0%B7_%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jfif HTTP/1.1" 304 0
+INFO 2023-10-19 01:23:03,201 basehttp 15072 19064 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 01:23:04,362 basehttp 15072 19064 "GET /profile/logout/ HTTP/1.1" 302 0
+INFO 2023-10-19 01:23:04,369 basehttp 15072 19064 "GET / HTTP/1.1" 200 5594
+INFO 2023-10-19 01:23:04,994 basehttp 15072 19064 "GET /profile/login/ HTTP/1.1" 200 3597
+INFO 2023-10-19 01:23:09,261 basehttp 15072 19064 "POST /profile/login/ HTTP/1.1" 302 0
+INFO 2023-10-19 01:23:09,268 basehttp 15072 19064 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 01:23:10,128 basehttp 15072 19064 "GET /profile/profils/4/ HTTP/1.1" 200 2982
+ERROR 2023-10-19 01:23:11,956 log 15072 19064 Internal Server Error: /profile/users/
+Traceback (most recent call last):
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\ProfileApp\views.py", line 259, in users_list
+    form.fields['users_to_transfer'].queryset = teacher.students.all()
+                                                ^^^^^^^^^^^^^^^^
+AttributeError: 'Teacher' object has no attribute 'students'
+ERROR 2023-10-19 01:23:11,956 basehttp 15072 19064 "GET /profile/users/ HTTP/1.1" 500 77425
+INFO 2023-10-19 01:25:19,736 autoreload 15072 21424 F:\projects_1\test\SmartLearn-Squad\SmartLearn\ProfileApp\views.py changed, reloading.
+INFO 2023-10-19 01:25:20,278 autoreload 2540 9340 Watching for file changes with StatReloader
+INFO 2023-10-19 01:25:28,262 autoreload 2680 11312 Watching for file changes with StatReloader
+INFO 2023-10-19 01:25:30,590 basehttp 2680 18008 "GET /profile/users/ HTTP/1.1" 200 9990
+INFO 2023-10-19 01:29:53,275 autoreload 20416 7924 Watching for file changes with StatReloader
+INFO 2023-10-19 01:29:57,292 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 9990
+INFO 2023-10-19 01:30:00,534 basehttp 20416 19036 "GET /profile/profils/cabinet/4/ HTTP/1.1" 200 7521
+INFO 2023-10-19 01:30:02,913 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 9990
+INFO 2023-10-19 01:30:07,837 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 9990
+INFO 2023-10-19 01:30:11,359 basehttp 20416 19036 "POST /profile/users/ HTTP/1.1" 302 0
+INFO 2023-10-19 01:30:11,369 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 10008
+INFO 2023-10-19 01:30:12,915 basehttp 20416 19036 "GET /profile/profils/cabinet/4/ HTTP/1.1" 200 7521
+INFO 2023-10-19 01:30:16,587 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 10008
+INFO 2023-10-19 01:30:19,651 basehttp 20416 19036 "GET /profile/profils/cabinet/4/ HTTP/1.1" 200 7521
+INFO 2023-10-19 01:30:23,226 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 10008
+INFO 2023-10-19 01:30:26,735 basehttp 20416 19036 "POST /profile/users/ HTTP/1.1" 302 0
+INFO 2023-10-19 01:30:26,746 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 10026
+INFO 2023-10-19 01:30:27,942 basehttp 20416 19036 "GET /profile/profils/cabinet/4/ HTTP/1.1" 200 7521
+INFO 2023-10-19 01:30:32,570 basehttp 20416 19036 "GET /profile/profils/cabinet/4/ HTTP/1.1" 200 7521
+INFO 2023-10-19 01:30:42,600 basehttp 20416 19036 "POST /profile/profils/cabinet/4/ HTTP/1.1" 302 0
+INFO 2023-10-19 01:30:42,614 basehttp 20416 19036 "GET /profile/profils/cabinet/4/ HTTP/1.1" 200 8052
+INFO 2023-10-19 01:30:45,279 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 10230
+INFO 2023-10-19 01:30:53,855 basehttp 20416 19036 "POST /profile/users/ HTTP/1.1" 302 0
+INFO 2023-10-19 01:30:53,866 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 10035
+INFO 2023-10-19 01:30:59,666 basehttp 20416 19036 "POST /profile/users/ HTTP/1.1" 302 0
+INFO 2023-10-19 01:30:59,677 basehttp 20416 19036 "GET /profile/users/ HTTP/1.1" 200 10062
+INFO 2023-10-19 03:54:43,161 autoreload 14908 20516 Watching for file changes with StatReloader
+INFO 2023-10-19 03:54:52,928 basehttp 14908 17264 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 03:54:52,965 basehttp 14908 17264 "GET /static/ProfileApp/css/footer.css HTTP/1.1" 304 0
+INFO 2023-10-19 03:54:52,967 basehttp 14908 8448 "GET /media/users/images/1663352721_2-mykaleidoscope-ru-p-olitsetvorenie-gneva-instagram-3.jpg HTTP/1.1" 304 0
+INFO 2023-10-19 03:54:52,968 basehttp 14908 18200 "GET /media/users/images/75927-ksyu_XgrB3YX.jpg HTTP/1.1" 304 0
+INFO 2023-10-19 03:55:27,397 autoreload 18212 5512 Watching for file changes with StatReloader
+INFO 2023-10-19 03:55:30,617 basehttp 18212 19540 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 03:56:01,208 autoreload 20708 7964 Watching for file changes with StatReloader
+INFO 2023-10-19 03:56:04,414 basehttp 20708 11752 "GET /profile/tag/1/ HTTP/1.1" 200 4320
+INFO 2023-10-19 03:56:11,434 basehttp 20708 11752 "GET /profile/tag/2/ HTTP/1.1" 200 4363
+INFO 2023-10-19 03:56:20,480 basehttp 20708 11752 "GET /profile/tag/1/ HTTP/1.1" 200 4320
+INFO 2023-10-19 03:56:21,920 basehttp 20708 11752 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 03:56:56,466 autoreload 19388 19784 Watching for file changes with StatReloader
+INFO 2023-10-19 03:56:59,885 basehttp 19388 3780 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 03:57:06,184 autoreload 19388 19784 F:\projects_1\test\SmartLearn-Squad\SmartLearn\ProfileApp\views.py changed, reloading.
+INFO 2023-10-19 03:57:06,616 autoreload 3548 20936 Watching for file changes with StatReloader
+INFO 2023-10-19 03:57:07,234 basehttp 3548 10616 "GET / HTTP/1.1" 200 5773
+INFO 2023-10-19 04:31:22,179 autoreload 18112 6984 Watching for file changes with StatReloader
+ERROR 2023-10-19 04:31:23,898 log 18112 12420 Internal Server Error: /
+Traceback (most recent call last):
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\ProfileApp\views.py", line 30, in index
+    return render(request, 'profileapp/profile/index_start.html', context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\templatetags\static.py", line 171, in do_static
+    return StaticNode.handle_token(parser, token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\templatetags\static.py", line 145, in handle_token
+    path = parser.compile_filter(bits[1])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects_1\test\SmartLearn-Squad\SmartLearn\venv\Lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '/mobirise/css/mbr-additional.css' from 'assets/mobirise/css/mbr-additional.css'
+ERROR 2023-10-19 04:31:23,903 basehttp 18112 12420 "GET / HTTP/1.1" 500 201022
+INFO 2023-10-19 04:32:04,909 autoreload 11472 19252 Watching for file changes with StatReloader
+INFO 2023-10-19 04:32:06,903 basehttp 11472 8036 "GET / HTTP/1.1" 200 7747
+INFO 2023-10-19 04:32:07,006 basehttp 11472 8036 "GET /static/assets/web/assets/mobirise-icons2/mobirise2.css HTTP/1.1" 200 8709
+INFO 2023-10-19 04:32:07,008 basehttp 11472 8036 "GET /static/assets/mobirise/css/mbr-additional.css HTTP/1.1" 200 48927
+WARNING 2023-10-19 04:32:07,021 log 11472 8036 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:32:07,021 basehttp 11472 8036 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+WARNING 2023-10-19 04:32:07,031 log 11472 8036 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:32:07,031 basehttp 11472 8036 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:32:07,041 log 11472 8036 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:32:07,041 basehttp 11472 8036 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:32:07,048 basehttp 11472 9604 "GET /static/assets/dropdown/css/style.css HTTP/1.1" 200 7945
+WARNING 2023-10-19 04:32:07,051 log 11472 8036 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:32:07,052 basehttp 11472 8036 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:32:07,053 basehttp 11472 9604 "GET /static/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 200 78704
+INFO 2023-10-19 04:32:07,058 basehttp 11472 9272 "GET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 155590
+INFO 2023-10-19 04:32:07,059 basehttp 11472 9604 "GET /static/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 200 7548
+INFO 2023-10-19 04:32:07,062 basehttp 11472 8036 "GET /static/assets/ytplayer/index.js HTTP/1.1" 200 27644
+INFO 2023-10-19 04:32:07,065 basehttp 11472 13300 "GET /static/assets/theme/css/style.css HTTP/1.1" 200 14855
+INFO 2023-10-19 04:32:07,065 basehttp 11472 9272 "GET /static/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 200 3595
+INFO 2023-10-19 04:32:07,066 basehttp 11472 19040 "GET /static/assets/bootstrap/css/bootstrap-reboot.min.css HTTP/1.1" 200 4623
+INFO 2023-10-19 04:32:07,067 basehttp 11472 9604 "GET /static/assets/theme/js/script.js HTTP/1.1" 200 37144
+INFO 2023-10-19 04:32:07,067 basehttp 11472 19660 "GET /static/assets/bootstrap/css/bootstrap-grid.min.css HTTP/1.1" 200 51457
+WARNING 2023-10-19 04:32:07,281 log 11472 19660 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:32:07,281 basehttp 11472 19660 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+INFO 2023-10-19 04:33:45,353 autoreload 21240 13512 Watching for file changes with StatReloader
+INFO 2023-10-19 04:33:47,769 basehttp 21240 12260 "GET / HTTP/1.1" 200 7665
+WARNING 2023-10-19 04:33:47,820 log 21240 19052 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:33:47,825 basehttp 21240 19052 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:33:47,827 log 21240 12260 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:33:47,832 basehttp 21240 12260 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+WARNING 2023-10-19 04:33:47,846 log 21240 8872 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:33:47,849 log 21240 15660 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:33:47,849 basehttp 21240 8872 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:33:47,851 basehttp 21240 15660 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:34:55,405 autoreload 15564 17844 Watching for file changes with StatReloader
+INFO 2023-10-19 04:34:57,555 basehttp 15564 11760 "GET / HTTP/1.1" 200 7668
+WARNING 2023-10-19 04:34:57,612 log 15564 17772 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:34:57,613 log 15564 11760 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:34:57,614 basehttp 15564 17772 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:34:57,615 basehttp 15564 11760 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+WARNING 2023-10-19 04:34:57,619 log 15564 3372 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:34:57,621 log 15564 20852 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:34:57,621 basehttp 15564 3372 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:34:57,622 basehttp 15564 20852 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:35:32,072 autoreload 8824 3584 Watching for file changes with StatReloader
+INFO 2023-10-19 04:35:34,437 basehttp 8824 18152 "GET / HTTP/1.1" 200 7681
+WARNING 2023-10-19 04:35:34,496 log 8824 18152 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:35:34,497 basehttp 8824 18152 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+WARNING 2023-10-19 04:35:34,499 log 8824 7008 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:35:34,500 basehttp 8824 7008 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:35:34,501 log 8824 3356 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:35:34,502 basehttp 8824 3356 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:35:34,503 log 8824 3472 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:35:34,503 basehttp 8824 3472 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:37:13,958 autoreload 21500 18756 Watching for file changes with StatReloader
+INFO 2023-10-19 04:37:15,869 basehttp 21500 9052 "GET / HTTP/1.1" 200 8073
+WARNING 2023-10-19 04:37:15,926 log 21500 9052 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:37:15,928 log 21500 19252 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:37:15,928 basehttp 21500 19252 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:37:15,929 basehttp 21500 9052 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+WARNING 2023-10-19 04:37:15,932 log 21500 20024 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:37:15,934 log 21500 7432 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:37:15,935 basehttp 21500 7432 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:37:15,936 basehttp 21500 20024 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:37:34,716 autoreload 9284 3164 Watching for file changes with StatReloader
+INFO 2023-10-19 04:37:36,530 basehttp 9284 18936 "GET / HTTP/1.1" 200 8069
+WARNING 2023-10-19 04:37:36,561 log 9284 15272 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:37:36,561 basehttp 9284 15272 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:37:36,572 log 9284 18936 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:37:36,576 basehttp 9284 18936 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+WARNING 2023-10-19 04:37:36,579 log 9284 19536 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:37:36,580 basehttp 9284 19536 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:37:36,593 log 9284 19844 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:37:36,594 basehttp 9284 19844 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:37:51,596 autoreload 19332 20728 Watching for file changes with StatReloader
+INFO 2023-10-19 04:37:52,471 basehttp 19332 1644 "GET / HTTP/1.1" 200 8069
+WARNING 2023-10-19 04:37:52,515 log 19332 1644 Not Found: /assets/images/logo.png
+WARNING 2023-10-19 04:37:52,517 basehttp 19332 1644 "GET /assets/images/logo.png HTTP/1.1" 404 2727
+WARNING 2023-10-19 04:37:52,519 log 19332 12240 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:37:52,520 log 19332 21128 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:37:52,522 log 19332 19556 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:37:52,523 basehttp 19332 12240 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:37:52,523 basehttp 19332 19556 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:37:52,524 basehttp 19332 21128 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:38:36,732 autoreload 19000 18392 Watching for file changes with StatReloader
+INFO 2023-10-19 04:38:37,963 basehttp 19000 9948 "GET / HTTP/1.1" 200 7888
+INFO 2023-10-19 04:38:37,984 basehttp 19000 9948 "GET /static/assets/web/assets/mobirise-icons2/mobirise2.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:37,985 basehttp 19000 7964 "GET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:37,992 basehttp 19000 9948 "GET /static/assets/mobirise/css/mbr-additional.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:37,992 basehttp 19000 18512 "GET /static/assets/bootstrap/css/bootstrap-grid.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:37,994 basehttp 19000 17068 "GET /static/assets/bootstrap/css/bootstrap-reboot.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:37,998 basehttp 19000 15528 "GET /static/assets/dropdown/css/style.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:38,003 basehttp 19000 16932 "GET /static/assets/theme/css/style.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:38,004 basehttp 19000 17068 "GET /static/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:38,007 basehttp 19000 16932 "GET /static/assets/ytplayer/index.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:38,008 basehttp 19000 15528 "GET /static/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:38,009 basehttp 19000 17068 "GET /static/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:38:38,011 basehttp 19000 16932 "GET /static/assets/theme/js/script.js HTTP/1.1" 304 0
+WARNING 2023-10-19 04:38:38,032 log 19000 18512 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:38:38,033 log 19000 7964 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:38:38,034 log 19000 9948 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:38:38,034 basehttp 19000 18512 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:38:38,034 basehttp 19000 9948 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:38:38,036 basehttp 19000 7964 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:38:40,064 basehttp 19000 7964 "GET / HTTP/1.1" 200 7888
+WARNING 2023-10-19 04:38:40,094 log 19000 9948 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:38:40,095 basehttp 19000 9948 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:38:40,097 log 19000 7964 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:38:40,098 log 19000 18512 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:38:40,099 basehttp 19000 18512 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:38:40,100 basehttp 19000 7964 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:39:05,589 autoreload 4808 13092 Watching for file changes with StatReloader
+INFO 2023-10-19 04:39:07,838 basehttp 4808 10252 "GET / HTTP/1.1" 200 7892
+WARNING 2023-10-19 04:39:07,877 log 4808 20504 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:39:07,879 log 4808 3484 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:39:07,881 log 4808 10252 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:39:07,881 basehttp 4808 3484 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:39:07,881 basehttp 4808 20504 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:39:07,883 basehttp 4808 10252 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:39:10,951 basehttp 4808 10252 "GET / HTTP/1.1" 200 7892
+WARNING 2023-10-19 04:39:10,982 log 4808 3484 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:39:10,984 log 4808 10252 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:39:10,984 basehttp 4808 10252 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:39:10,984 basehttp 4808 3484 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:39:10,987 log 4808 20504 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:39:10,987 basehttp 4808 20504 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:39:46,925 autoreload 5940 19312 Watching for file changes with StatReloader
+INFO 2023-10-19 04:39:50,030 basehttp 5940 9912 "GET / HTTP/1.1" 200 7888
+WARNING 2023-10-19 04:39:50,078 log 5940 9912 Not Found: /assets/images/team1.jpg
+WARNING 2023-10-19 04:39:50,078 basehttp 5940 9912 "GET /assets/images/team1.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:39:50,084 log 5940 19996 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:39:50,085 basehttp 5940 19996 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:39:50,103 log 5940 196 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:39:50,104 basehttp 5940 196 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:40:48,472 basehttp 5940 196 "GET /profile/tag/1/ HTTP/1.1" 200 4320
+INFO 2023-10-19 04:44:00,524 autoreload 5112 6572 Watching for file changes with StatReloader
+INFO 2023-10-19 04:44:03,703 basehttp 5112 19896 "GET / HTTP/1.1" 200 9566
+WARNING 2023-10-19 04:44:03,747 log 5112 5916 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:44:03,748 log 5112 19896 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:44:03,748 basehttp 5112 5916 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:44:03,748 basehttp 5112 19896 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:45:35,298 basehttp 5112 19896 "GET / HTTP/1.1" 200 9566
+INFO 2023-10-19 04:45:35,323 basehttp 5112 19896 "GET /static/assets/web/assets/mobirise-icons2/mobirise2.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,326 basehttp 5112 5916 "GET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,330 basehttp 5112 17544 "GET /static/assets/bootstrap/css/bootstrap-grid.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,331 basehttp 5112 5916 "GET /static/assets/dropdown/css/style.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,332 basehttp 5112 19896 "GET /static/assets/theme/css/style.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,332 basehttp 5112 20812 "GET /static/assets/bootstrap/css/bootstrap-reboot.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,334 basehttp 5112 13484 "GET /static/assets/mobirise/css/mbr-additional.css HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,344 basehttp 5112 19896 "GET /static/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,345 basehttp 5112 17544 "GET /static/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,348 basehttp 5112 20812 "GET /static/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,349 basehttp 5112 5916 "GET /static/assets/ytplayer/index.js HTTP/1.1" 304 0
+INFO 2023-10-19 04:45:35,355 basehttp 5112 20812 "GET /static/assets/theme/js/script.js HTTP/1.1" 304 0
+WARNING 2023-10-19 04:45:35,356 log 5112 13484 Not Found: /assets/images/team3.jpg
+WARNING 2023-10-19 04:45:35,357 basehttp 5112 13484 "GET /assets/images/team3.jpg HTTP/1.1" 404 2730
+WARNING 2023-10-19 04:45:35,359 log 5112 3388 Not Found: /assets/images/team2.jpg
+WARNING 2023-10-19 04:45:35,360 basehttp 5112 3388 "GET /assets/images/team2.jpg HTTP/1.1" 404 2730
+INFO 2023-10-19 04:45:39,058 autoreload 16812 6672 Watching for file changes with StatReloader
+INFO 2023-10-19 04:45:40,783 basehttp 16812 18152 "GET / HTTP/1.1" 200 8306
+INFO 2023-10-19 04:46:10,770 autoreload 21124 17764 Watching for file changes with StatReloader
+INFO 2023-10-19 04:46:14,903 basehttp 21124 19060 "GET / HTTP/1.1" 200 8306
+INFO 2023-10-19 04:46:16,806 basehttp 21124 19060 "GET /profile/tag/2/ HTTP/1.1" 200 7121
+INFO 2023-10-19 04:46:19,325 basehttp 21124 19060 "GET /profile/tag/1/ HTTP/1.1" 200 7082
+INFO 2023-10-19 04:46:21,251 basehttp 21124 19060 "GET / HTTP/1.1" 200 8306
+INFO 2023-10-19 04:46:57,350 autoreload 13816 20640 Watching for file changes with StatReloader
+INFO 2023-10-19 04:46:58,724 basehttp 13816 20324 "GET / HTTP/1.1" 200 8315
+INFO 2023-10-19 04:47:12,633 autoreload 6276 8124 Watching for file changes with StatReloader
+INFO 2023-10-19 04:47:14,994 basehttp 6276 14540 "GET / HTTP/1.1" 200 8168
+INFO 2023-10-19 04:47:27,209 autoreload 16592 8964 Watching for file changes with StatReloader
+INFO 2023-10-19 04:47:29,594 basehttp 16592 13092 "GET / HTTP/1.1" 200 8117
+INFO 2023-10-19 04:47:56,767 autoreload 4536 3708 Watching for file changes with StatReloader
+INFO 2023-10-19 04:47:58,505 basehttp 4536 11408 "GET / HTTP/1.1" 200 8141
+INFO 2023-10-19 04:49:09,162 autoreload 7788 15088 Watching for file changes with StatReloader
+INFO 2023-10-19 04:49:11,123 basehttp 7788 16356 "GET / HTTP/1.1" 200 8176
+INFO 2023-10-19 04:49:57,601 autoreload 1656 5260 Watching for file changes with StatReloader
+INFO 2023-10-19 04:50:00,051 basehttp 1656 20544 "GET / HTTP/1.1" 200 8175
+INFO 2023-10-19 04:50:23,298 autoreload 7336 17448 Watching for file changes with StatReloader
+INFO 2023-10-19 04:50:25,268 basehttp 7336 2300 "GET / HTTP/1.1" 200 8178
+INFO 2023-10-19 10:16:34,352 autoreload 19588 17680 Watching for file changes with StatReloader
+INFO 2023-10-19 10:16:49,852 basehttp 19588 13752 "GET / HTTP/1.1" 200 8178
+INFO 2023-10-19 10:16:49,882 basehttp 19588 13752 "GET /static/assets/web/assets/mobirise-icons2/mobirise2.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,882 basehttp 19588 11532 "GET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,889 basehttp 19588 17428 "GET /static/assets/bootstrap/css/bootstrap-grid.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,889 basehttp 19588 15904 "GET /static/assets/bootstrap/css/bootstrap-reboot.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,889 basehttp 19588 13752 "GET /static/assets/mobirise/css/mbr-additional.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,890 basehttp 19588 11532 "GET /media/users/images/1663352721_2-mykaleidoscope-ru-p-olitsetvorenie-gneva-instagram-3.jpg HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,890 basehttp 19588 5884 "GET /static/assets/dropdown/css/style.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,892 basehttp 19588 3764 "GET /static/assets/theme/css/style.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,893 basehttp 19588 15904 "GET /static/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,898 basehttp 19588 15904 "GET /static/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,898 basehttp 19588 3764 "GET /media/users/images/75927-ksyu_XgrB3YX.jpg HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,898 basehttp 19588 11532 "GET /static/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,898 basehttp 19588 5884 "GET /static/assets/ytplayer/index.js HTTP/1.1" 304 0
+INFO 2023-10-19 10:16:49,899 basehttp 19588 13752 "GET /static/assets/theme/js/script.js HTTP/1.1" 304 0
+INFO 2023-10-19 10:17:32,593 autoreload 17644 5488 Watching for file changes with StatReloader
+INFO 2023-10-19 10:17:35,571 basehttp 17644 15680 "GET / HTTP/1.1" 200 8176
+INFO 2023-10-19 10:19:05,017 autoreload 7008 18668 Watching for file changes with StatReloader
+INFO 2023-10-19 10:19:45,824 autoreload 6668 12848 Watching for file changes with StatReloader
+INFO 2023-10-19 10:19:48,924 basehttp 6668 10696 "GET / HTTP/1.1" 200 8174
+INFO 2023-10-19 10:19:50,365 basehttp 6668 10696 "GET /profile/login/ HTTP/1.1" 200 3597
+INFO 2023-10-19 10:19:50,398 basehttp 6668 10696 "GET /static/ProfileApp/css/footer.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:19:54,130 basehttp 6668 10696 "GET /profile/login/ HTTP/1.1" 200 3597
+INFO 2023-10-19 10:20:06,769 autoreload 4000 2844 Watching for file changes with StatReloader
+INFO 2023-10-19 10:20:09,568 basehttp 4000 1484 "GET /profile/login/ HTTP/1.1" 200 3963
+INFO 2023-10-19 10:20:33,627 autoreload 12076 17464 Watching for file changes with StatReloader
+INFO 2023-10-19 10:20:36,383 basehttp 12076 14276 "GET /profile/login/ HTTP/1.1" 200 3963
+INFO 2023-10-19 10:20:49,629 autoreload 13560 17672 Watching for file changes with StatReloader
+INFO 2023-10-19 10:20:52,616 basehttp 13560 13676 "GET /profile/login/ HTTP/1.1" 200 3963
+INFO 2023-10-19 10:20:54,545 basehttp 13560 13676 "GET /profile/login/ HTTP/1.1" 200 3963
+INFO 2023-10-19 10:21:19,133 autoreload 352 18888 Watching for file changes with StatReloader
+INFO 2023-10-19 10:21:22,149 basehttp 352 18184 "GET /profile/login/ HTTP/1.1" 200 3972
+INFO 2023-10-19 10:21:28,416 autoreload 15796 4148 Watching for file changes with StatReloader
+INFO 2023-10-19 10:21:30,733 basehttp 15796 19596 "GET /profile/login/ HTTP/1.1" 200 3990
+INFO 2023-10-19 10:21:38,082 autoreload 4116 21244 Watching for file changes with StatReloader
+INFO 2023-10-19 10:21:40,148 basehttp 4116 20264 "GET /profile/login/ HTTP/1.1" 200 3999
+INFO 2023-10-19 10:21:53,694 autoreload 16096 14652 Watching for file changes with StatReloader
+INFO 2023-10-19 10:21:56,294 basehttp 16096 21072 "GET /profile/login/ HTTP/1.1" 200 4026
+INFO 2023-10-19 10:23:22,894 autoreload 17980 8632 Watching for file changes with StatReloader
+INFO 2023-10-19 10:23:26,550 basehttp 17980 14588 "GET /profile/login/ HTTP/1.1" 200 4050
+INFO 2023-10-19 10:23:37,194 basehttp 17980 14588 "GET /profile/login/ HTTP/1.1" 200 4050
+INFO 2023-10-19 10:24:20,385 autoreload 4532 9948 Watching for file changes with StatReloader
+INFO 2023-10-19 10:24:27,534 basehttp 4532 19248 "GET / HTTP/1.1" 200 8331
+INFO 2023-10-19 10:25:07,584 autoreload 3772 13588 Watching for file changes with StatReloader
+INFO 2023-10-19 10:25:10,489 basehttp 3772 11156 "GET / HTTP/1.1" 200 8404
+INFO 2023-10-19 10:26:07,974 autoreload 20392 20656 Watching for file changes with StatReloader
+INFO 2023-10-19 10:26:10,775 basehttp 20392 1240 "GET / HTTP/1.1" 200 8280
+INFO 2023-10-19 10:26:12,662 basehttp 20392 1240 "GET / HTTP/1.1" 200 8280
+INFO 2023-10-19 10:26:15,758 basehttp 20392 1240 "GET /profile/login/ HTTP/1.1" 200 4150
+INFO 2023-10-19 10:27:04,664 autoreload 9824 10388 Watching for file changes with StatReloader
+INFO 2023-10-19 10:27:07,878 basehttp 9824 20184 "GET / HTTP/1.1" 200 8473
+INFO 2023-10-19 10:27:10,984 basehttp 9824 20184 "GET /profile/logout/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:27:10,992 basehttp 9824 20184 "GET / HTTP/1.1" 200 8274
+INFO 2023-10-19 10:27:13,065 basehttp 9824 20184 "GET /profile/login/ HTTP/1.1" 200 4150
+INFO 2023-10-19 10:27:50,177 autoreload 13564 7332 Watching for file changes with StatReloader
+INFO 2023-10-19 10:27:52,410 basehttp 13564 14632 "GET /profile/login/ HTTP/1.1" 200 4150
+INFO 2023-10-19 10:27:56,306 basehttp 13564 14632 "GET /profile/login/ HTTP/1.1" 200 4150
+INFO 2023-10-19 10:28:48,520 autoreload 18844 13988 Watching for file changes with StatReloader
+INFO 2023-10-19 10:28:52,091 basehttp 18844 1348 "GET / HTTP/1.1" 200 8274
+INFO 2023-10-19 10:28:54,179 basehttp 18844 1348 "GET / HTTP/1.1" 200 8274
+INFO 2023-10-19 10:29:10,205 basehttp 18844 1348 "GET /profile/login/ HTTP/1.1" 200 4150
+INFO 2023-10-19 10:29:13,165 basehttp 18844 1348 "POST /profile/login/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:29:13,175 basehttp 18844 1348 "GET / HTTP/1.1" 200 8491
+INFO 2023-10-19 10:29:20,177 basehttp 18844 1348 "GET /profile/logout/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:29:20,186 basehttp 18844 1348 "GET / HTTP/1.1" 200 8274
+INFO 2023-10-19 10:29:22,892 basehttp 18844 1348 "GET /profile/login/ HTTP/1.1" 200 4150
+INFO 2023-10-19 10:29:26,297 basehttp 18844 1348 "POST /profile/login/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:29:26,311 basehttp 18844 1348 "GET / HTTP/1.1" 200 8491
+INFO 2023-10-19 10:31:16,187 autoreload 8820 13788 Watching for file changes with StatReloader
+INFO 2023-10-19 10:31:19,216 basehttp 8820 8040 "GET / HTTP/1.1" 200 8469
+INFO 2023-10-19 10:32:52,166 autoreload 4148 2196 Watching for file changes with StatReloader
+INFO 2023-10-19 10:32:55,034 basehttp 4148 10696 "GET / HTTP/1.1" 200 8283
+INFO 2023-10-19 10:32:57,185 basehttp 4148 10696 "GET /profile/logout/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:32:57,194 basehttp 4148 10696 "GET / HTTP/1.1" 200 8279
+INFO 2023-10-19 10:32:59,103 basehttp 4148 10696 "GET /profile/login/ HTTP/1.1" 200 4155
+INFO 2023-10-19 10:33:02,228 basehttp 4148 10696 "POST /profile/login/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:33:02,240 basehttp 4148 10696 "GET / HTTP/1.1" 200 8283
+INFO 2023-10-19 10:33:27,350 basehttp 4148 10696 "GET /profile/logout/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:33:27,362 basehttp 4148 10696 "GET / HTTP/1.1" 200 8279
+INFO 2023-10-19 10:33:28,715 basehttp 4148 10696 "GET /profile/login/ HTTP/1.1" 200 4155
+INFO 2023-10-19 10:33:31,716 basehttp 4148 10696 "POST /profile/login/ HTTP/1.1" 302 0
+INFO 2023-10-19 10:33:31,726 basehttp 4148 10696 "GET / HTTP/1.1" 200 8283
+INFO 2023-10-19 10:38:52,161 autoreload 21304 1904 Watching for file changes with StatReloader
+INFO 2023-10-19 10:38:56,568 basehttp 21304 18908 "GET / HTTP/1.1" 200 8479
+INFO 2023-10-19 10:38:58,399 basehttp 21304 18908 "GET /profile/profils/4/ HTTP/1.1" 200 2982
+INFO 2023-10-19 10:38:58,429 basehttp 21304 18908 "GET /static/ProfileApp/css/profile.css HTTP/1.1" 304 0
+INFO 2023-10-19 10:39:41,591 autoreload 21152 4536 Watching for file changes with StatReloader
+INFO 2023-10-19 10:39:44,114 basehttp 21152 2860 "GET / HTTP/1.1" 200 8615
+INFO 2023-10-19 10:40:00,348 autoreload 20100 17704 Watching for file changes with StatReloader
+INFO 2023-10-19 10:40:03,872 basehttp 20100 20208 "GET / HTTP/1.1" 200 8609
+INFO 2023-10-19 10:40:17,269 autoreload 1624 4252 Watching for file changes with StatReloader
+INFO 2023-10-19 10:40:20,042 basehttp 1624 15508 "GET / HTTP/1.1" 200 8617
+INFO 2023-10-19 10:40:37,698 autoreload 7824 18696 Watching for file changes with StatReloader
+INFO 2023-10-19 10:40:39,807 basehttp 7824 16800 "GET / HTTP/1.1" 200 8587
+INFO 2023-10-19 10:42:42,589 autoreload 18012 9252 Watching for file changes with StatReloader
+INFO 2023-10-19 10:42:53,957 basehttp 18012 8640 "GET / HTTP/1.1" 200 8769
+INFO 2023-10-19 10:42:54,978 basehttp 18012 8640 "GET /profile/blog/4/ HTTP/1.1" 200 4487
+INFO 2023-10-19 10:42:55,007 basehttp 18012 8640 "GET /media/posts/images/75927-ksyu.jpg HTTP/1.1" 304 0
+INFO 2023-10-19 10:43:06,573 basehttp 18012 8640 "GET / HTTP/1.1" 200 8769
+INFO 2023-10-19 10:51:35,285 autoreload 14212 19480 Watching for file changes with StatReloader
+INFO 2023-10-19 10:51:38,123 basehttp 14212 16592 "GET /profile/blog/4/ HTTP/1.1" 200 8237
+WARNING 2023-10-19 10:51:38,183 log 14212 8688 Not Found: /profile/blog/4/assets/images/11.jpg
+WARNING 2023-10-19 10:51:38,187 basehttp 14212 8688 "GET /profile/blog/4/assets/images/11.jpg HTTP/1.1" 404 5166
+WARNING 2023-10-19 10:51:38,203 log 14212 5132 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 10:51:38,207 basehttp 14212 5132 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 10:51:38,213 log 14212 16592 Not Found: /profile/blog/4/assets/images/gallery03.jpg
+WARNING 2023-10-19 10:51:38,213 basehttp 14212 16592 "GET /profile/blog/4/assets/images/gallery03.jpg HTTP/1.1" 404 5187
+WARNING 2023-10-19 10:51:38,216 log 14212 21492 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 10:51:38,217 log 14212 19252 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 10:51:38,220 log 14212 15540 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 10:51:38,220 basehttp 14212 21492 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 10:51:38,221 basehttp 14212 15540 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 10:51:38,222 basehttp 14212 19252 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 10:51:38,225 log 14212 8688 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 10:51:38,226 basehttp 14212 8688 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 10:52:11,086 autoreload 19952 17880 Watching for file changes with StatReloader
+INFO 2023-10-19 10:52:13,319 basehttp 19952 20016 "GET /profile/blog/4/ HTTP/1.1" 200 8267
+WARNING 2023-10-19 10:52:13,362 log 19952 2844 Not Found: /profile/blog/4/assets/images/11.jpg
+WARNING 2023-10-19 10:52:13,366 basehttp 19952 2844 "GET /profile/blog/4/assets/images/11.jpg HTTP/1.1" 404 5166
+WARNING 2023-10-19 10:52:13,370 log 19952 20016 Not Found: /profile/blog/4/assets/images/gallery03.jpg
+WARNING 2023-10-19 10:52:13,376 basehttp 19952 20016 "GET /profile/blog/4/assets/images/gallery03.jpg HTTP/1.1" 404 5187
+WARNING 2023-10-19 10:52:13,390 log 19952 3924 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 10:52:13,392 log 19952 11884 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 10:52:13,394 log 19952 2140 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 10:52:13,396 log 19952 2844 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 10:52:13,396 basehttp 19952 3924 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 10:52:13,398 log 19952 15620 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 10:52:13,399 basehttp 19952 11884 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 10:52:13,400 basehttp 19952 2140 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 10:52:13,400 basehttp 19952 2844 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 10:52:13,401 basehttp 19952 15620 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+INFO 2023-10-19 10:52:28,922 autoreload 1804 20500 Watching for file changes with StatReloader
+INFO 2023-10-19 10:52:30,230 basehttp 1804 5908 "GET /profile/blog/4/ HTTP/1.1" 200 8303
+WARNING 2023-10-19 10:52:30,292 log 1804 17856 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 10:52:30,293 log 1804 21148 Not Found: /profile/blog/4/assets/images/11.jpg
+WARNING 2023-10-19 10:52:30,295 log 1804 5908 Not Found: /profile/blog/4/assets/images/gallery03.jpg
+WARNING 2023-10-19 10:52:30,297 log 1804 18620 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 10:52:30,299 log 1804 20856 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 10:52:30,299 basehttp 1804 17856 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 10:52:30,301 log 1804 5396 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 10:52:30,302 basehttp 1804 21148 "GET /profile/blog/4/assets/images/11.jpg HTTP/1.1" 404 5166
+WARNING 2023-10-19 10:52:30,303 basehttp 1804 5908 "GET /profile/blog/4/assets/images/gallery03.jpg HTTP/1.1" 404 5187
+WARNING 2023-10-19 10:52:30,304 basehttp 1804 20856 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 10:52:30,304 basehttp 1804 18620 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 10:52:30,306 basehttp 1804 5396 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 10:52:30,311 log 1804 17856 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 10:52:30,312 basehttp 1804 17856 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 10:52:32,490 basehttp 1804 17856 "GET /profile/blog/4/ HTTP/1.1" 200 8303
+WARNING 2023-10-19 10:52:32,531 log 1804 17856 Not Found: /profile/blog/4/assets/images/gallery03.jpg
+WARNING 2023-10-19 10:52:32,536 log 1804 5396 Not Found: /profile/blog/4/assets/images/11.jpg
+WARNING 2023-10-19 10:52:32,536 basehttp 1804 17856 "GET /profile/blog/4/assets/images/gallery03.jpg HTTP/1.1" 404 5187
+WARNING 2023-10-19 10:52:32,540 basehttp 1804 5396 "GET /profile/blog/4/assets/images/11.jpg HTTP/1.1" 404 5166
+WARNING 2023-10-19 10:52:32,549 log 1804 5908 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 10:52:32,550 basehttp 1804 5908 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 10:52:32,555 log 1804 21148 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 10:52:32,556 log 1804 20856 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 10:52:32,557 basehttp 1804 21148 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 10:52:32,559 log 1804 18620 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 10:52:32,560 basehttp 1804 20856 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 10:52:32,560 basehttp 1804 18620 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 10:52:32,562 log 1804 17856 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 10:52:32,563 basehttp 1804 17856 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 10:54:18,895 autoreload 19220 17576 Watching for file changes with StatReloader
+INFO 2023-10-19 10:54:21,148 basehttp 19220 20232 "GET /profile/blog/4/ HTTP/1.1" 200 8318
+WARNING 2023-10-19 10:54:21,178 log 19220 20232 Not Found: /profile/blog/4/assets/images/11.jpg
+WARNING 2023-10-19 10:54:21,182 basehttp 19220 20232 "GET /profile/blog/4/assets/images/11.jpg HTTP/1.1" 404 5166
+WARNING 2023-10-19 10:54:21,210 log 19220 21304 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 10:54:21,210 basehttp 19220 21304 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 10:54:21,214 log 19220 5948 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 10:54:21,215 basehttp 19220 5948 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 10:54:21,217 log 19220 5708 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 10:54:21,218 log 19220 11756 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 10:54:21,219 basehttp 19220 5708 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 10:54:21,221 log 19220 3772 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 10:54:21,221 basehttp 19220 11756 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 10:54:21,222 basehttp 19220 3772 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 10:54:51,572 autoreload 15668 20328 Watching for file changes with StatReloader
+INFO 2023-10-19 10:54:53,900 basehttp 15668 9096 "GET /profile/blog/4/ HTTP/1.1" 200 8310
+WARNING 2023-10-19 10:54:53,961 log 15668 9096 Not Found: /profile/blog/4/assets/images/11.jpg
+WARNING 2023-10-19 10:54:53,962 log 15668 18260 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 10:54:53,965 basehttp 15668 9096 "GET /profile/blog/4/assets/images/11.jpg HTTP/1.1" 404 5166
+WARNING 2023-10-19 10:54:53,967 log 15668 14580 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 10:54:53,968 log 15668 19332 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 10:54:53,968 basehttp 15668 18260 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 10:54:53,969 log 15668 308 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 10:54:53,971 basehttp 15668 14580 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 10:54:53,972 basehttp 15668 19332 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 10:54:53,975 log 15668 18704 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 10:54:53,976 basehttp 15668 308 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 10:54:53,977 basehttp 15668 18704 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 10:55:17,820 autoreload 13092 2796 Watching for file changes with StatReloader
+INFO 2023-10-19 10:55:19,868 basehttp 13092 12484 "GET /profile/blog/4/ HTTP/1.1" 200 8055
+WARNING 2023-10-19 10:55:19,927 log 13092 12484 Not Found: /profile/blog/4/assets/images/11.jpg
+WARNING 2023-10-19 10:55:19,930 log 13092 11204 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 10:55:19,931 basehttp 13092 11204 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 10:55:19,932 basehttp 13092 12484 "GET /profile/blog/4/assets/images/11.jpg HTTP/1.1" 404 5166
+WARNING 2023-10-19 10:55:19,936 log 13092 21400 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 10:55:19,936 basehttp 13092 21400 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 10:55:19,938 log 13092 20360 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 10:55:19,940 log 13092 21124 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 10:55:19,942 log 13092 9260 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 10:55:19,942 basehttp 13092 20360 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 10:55:19,942 basehttp 13092 21124 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 10:55:19,943 basehttp 13092 9260 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 10:57:50,902 autoreload 13092 2796 F:\projects_1\test\SmartLearn-Squad\SmartLearn\ProfileApp\views.py changed, reloading.
+INFO 2023-10-19 10:57:51,405 autoreload 16280 19632 Watching for file changes with StatReloader
+INFO 2023-10-19 11:02:37,976 autoreload 13980 16284 Watching for file changes with StatReloader
+INFO 2023-10-19 11:02:40,678 basehttp 13980 7568 "GET /profile/blog/4/ HTTP/1.1" 200 6711
+INFO 2023-10-19 11:02:40,696 basehttp 13980 7568 "GET /static/assets/web/assets/mobirise-icons2/mobirise2.css HTTP/1.1" 304 0
+INFO 2023-10-19 11:02:40,698 basehttp 13980 21192 "GET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 11:02:40,703 basehttp 13980 16456 "GET /static/assets/bootstrap/css/bootstrap-grid.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 11:02:40,710 basehttp 13980 7568 "GET /static/assets/bootstrap/css/bootstrap-reboot.min.css HTTP/1.1" 304 0
+INFO 2023-10-19 11:02:40,711 basehttp 13980 21192 "GET /static/assets/dropdown/css/style.css HTTP/1.1" 304 0
+INFO 2023-10-19 11:02:40,713 basehttp 13980 16928 "GET /static/assets/mobirise/css/mbr-additional.css HTTP/1.1" 304 0
+INFO 2023-10-19 11:02:40,713 basehttp 13980 12364 "GET /static/assets/theme/css/style.css HTTP/1.1" 304 0
+WARNING 2023-10-19 11:02:40,747 log 13980 16928 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:02:40,748 basehttp 13980 16928 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:02:40,750 log 13980 7568 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:02:40,752 log 13980 21192 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:02:40,754 log 13980 16456 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:02:40,757 log 13980 18232 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:02:40,757 basehttp 13980 7568 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 11:02:40,757 basehttp 13980 21192 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:02:40,757 basehttp 13980 16456 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:02:40,759 basehttp 13980 18232 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+INFO 2023-10-19 11:10:41,086 autoreload 20496 9604 Watching for file changes with StatReloader
+INFO 2023-10-19 11:10:47,563 basehttp 20496 5844 "GET /profile/blog/4/ HTTP/1.1" 200 12493
+WARNING 2023-10-19 11:10:47,634 log 20496 5844 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:10:47,635 log 20496 12068 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:10:47,636 log 20496 13388 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:10:47,637 log 20496 16960 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:10:47,638 basehttp 20496 5844 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:10:47,639 basehttp 20496 12068 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:10:47,639 basehttp 20496 13388 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:10:47,640 basehttp 20496 16960 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:10:47,643 log 20496 20944 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:10:47,644 basehttp 20496 20944 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:11:30,517 autoreload 19856 5180 Watching for file changes with StatReloader
+INFO 2023-10-19 11:11:35,764 basehttp 19856 10616 "GET /profile/blog/4/ HTTP/1.1" 200 12118
+WARNING 2023-10-19 11:11:35,829 log 19856 2036 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:11:35,830 basehttp 19856 2036 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:11:35,832 log 19856 16296 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:11:35,833 log 19856 21356 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:11:35,835 log 19856 20924 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:11:35,836 basehttp 19856 16296 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:11:35,838 log 19856 10616 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:11:35,838 basehttp 19856 20924 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:11:35,838 basehttp 19856 21356 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 11:11:35,839 basehttp 19856 10616 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+INFO 2023-10-19 11:18:34,142 autoreload 18844 7784 Watching for file changes with StatReloader
+INFO 2023-10-19 11:18:36,907 basehttp 18844 20752 "GET /profile/blog/4/ HTTP/1.1" 200 12292
+WARNING 2023-10-19 11:18:36,972 log 18844 9992 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:18:36,975 log 18844 20500 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:18:36,975 log 18844 9272 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:18:36,978 log 18844 3340 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:18:36,979 basehttp 18844 9992 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:18:36,979 basehttp 18844 9272 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:18:36,980 basehttp 18844 3340 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:18:36,981 basehttp 18844 20500 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:18:36,989 log 18844 9272 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:18:36,989 basehttp 18844 9272 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:18:36,998 basehttp 18844 17596 "GET /static/assets/css_nice/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.css HTTP/1.1" 200 28387
+INFO 2023-10-19 11:18:37,005 basehttp 18844 20752 "GET /static/assets/css_nice/nicepage.css HTTP/1.1" 200 1402060
+INFO 2023-10-19 11:20:50,665 autoreload 17380 2796 Watching for file changes with StatReloader
+INFO 2023-10-19 11:20:53,006 basehttp 17380 17436 "GET /profile/blog/4/ HTTP/1.1" 200 12278
+WARNING 2023-10-19 11:20:53,071 log 17380 17436 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:20:53,073 log 17380 5004 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:20:53,074 log 17380 18128 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:20:53,076 log 17380 10776 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:20:53,078 log 17380 6556 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:20:53,078 basehttp 17380 17436 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:20:53,079 basehttp 17380 18128 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 11:20:53,079 basehttp 17380 5004 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:20:53,080 basehttp 17380 10776 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:20:53,081 basehttp 17380 6556 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+INFO 2023-10-19 11:21:03,160 autoreload 15500 18204 Watching for file changes with StatReloader
+INFO 2023-10-19 11:21:04,898 basehttp 15500 1180 "GET /profile/blog/4/ HTTP/1.1" 200 12281
+WARNING 2023-10-19 11:21:04,931 log 15500 19044 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:21:04,933 log 15500 1180 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:21:04,934 basehttp 15500 19044 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:21:04,934 basehttp 15500 1180 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:21:04,953 log 15500 1180 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:21:04,955 log 15500 7416 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:21:04,957 log 15500 19044 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:21:04,957 basehttp 15500 1180 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:21:04,958 basehttp 15500 19044 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:21:04,958 basehttp 15500 7416 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:21:28,350 autoreload 12460 10284 Watching for file changes with StatReloader
+INFO 2023-10-19 11:21:30,666 basehttp 12460 12684 "GET /profile/blog/4/ HTTP/1.1" 200 12507
+WARNING 2023-10-19 11:21:30,713 log 12460 12684 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:21:30,717 log 12460 17616 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:21:30,718 basehttp 12460 12684 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:21:30,719 log 12460 9996 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:21:30,720 basehttp 12460 17616 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:21:30,720 basehttp 12460 9996 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:21:30,724 log 12460 14832 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:21:30,725 log 12460 11220 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:21:30,725 basehttp 12460 14832 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:21:30,726 basehttp 12460 11220 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:21:52,559 autoreload 21260 10352 Watching for file changes with StatReloader
+INFO 2023-10-19 11:21:54,506 basehttp 21260 11988 "GET /profile/blog/4/ HTTP/1.1" 200 12507
+WARNING 2023-10-19 11:21:54,563 log 21260 20552 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:21:54,564 log 21260 19332 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:21:54,566 log 21260 14100 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:21:54,568 log 21260 11988 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:21:54,568 basehttp 21260 20552 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:21:54,569 basehttp 21260 19332 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:21:54,570 basehttp 21260 14100 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:21:54,570 basehttp 21260 11988 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:21:54,572 log 21260 12948 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:21:54,572 basehttp 21260 12948 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:22:06,514 autoreload 3644 5904 Watching for file changes with StatReloader
+INFO 2023-10-19 11:22:08,589 basehttp 3644 19504 "GET /profile/blog/4/ HTTP/1.1" 200 12508
+WARNING 2023-10-19 11:22:08,641 log 3644 19468 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:22:08,641 basehttp 3644 19468 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:22:08,643 log 3644 4820 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:22:08,645 log 3644 20968 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:22:08,646 basehttp 3644 4820 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 11:22:08,647 basehttp 3644 20968 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:22:08,649 log 3644 19504 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:22:08,650 log 3644 2380 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:22:08,651 basehttp 3644 19504 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:22:08,651 basehttp 3644 2380 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+INFO 2023-10-19 11:22:33,446 autoreload 4000 3548 Watching for file changes with StatReloader
+INFO 2023-10-19 11:22:35,330 basehttp 4000 19680 "GET /profile/blog/4/ HTTP/1.1" 200 12493
+WARNING 2023-10-19 11:22:35,365 log 4000 4216 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:22:35,365 basehttp 4000 4216 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:22:35,379 log 4000 11992 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:22:35,380 basehttp 4000 11992 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:22:35,384 log 4000 19680 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:22:35,385 basehttp 4000 19680 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:22:35,403 log 4000 18332 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:22:35,404 basehttp 4000 18332 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 11:22:35,407 log 4000 7964 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:22:35,408 basehttp 4000 7964 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+INFO 2023-10-19 11:22:57,100 autoreload 4664 12008 Watching for file changes with StatReloader
+INFO 2023-10-19 11:22:58,780 basehttp 4664 19996 "GET /profile/blog/4/ HTTP/1.1" 200 12722
+WARNING 2023-10-19 11:22:58,839 log 4664 19916 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:22:58,840 log 4664 19996 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:22:58,842 log 4664 5004 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:22:58,843 log 4664 8488 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:22:58,846 log 4664 6556 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:22:58,846 basehttp 4664 19916 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:22:58,846 basehttp 4664 19996 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+INFO 2023-10-19 11:22:58,848 basehttp 4664 19916 - Broken pipe from ('127.0.0.1', 65000)
+WARNING 2023-10-19 11:22:58,848 basehttp 4664 5004 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+INFO 2023-10-19 11:22:58,848 basehttp 4664 19996 - Broken pipe from ('127.0.0.1', 64999)
+WARNING 2023-10-19 11:22:58,848 basehttp 4664 8488 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:22:58,848 basehttp 4664 6556 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:23:59,783 autoreload 18000 11396 Watching for file changes with StatReloader
+INFO 2023-10-19 11:24:01,690 basehttp 18000 20800 "GET /profile/blog/4/ HTTP/1.1" 200 12477
+WARNING 2023-10-19 11:24:01,748 log 18000 1804 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:24:01,750 log 18000 17400 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:24:01,751 basehttp 18000 1804 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:24:01,753 log 18000 19552 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:24:01,754 log 18000 18036 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:24:01,754 basehttp 18000 17400 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 11:24:01,757 log 18000 20800 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:24:01,758 basehttp 18000 19552 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:24:01,758 basehttp 18000 18036 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:24:01,759 basehttp 18000 20800 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+INFO 2023-10-19 11:24:43,112 autoreload 21336 14416 Watching for file changes with StatReloader
+INFO 2023-10-19 11:24:43,853 basehttp 21336 18876 "GET /profile/blog/4/ HTTP/1.1" 200 12355
+WARNING 2023-10-19 11:24:43,913 log 21336 19156 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:24:43,917 log 21336 18876 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:24:43,917 basehttp 21336 19156 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:24:43,921 basehttp 21336 18876 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:24:43,922 log 21336 11596 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:24:43,925 basehttp 21336 11596 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:24:43,926 log 21336 20384 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:24:43,927 basehttp 21336 20384 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:24:43,929 log 21336 10776 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:24:43,930 basehttp 21336 10776 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:24:46,197 basehttp 21336 10776 "GET /profile/blog/4/ HTTP/1.1" 200 12355
+WARNING 2023-10-19 11:24:46,239 log 21336 10776 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:24:46,241 log 21336 20384 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:24:46,243 basehttp 21336 10776 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:24:46,243 basehttp 21336 20384 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:24:46,246 log 21336 18876 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:24:46,246 basehttp 21336 18876 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:24:46,248 log 21336 19156 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:24:46,250 log 21336 11596 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:24:46,250 basehttp 21336 19156 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+WARNING 2023-10-19 11:24:46,251 basehttp 21336 11596 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+INFO 2023-10-19 11:25:48,080 autoreload 20564 14328 Watching for file changes with StatReloader
+INFO 2023-10-19 11:25:50,014 basehttp 20564 19992 "GET /profile/blog/4/ HTTP/1.1" 200 12412
+WARNING 2023-10-19 11:25:50,071 log 20564 15416 Not Found: /profile/blog/4/assets/ytplayer/index.js
+WARNING 2023-10-19 11:25:50,072 basehttp 20564 15416 "GET /profile/blog/4/assets/ytplayer/index.js HTTP/1.1" 404 5178
+WARNING 2023-10-19 11:25:50,075 log 20564 8924 Not Found: /profile/blog/4/assets/dropdown/js/navbar-dropdown.js
+WARNING 2023-10-19 11:25:50,076 log 20564 17848 Not Found: /profile/blog/4/assets/smoothscroll/smooth-scroll.js
+WARNING 2023-10-19 11:25:50,079 log 20564 19992 Not Found: /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js
+WARNING 2023-10-19 11:25:50,079 basehttp 20564 8924 "GET /profile/blog/4/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 404 5217
+WARNING 2023-10-19 11:25:50,080 basehttp 20564 19992 "GET /profile/blog/4/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 5235
+WARNING 2023-10-19 11:25:50,081 log 20564 10268 Not Found: /profile/blog/4/assets/theme/js/script.js
+WARNING 2023-10-19 11:25:50,081 basehttp 20564 17848 "GET /profile/blog/4/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 404 5214
+WARNING 2023-10-19 11:25:50,083 basehttp 20564 10268 "GET /profile/blog/4/assets/theme/js/script.js HTTP/1.1" 404 5181
+INFO 2023-10-19 11:26:51,862 autoreload 19908 17804 Watching for file changes with StatReloader
+INFO 2023-10-19 11:26:54,121 basehttp 19908 288 "GET /profile/blog/4/ HTTP/1.1" 200 12452
+INFO 2023-10-19 11:26:54,139 basehttp 19908 288 "GET /static/assets/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2023-10-19 11:26:54,141 basehttp 19908 11224 "GET /static/assets/smoothscroll/smooth-scroll.js HTTP/1.1" 304 0
+INFO 2023-10-19 11:26:54,148 basehttp 19908 11224 "GET /static/assets/ytplayer/index.js HTTP/1.1" 304 0
+INFO 2023-10-19 11:26:54,150 basehttp 19908 288 "GET /static/assets/dropdown/js/navbar-dropdown.js HTTP/1.1" 304 0
+INFO 2023-10-19 11:26:54,153 basehttp 19908 2380 "GET /static/assets/theme/js/script.js HTTP/1.1" 304 0
+INFO 2023-10-19 11:27:30,545 basehttp 19908 2380 "GET /profile/profils/4/ HTTP/1.1" 200 2982
+INFO 2023-10-19 11:27:32,607 basehttp 19908 2380 "GET /profile/services/ HTTP/1.1" 200 7341
+INFO 2023-10-19 11:27:32,627 basehttp 19908 2380 "GET /static/ProfileApp/css/services.css HTTP/1.1" 304 0
+INFO 2023-10-19 11:28:18,751 basehttp 19908 2380 "POST /profile/services/ HTTP/1.1" 302 0
+INFO 2023-10-19 11:28:18,762 basehttp 19908 2380 "GET /profile/services/ HTTP/1.1" 200 8323
+INFO 2023-10-19 11:28:29,829 basehttp 19908 2380 "GET /profile/blog/4/ HTTP/1.1" 200 15987

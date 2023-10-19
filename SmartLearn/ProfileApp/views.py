@@ -11,54 +11,52 @@ from django.contrib import auth
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.db.models import Prefetch, Count
 from django.db import transaction
-from .func_therd import main
-
+from django.core.cache import cache
+from icecream import ic
 
 
 def index(request: HttpRequest) -> render:
-    pers = request.user.is_authenticated
+    # ic.disable()
     context = {
         'title': 'Список учителей',
         'users': User.objects.prefetch_related('teacher'),
         'regis': request.user,
-        'autentic': pers,
+        'autentic': ic(request.user.is_authenticated),
         'categories': Tag.objects.all(),
     }
-    return render(request, 'profileapp/profile/index.html', context=context)
+    return render(request, 'profileapp/profile/index_start.html', context=context)
 
 
 def sort_category(request: HttpRequest, tag_id: int = None) -> render:
     categories = Tag.objects.all()
     if tag_id:
-        users = User.objects.filter(teacher__tags__id=tag_id).prefetch_related('teacher')
+        users = ic(User.objects.filter(teacher__tags__id=tag_id).prefetch_related('teacher'))
     else:
         users = User.objects.select_related('teacher').prefetch_related('teacher')
     context = {
         'users': users,
         'categories': categories,
     }
-    return render(request, 'profileapp/profile/index.html', context=context)
+    return render(request, 'profileapp/profile/index_start.html', context=context)
 
 
 def blog(request: HttpRequest, user_id: int) -> render:
     user = User.objects.get(id=user_id)
     teach = False
-    if request.user.is_authenticated:
-        pers = True
-    else:
-        pers = False
     teacher = user.teacher
     if user == request.user:
         teach = True
     context = {
         'title': 'Блог',
         'user': user,
-        'autentic': pers,
+        'autentic': request.user.is_authenticated,
         'teach': teach,
         'posts': Post.objects.filter(teacher=teacher, is_private=False).order_by('-date_create'),
+        'prices': Service.objects.filter(teacher=teacher),
     }
-    return render(request, 'profileapp/profile/blog.html', context=context)
+    return render(request, 'profileapp/profile/new_blog_page.html', context=context)
 
 
 def logining(request):
@@ -238,42 +236,54 @@ def delete_service(request, service_id):
 
 def users_list(request: HttpRequest) -> render:
     teacher = request.user.teacher
+
     if request.method == 'POST':
         form = CabinetTransferForm(request.POST)
         if form.is_valid():
             target_cabinet = form.cleaned_data['target_cabinet']
             users_to_transfer = form.cleaned_data['users_to_transfer']
             delete_cabinet = request.POST.get('delete_cabinet')
-            teacher = request.user.teacher
-            if delete_cabinet:
-                user_to_delete = User.objects.get(id=delete_cabinet)
-                user_to_delete.cabinets.clear()
 
-            for user in users_to_transfer:
-                # Проверьте, принадлежит ли пользователь кабинету другого учителя
-                if user.cabinets.exists():
-                    current_cabinet = user.cabinets.first()
-                    if current_cabinet.teacher != teacher:
-                        # Если пользователь принадлежит другому учителю, не удаляйте его
-                        pass
-                    else:
-                        # Удалите пользователя из текущего кабинета, если он уже принадлежит какому-либо кабинету
-                        current_cabinet.users.remove(user)
+            with transaction.atomic():
+                if delete_cabinet:
+                    user_to_delete = User.objects.get(id=delete_cabinet)
+                    user_to_delete.cabinets.clear()
 
-                # Добавьте пользователя в выбранный кабинет
-                target_cabinet.users.add(user)
+                for user in users_to_transfer:
+                    # Проверьте, принадлежит ли пользователь кабинету другого учителя
+                    if user.cabinets.exists():
+                        current_cabinet = user.cabinets.first()
+                        if current_cabinet.teacher != teacher:
+                            # Если пользователь принадлежит другому учителю, не удаляйте его
+                            pass
+                        else:
+                            # Удалите пользователя из текущего кабинета, если он уже принадлежит какому-либо кабинету
+                            current_cabinet.users.remove(user)
+
+                    # Добавьте пользователя в выбранный кабинет
+                    target_cabinet.users.add(user)
 
             return redirect('profile:users_list')
     else:
         # Обновите queryset для target_cabinet и target_users, чтобы они возвращали только кабинеты и пользователей текущего учителя
-        teacher = request.user.teacher
         form = CabinetTransferForm()
-        form.fields['target_cabinet'].queryset = Cabinet.objects.filter(teacher=teacher)
-        form.fields['users_to_transfer'].queryset = User.objects.filter(student__teacher=teacher)
 
-    cab = Students.objects.filter(teacher=teacher)
-    lst_user = [i.user for i in cab]
-    pers = User.objects.get(id=request.user.id).is_authenticated
+        target_cabinets = Cabinet.objects.filter(teacher=teacher).select_related('teacher')
+        target_users = User.objects.filter(student__teacher=teacher).select_related('student')
+
+        form.fields['target_cabinet'].queryset = target_cabinets
+        form.fields['users_to_transfer'].queryset = target_users
+
+    # Cache the result of the following query for 5 minutes
+    cache_key = f"students_list:{teacher.pk}"
+    lst_user = cache.get(cache_key)
+    if lst_user is None:
+        with transaction.atomic():
+            students = Students.objects.filter(teacher=teacher).select_related('user')
+            lst_user = [student.user for student in students]
+            cache.set(cache_key, lst_user, 300)
+
+    pers = request.user.is_authenticated
 
     context = {
         'users': lst_user,

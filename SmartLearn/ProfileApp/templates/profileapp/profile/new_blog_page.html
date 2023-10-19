@@ -1,0 +1,155 @@
+{% extends 'profileapp/profile/base_index_blog.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-12 col-lg-5 image-wrapper">
+                <img class="w-100" src="{{ user.images.url }}" alt="Mobirise Website Builder">
+            </div>
+            <div class="col-12 col-md-12 col-lg">
+                <div class="text-wrapper align-left">
+                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
+                        <strong>{{ user.first_name }}</strong>
+                    </h1>
+                    <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
+                        {{ user.teacher.description }}
+                    </p>
+                    <div class="mbr-section-btn align-left mt-3">
+                        <a class="btn btn-success-outline display-7" href="https://mobiri.se">Get started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <div class="container">
+        <section class="u-align-center u-clearfix u-grey-5 u-section-2" id="carousel_563d">
+            <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+                <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-20 u-layout-wrap u-layout-wrap-1">
+                    <div class="u-layout">
+                        <div class="u-layout-row" style="">
+                            {% for price in prices %}
+                                <div class="u-align-center u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-20 u-white u-layout-cell-1">
+                                    <div class="u-container-layout u-valign-top u-container-layout-1">
+                                        <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-palette-4-base u-text-3">
+                                            Design</h4>
+                                        <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-palette-4-base u-text-4">
+                                            <span style="font-size: 2.25rem;">{{ price.price }} руб.</span>
+                                        </h3>
+                                        <h6 class="u-custom-font u-font-pt-sans u-text u-text-default u-text-palette-4-base u-text-5">
+                                            Heading Here</h6>
+                                        <div class="u-border-1 u-border-grey-25 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+                                        <p class="u-text u-text-grey-50 u-text-6">{{ price.name }}</p>
+                                        <div class="u-border-1 u-border-grey-25 u-expanded-width u-line u-line-horizontal u-line-2"></div>
+                                        <p class="u-text u-text-grey-50 u-text-7">{{ price.description }}</p>
+                                        <div class="u-border-1 u-border-grey-25 u-expanded-width u-line u-line-horizontal u-line-4"></div>
+                                        <a href="#"
+                                           class="u-active-palette-4-base u-border-2 u-border-palette-4-base u-btn u-button-style u-hover-palette-4-base u-none u-text-active-white u-text-hover-white u-text-palette-4-base u-btn-1">
+                                            Купить
+                                  <span class="u-icon u-icon-1">
+                                      <svg class="u-svg-content" viewBox="0 0 492.004 492.004" x="0px" y="0px"
+                                           style="width: 1em; height: 1em;">
+                                          <g>
+                                              <g>
+                                                  <path d="M484.14,226.886L306.46,49.202c-5.072-5.072-11.832-7.856-19.04-7.856c-7.216,0-13.972,2.788-19.044,7.856l-16.132,16.136
+                                                     c-5.068,5.064-7.86,11.828-7.86,19.04c0,7.208,2.792,14.2,7.86,19.264L355.9,207.526H26.58C11.732,207.526,0,219.15,0,234.002
+                                                        v22.812c0,14.852,11.732,27.648,26.58,27.648h330.496L252.248,388.926c-5.068,5.072-7.86,11.652-7.86,18.864
+                                                          c0,7.204,2.792,13.88,7.86,18.948l16.132,16.084c5.072,5.072,11.828,7.836,19.044,7.836c7.208,0,13.968-2.8,19.04-7.872
+                                                            l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,484.14,226.886z"></path>
+                                              </g>
+                                          </g>
+                                      </svg>
+                                  </span>&nbsp;<br>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <section data-bs-version="5.1" class="article8 cid-tT4ZBrVYs7" id="article08-8">
+
+
+        <div class="container">
+            <div class="row justify-content-center">
+                {% for post in posts %}
+                    <div class="card col-md-12 col-lg-10">
+                        <div class="card-wrapper">
+                            <div class="image-wrapper d-flex justify-content-center mb-4">
+                                <img src="
+                                        {% if post.images %}{{ post.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}"
+                                     alt="Mobirise Website Builder">
+                            </div>
+                            <div class="card-content-text">
+                                <h3 class="card-title mbr-fonts-style mbr-white mt-3 mb-4 display-2">
+                                    <strong>{{ post.title }}</strong>
+                                </h3>
+                                <div class="row card-box align-left">
+                                    <div class="item features-without-image col-12">
+                                        <div class="item-wrapper">
+                                            <h4 class="mbr-section-subtitle mbr-fonts-style mb-3 display-5">
+                                                <strong>Eligibility for returns</strong>
+                                            </h4>
+                                            <p class="mbr-text mbr-fonts-style display-7">
+                                                {{ post.content }}
+                                            </p>
+                                            <p class="mbr-text mbr-fonts-style display-7">
+                                                {{ post.date_create }}
+                                            </p>
+                                            {% if teach %}
+                                                <a href="{% url 'profile:delete_post' post.id %}">
+                                                    <button class="btn btn-primary">
+                                                        <i class="bi bi-cart-fill"></i> Удалить
+                                                    </button>
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="display-7"
+             style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;">
+        <a href="https://mobiri.se/771791"
+           style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;"
+                                                                                          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
+        <p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1"
+                                                                                 href="https://mobirise.com/drag-drop-website-builder.html">Drag
+        and Drop Website Builder</a></section>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+    <script src="{% static 'assets/ytplayer/index.js' %}"></script>
+    <script src="{% static 'assets/dropdown/js/navbar-dropdown.js' %}"></script>
+    <script src="{% static 'assets/theme/js/script.js' %}"></script>
+
+
+{% endblock %}

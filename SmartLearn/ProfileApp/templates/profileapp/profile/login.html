@@ -1,7 +1,14 @@
-{% extends 'profileapp/profile/base_home.html' %}
+{% extends 'profileapp/profile/base_index_blog.html' %}
 
-
+{% load static %}
 {% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="register-container d-flex justify-content-center align-items-center">
         <div class="register-box p-4 rounded">
             <h2 class="mb-4">Авторизация</h2>
@@ -20,7 +27,7 @@
                 {{ form.password.label_tag }}
                 {{ form.password }}
 
-                <input type="submit" value="Login">
+                <input class="btn btn-success" type="submit" value="Login">
             </form>
             <a href="" class="btn btn-primary">Восстановление по электронной почте</a>
             <a href="{% url 'profile:register' %}" class="btn btn-success">Регистрация</a>
