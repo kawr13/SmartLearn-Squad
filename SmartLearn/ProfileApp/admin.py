@@ -8,7 +8,6 @@ from .models import *
 # Register your models here.
 
 
-
 class TagTabular(TabularInline):
     model = Teacher.tags.through
     list_display = ('name',)
@@ -21,11 +20,41 @@ class StudentTabular(TabularInline):
     extra = 0
 
 
+class UserInline(admin.StackedInline):
+    model = User
+    can_delete = False
+    verbose_name = 'User'
+    fields = ['username', 'password', 'first_name',
+              'last_name', 'email',
+              'phone_number', 'is_teacher', 'images',
+              'requisites', 'is_verified_email', 'is_student']
+
+    def get_formset(self, request, obj=None, **kwargs):
+        formset = super().get_formset(request, obj, **kwargs)
+        formset.request = request
+        return formset
+
+
 @admin.register(Teacher)
 class TeacherUsAdmin(admin.ModelAdmin):
-    inlines = [TagTabular, StudentTabular]
-    list_display = ('id', 'description',)
+    inlines = [TagTabular, StudentTabular, UserInline]
+    list_display = ('id', 'get_username', 'get_first_name', 'get_last_name', 'description',)
     fields = ('description',)
+
+    def get_first_name(self, obj):
+        if obj.user_teacher.first_name:
+            return obj.user_teacher.first_name
+        return ''
+
+    def get_last_name(self, obj):
+        if obj.user_teacher.last_name:
+            return obj.user_teacher.last_name
+        return ''
+
+    def get_username(self, obj):
+        if obj.user_teacher.username:
+            return obj.user_teacher.username
+        return ''
 
 
 @admin.register(Tag)
