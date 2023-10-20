@@ -80,6 +80,7 @@ class UserAdmin(admin.ModelAdmin):
 
     display_image.short_description = 'Изображение'
 
+
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('name',)

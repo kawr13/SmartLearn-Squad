@@ -44,7 +44,6 @@ class UserRegisterForm(UserCreationForm):
     )
     images = forms.ImageField(label='Изображение', widget=forms.FileInput(attrs={'class': 'form-control'}), required=False)
 
-
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'phone_number',

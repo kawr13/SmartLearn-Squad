@@ -20,11 +20,15 @@ from django.conf.urls.static import static
 from django.conf import settings
 from ProfileApp.views import index
 
+
+
 urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('cabinet/', include('CabinetApp.urls', namespace='сabinet')),
     path('profile/', include('ProfileApp.urls', namespace='profile')),
+
+
 ]
 
 if settings.DEBUG:

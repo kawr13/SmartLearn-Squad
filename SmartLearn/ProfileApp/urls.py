@@ -14,8 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
-
+from django.urls import path, reverse_lazy
+from django.contrib.auth import views as auth_views
 from .views import sort_category, blog, logining, UserRegisterViews, logout, profiluser, profilusercabinet, delete_post, \
     services, edit_service, users_list, publish_post, delete_service
 
@@ -26,6 +26,7 @@ urlpatterns = [
     path('blog/<int:user_id>/', blog, name='blog'),
     path('login/', logining, name='login'),
     path('register/', UserRegisterViews.as_view(), name='register'),
+
     path('logout/', logout, name='logout'),
     path('profils/<int:user_id>/', profiluser, name='updateViews'),
     path('profils/cabinet/<int:user_id>/', profilusercabinet, name='profile_cabinet'),
@@ -35,4 +36,10 @@ urlpatterns = [
     path('delete_service/<int:service_id>/', delete_service, name='delete_serv'),
     path('users/', users_list, name='users_list'),
     path('publish/', publish_post, name='publish_post'),
+
+    #### восстановленние пароля ####
+    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'), name='password_reset'),
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 ]

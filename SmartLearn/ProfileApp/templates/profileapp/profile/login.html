@@ -29,7 +29,7 @@
 
                 <input class="btn btn-success" type="submit" value="Login">
             </form>
-            <a href="" class="btn btn-primary">Восстановление по электронной почте</a>
+            <a href="{% url 'profile:password_reset' %}" class="btn btn-primary">Восстановление по электронной почте</a>
             <a href="{% url 'profile:register' %}" class="btn btn-success">Регистрация</a>
         </div>
     </div>
