@@ -83,6 +83,7 @@ def logining(request):
 
 
 class UserRegisterViews(CreateView):
+    ic.disable()
     model = User
     form_class = UserRegisterForm
     template_name = 'profileapp/profile/register.html'
@@ -95,8 +96,11 @@ class UserRegisterViews(CreateView):
         if is_teacher:
             user.is_teacher = True
             teacher = Teacher.objects.create(description='')
+            ic(teacher)
             user.teacher = teacher
-            teacher.users.add(user)
+            ic(user.teacher)
+            teacher.user_teacher = ic(user)
+            ic(teacher.user_teacher)
         else:
             user.is_student = True
         user.save()
