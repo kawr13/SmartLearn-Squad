@@ -27,8 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cabinet/', include('CabinetApp.urls', namespace='сabinet')),
     path('profile/', include('ProfileApp.urls', namespace='profile')),
-
-
+    path('', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:
