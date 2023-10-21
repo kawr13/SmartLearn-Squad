@@ -5,7 +5,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 from CabinetApp.models import Schedule, Cabinet
 from ProfileApp.forms import UserForm, UserRegisterForm, CabinetForm, BlogForm, ServiceForm, CabinetTransferForm
-from ProfileApp.models import Teacher, User, Tag, Post, EmailVerification, Service, Students
+from ProfileApp.models import Teacher, User, Tag, Post, EmailVerification, Service, Students, Baskets
 # from Cabinet.models import Schedule
 from django.contrib import auth
 from django.shortcuts import render
@@ -309,8 +309,6 @@ def users_list(request: HttpRequest) -> render:
     return render(request, 'profileapp/profile/users_list.html', context=context)
 
 
-
-
 def publish_post(request):
     user_t = User.objects.get(id=request.user.id)
     if request.method == 'POST':
@@ -355,4 +353,13 @@ def publish_post(request):
 #     return render(request, 'profileapp/profile/profile_info_teacher.html', context=context)
 
 
-# def sevices_pay(request, ):
+def sevices_pay(request, service_id):
+    service = Service.objects.get(id=service_id)
+    basket = Baskets.objects.filter(user=request.user, service=service)
+    if not basket.exists():
+        Baskets.objects.create(user=request.user, service=service, quantity=1)
+    else:
+        basket = basket.first()
+        basket.quantity += 1
+        basket.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

@@ -35,6 +35,11 @@ class UserInline(admin.StackedInline):
         return formset
 
 
+@admin.register(Baskets)
+class Baskets(admin.ModelAdmin):
+    list_display = ('id', 'user')
+
+
 @admin.register(Teacher)
 class TeacherUsAdmin(admin.ModelAdmin):
     inlines = [TagTabular, StudentTabular, UserInline]

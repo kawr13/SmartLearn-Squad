@@ -35,7 +35,7 @@
 	<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
 		<div class="container">
 			<div class="navbar-brand">
-				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="https://mobiri.se">Mobirise</a></span>
+				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="{% url 'index' %}">SmartLearn</a></span>
 			</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<div class="hamburger">
@@ -60,6 +60,14 @@
                        <li class="nav-item">
                             <a class="nav-link link text-black display-4" href="{% url 'profile:logout' %}"> Выход</a>
                         </li>
+                        {% if user.is_student %}
+                        	<li class="nav-item">
+                                <a class="nav-link link text-black display-4" href="{% url 'profile:logout' %}">
+                                    Услуги
+                                    <span class="badge badge-primary rounded-circle">3</span>
+                                </a>
+                            </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link link text-black display-4" href="{% url 'profile:updateViews' user.id %}"> Профиль</a>
                         </li>

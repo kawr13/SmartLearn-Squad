@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-12 col-lg-5 image-wrapper">
-                <img class="w-100" src="{{ user.images.url }}" alt="Mobirise Website Builder">
+                <img class="w-100" src="{% if user.images %}{{ user.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" alt="Mobirise Website Builder">
             </div>
             <div class="col-12 col-md-12 col-lg">
                 <div class="text-wrapper align-left">
@@ -59,7 +59,7 @@
                                         <div class="u-border-1 u-border-grey-25 u-expanded-width u-line u-line-horizontal u-line-2"></div>
                                         <p class="u-text u-text-grey-50 u-text-7">{{ price.description }}</p>
                                         <div class="u-border-1 u-border-grey-25 u-expanded-width u-line u-line-horizontal u-line-4"></div>
-                                        <a href="#"
+                                        <a href="{% url 'profile:pay_service' price.id %}"
                                            class="u-active-palette-4-base u-border-2 u-border-palette-4-base u-btn u-button-style u-hover-palette-4-base u-none u-text-active-white u-text-hover-white u-text-palette-4-base u-btn-1">
                                             Купить
                                   <span class="u-icon u-icon-1">
