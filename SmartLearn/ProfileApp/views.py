@@ -138,16 +138,16 @@ def profiluser(request: HttpRequest, user_id: int) -> render:
 
 
 def profilusercabinet(request: HttpRequest, user_id: int) -> render:
-    if request.user.id:
-        pers = User.objects.get(id=request.user.id).is_authenticated
-    else:
-        pers = False
     if request.method == 'POST':
         form = CabinetForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('profile:profile_cabinet', kwargs={'user_id': user_id}))
 
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id).is_authenticated
+    else:
+        pers = False
     user = User.objects.get(id=user_id)
     teacher = None
     cabinets = None
@@ -249,6 +249,7 @@ def delete_service(request, service_id):
 
 def users_list(request: HttpRequest) -> render:
     teacher = request.user.teacher
+    ic(teacher)
 
     if request.method == 'POST':
         form = CabinetTransferForm(request.POST)
@@ -290,6 +291,8 @@ def users_list(request: HttpRequest) -> render:
     # Cache the result of the following query for 5 minutes
     cache_key = f"students_list:{teacher.pk}"
     lst_user = cache.get(cache_key)
+
+    ic(lst_user)
     if lst_user is None:
         with transaction.atomic():
             students = Students.objects.filter(teacher=teacher).select_related('user')
@@ -350,3 +353,6 @@ def publish_post(request):
 #         'posts': posts,
 #     }
 #     return render(request, 'profileapp/profile/profile_info_teacher.html', context=context)
+
+
+# def sevices_pay(request, ):

@@ -116,7 +116,13 @@ class Students(models.Model):
     def __str__(self):
         return f"Student {self.user.username}"
 
+class Baskets(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='basket')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='basket_service')
+    quantity = models.PositiveIntegerField(default=0)
+    create_date = models.DateTimeField(auto_now_add=True)
 
-
+    def __str__(self):
+        return f"Basket {self.service.name} for {self.user.username}"
 
 
