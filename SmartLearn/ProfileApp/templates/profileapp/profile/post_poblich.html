@@ -1,4 +1,4 @@
-{% extends 'profileapp/profile/base_home.html' %}
+{% extends 'profileapp/profile/base_cabinet_index.html' %}
 {% load static %}
 
 {% block title %}
@@ -41,40 +41,13 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Боковая панель навигации -->
-    <div class="sidenav">
-        <a href="#" class="active">Статистика</a>
-        <a href="{%  url 'profile:services' %}">Услуги</a>
-        <a href="{%  url 'profile:profile_cabinet' user.id %}">Кабинеты</a>
-        {% if user.is_teacher %}
-            <a href="{%  url 'profile:publish_post' %}">Создать пост</a>
-            <a href="{%  url 'profile:users_list' %}">Пользователи</a>
-        {% endif %}
-    </div>
-
-    <!-- Основной контент -->
-    <div class="content">
-            {% if teach %}
-                <div class="blog-header">
-                    <form action="{% url 'profile:publish_post' %}" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-        {#                <div class="form-group">#}
-        {#                    <label for="post-title">Заголовок поста:</label>#}
-        {#                    <input type="text" id="post-title" placeholder="Заголовок поста">#}
-        {#                </div>#}
-        {#                <div class="form-group">#}
-        {#                    <label for="post-text">Текст поста:</label>#}
-        {#                    <textarea id="post-text" placeholder="Текст поста"></textarea>#}
-        {#                </div>#}
-        {#                <div class="form-group">#}
-        {#                    <label for="image-upload">Загрузить изображение:</label>#}
-        {#                    <input type="file" id="image-upload" accept="image/*"> <!-- Кнопка для загрузки изображения -->#}
-        {#                </div>#}
-                        <button type="submit">Сохранить пост</button>
-                    </form>
-                </div>
-            {% endif %}
-        <!-- Здесь будет отображаться контент для выбранного пункта меню -->
-    </div>
+    {% if teach %}
+        <div class="blog-header">
+            <form action="{% url 'profile:publish_post' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Сохранить пост</button>
+            </form>
+        </div>
+    {% endif %}
 {% endblock %}

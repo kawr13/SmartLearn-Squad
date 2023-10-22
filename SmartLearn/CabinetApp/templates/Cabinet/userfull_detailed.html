@@ -1,4 +1,4 @@
-{% extends 'Cabinet/base_home.html' %}
+{% extends 'ProfileApp/profile/base_cabinet_index.html' %}
 {% load static %}
 
 {% block title %}
@@ -87,16 +87,6 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Боковая панель навигации -->
-    <div class="sidenav">
-        <a href="#" class="active">Статистика</a>
-        <a href="{%  url 'profile:services' %}">Услуги</a>
-        <a href="{%  url 'profile:profile_cabinet' user_id %}">Кабинеты</a>
-        {% if title != 'Полезная информация' %}
-            <a href="{%  url 'cabinet:userfull_info_cab' cabinet_id %}">Полезные материалы</a>
-        {% endif %}
-    </div>
-
     <!-- Основной контент -->
     <div class="content">
         <div class="container my-4">
