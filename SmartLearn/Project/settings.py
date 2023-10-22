@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "ProfileApp.apps.ProfileappConfig",
     'CabinetApp.apps.CabinetConfig',
     'tinymce',
+    'chatapp.apps.ChatappConfig',
 ]
 
 MIDDLEWARE = [
