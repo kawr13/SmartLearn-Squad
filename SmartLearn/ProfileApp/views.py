@@ -18,8 +18,8 @@ from icecream import ic
 
 
 def index(request: HttpRequest) -> render:
-    # ic.disable()
-    bas_quant = Baskets.objects.all()
+
+    bas_quant = Baskets.objects.filter(user=request.user)
     context = {
         'title': 'Список учителей',
         'users': User.objects.prefetch_related('teacher'),
@@ -48,7 +48,7 @@ def blog(request: HttpRequest, user_id: int) -> render:
     user = User.objects.get(id=user_id)
     teach = False
     teacher = user.teacher
-    bas_quant = Baskets.objects.all()
+    bas_quant = Baskets.objects.filter(user=user)
     if user == request.user:
         teach = True
     context = {
@@ -87,7 +87,7 @@ def logining(request):
 
 
 class UserRegisterViews(CreateView):
-    ic.disable()
+    # ic.disable()
     model = User
     form_class = UserRegisterForm
     template_name = 'profileapp/profile/register.html'
@@ -361,7 +361,7 @@ def sevices_pay(request, service_id):
     service = Service.objects.get(id=service_id)
     basket = Baskets.objects.filter(user=request.user, service=service)
     if not basket.exists():
-        Baskets.objects.create(user=request.user, service=service, quantity=1)
+        Baskets.objects.create(user=request.user, service=service, quantity=0)
     else:
         basket = basket.first()
         basket.quantity += 1
