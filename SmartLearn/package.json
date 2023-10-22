@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^40.0.0",
+    "@editorjs/editorjs": "^2.28.2"
+  }
+}

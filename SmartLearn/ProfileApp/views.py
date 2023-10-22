@@ -19,12 +19,14 @@ from icecream import ic
 
 def index(request: HttpRequest) -> render:
     # ic.disable()
+    bas_quant = Baskets.objects.all()
     context = {
         'title': 'Список учителей',
         'users': User.objects.prefetch_related('teacher'),
         'regis': request.user,
         'autentic': ic(request.user.is_authenticated),
         'categories': Tag.objects.all(),
+        'bas_quant': bas_quant.total_quantity(),
     }
     return render(request, 'profileapp/profile/index_start.html', context=context)
 
@@ -46,15 +48,17 @@ def blog(request: HttpRequest, user_id: int) -> render:
     user = User.objects.get(id=user_id)
     teach = False
     teacher = user.teacher
+    bas_quant = Baskets.objects.all()
     if user == request.user:
         teach = True
     context = {
         'title': 'Блог',
-        'user': user,
+        'user_auth': user,
         'autentic': request.user.is_authenticated,
         'teach': teach,
         'posts': Post.objects.filter(teacher=teacher, is_private=False).order_by('-date_create'),
         'prices': Service.objects.filter(teacher=teacher),
+        'bas_quant': bas_quant.total_quantity(),
     }
     return render(request, 'profileapp/profile/new_blog_page.html', context=context)
 
@@ -362,4 +366,40 @@ def sevices_pay(request, service_id):
         basket = basket.first()
         basket.quantity += 1
         basket.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def post_detailed(request: HttpRequest, post_id: int) -> render:
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id)
+    else:
+        pers = False
+    post = Post.objects.get(id=post_id)
+    context = {
+        'title': 'Полезная информация',
+        'user_id': pers.id,
+        'autentic': pers.is_authenticated,
+        'posts': post,
+    }
+    return render(request, 'profileapp/profile/blog.html', context=context)
+
+
+def services_order(request):
+    baskets = Baskets.objects.filter(user=request.user)
+    context = {
+        'title': 'Оформление',
+        'user_id': request.user.id,
+        'baskets': baskets,
+        'autentic': request.user.is_authenticated,
+    }
+    return render(request, 'profileapp/profile/services_pays.html', context=context)
+
+
+def delete_basket(request, basket_id):
+    basket = Baskets.objects.get(id=basket_id)
+    if basket.quantity > 1:
+        basket.quantity -= 1
+        basket.save()
+    else:
+        basket.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

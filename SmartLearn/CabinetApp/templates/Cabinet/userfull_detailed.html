@@ -15,71 +15,72 @@
 {#    }</script>#}
 {% endblock %}
 {% block styles %}
-    <style>
-        .sidenav {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333; /* Цвет фона */
-            padding-top: 20px;
-            z-index: 1; /* Устанавливаем z-index для боковой панели */
-        }
-
-        /* Стили для пунктов меню */
-        .sidenav a {
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff; /* Цвет текста */
-            display: block;
-        }
-
-        /* Стили для активного пункта меню */
-        .sidenav a.active {
-            background-color: #4CAF50; /* Цвет активного пункта */
-        }
-
-        /* Стили для контента, сдвигаемого вправо */
-        .content {
-            margin-left: 250px; /* Ширина боковой панели */
-            padding: 20px;
-            z-index: 1; /* Устанавливаем z-index для контента */
-        }
-
-                .sidenav {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333; /* Цвет фона */
-            padding-top: 20px;
-            z-index: 1; /* Устанавливаем z-index для боковой панели */
-        }
-
-        /* Стили для пунктов меню */
-        .sidenav a {
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff; /* Цвет текста */
-            display: block;
-        }
-
-        /* Стили для активного пункта меню */
-        .sidenav a.active {
-            background-color: #4CAF50; /* Цвет активного пункта */
-        }
-
-        /* Стили для контента, сдвигаемого вправо */
-        .content {
-            margin-left: 250px; /* Ширина боковой панели */
-            padding: 20px;
-            z-index: 1; /* Устанавливаем z-index для контента */
-        }
-    </style>
+        <link rel="stylesheet" href="{% static 'ProfileApp/css/blog.css' %}">
+{#    <style>#}
+{#        .sidenav {#}
+{#            height: 100%;#}
+{#            width: 250px;#}
+{#            position: fixed;#}
+{#            top: 0;#}
+{#            left: 0;#}
+{#            background-color: #333; /* Цвет фона */#}
+{#            padding-top: 20px;#}
+{#            z-index: 1; /* Устанавливаем z-index для боковой панели */#}
+{#        }#}
+{##}
+{#        /* Стили для пунктов меню */#}
+{#        .sidenav a {#}
+{#            padding: 15px 25px;#}
+{#            text-decoration: none;#}
+{#            font-size: 18px;#}
+{#            color: #fff; /* Цвет текста */#}
+{#            display: block;#}
+{#        }#}
+{##}
+{#        /* Стили для активного пункта меню */#}
+{#        .sidenav a.active {#}
+{#            background-color: #4CAF50; /* Цвет активного пункта */#}
+{#        }#}
+{##}
+{#        /* Стили для контента, сдвигаемого вправо */#}
+{#        .content {#}
+{#            margin-left: 250px; /* Ширина боковой панели */#}
+{#            padding: 20px;#}
+{#            z-index: 1; /* Устанавливаем z-index для контента */#}
+{#        }#}
+{##}
+{#                .sidenav {#}
+{#            height: 100%;#}
+{#            width: 250px;#}
+{#            position: fixed;#}
+{#            top: 0;#}
+{#            left: 0;#}
+{#            background-color: #333; /* Цвет фона */#}
+{#            padding-top: 20px;#}
+{#            z-index: 1; /* Устанавливаем z-index для боковой панели */#}
+{#        }#}
+{##}
+{#        /* Стили для пунктов меню */#}
+{#        .sidenav a {#}
+{#            padding: 15px 25px;#}
+{#            text-decoration: none;#}
+{#            font-size: 18px;#}
+{#            color: #fff; /* Цвет текста */#}
+{#            display: block;#}
+{#        }#}
+{##}
+{#        /* Стили для активного пункта меню */#}
+{#        .sidenav a.active {#}
+{#            background-color: #4CAF50; /* Цвет активного пункта */#}
+{#        }#}
+{##}
+{#        /* Стили для контента, сдвигаемого вправо */#}
+{#        .content {#}
+{#            margin-left: 250px; /* Ширина боковой панели */#}
+{#            padding: 20px;#}
+{#            z-index: 1; /* Устанавливаем z-index для контента */#}
+{#        }#}
+{#    </style>#}
 {% endblock %}
 
 {% block modals %}
@@ -87,27 +88,40 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Основной контент -->
-    <div class="content">
-        <div class="container my-4">
-            <section class="u-align-center u-clearfix u-section-1" id="sec-e358">
-              <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
-                <div class="u-container-style u-expanded-width u-post-details u-post-details-1">
-                  <div class="u-container-layout u-valign-middle u-container-layout-1"><!--blog_post_image-->
-                    <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" src="{% if posts.images %}{{ posts.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}"><!--/blog_post_image--><!--blog_post_header-->
-                    <h2 class="u-blog-control u-text u-text-1">{{ posts.title }}</h2><!--/blog_post_header--><!--blog_post_metadata-->
-                    <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
-                      <span class="u-meta-date u-meta-icon">{{ posts.date_create }}</span><!--/blog_post_metadata_date--><!--blog_post_metadata_category-->
-                      <!--/blog_post_metadata_category--><!--blog_post_metadata_comments-->
-                      <!--/blog_post_metadata_comments-->
-                    </div><!--/blog_post_metadata--><!--blog_post_content-->
-                    <div class="u-align-justify u-blog-control u-post-content u-text u-text-2 fr-view">
-            {{ posts.content }}
-            </div><!--/blog_post_content-->
-                  </div>
-                </div><!--/blog_post--><!--/post_details-->
-              </div>
-            </section>
+
+<section data-bs-version="5.1" class="article8 cid-tT4ZBrVYs7" id="article08-8">
+    <div class="container blog-container">
+        <div class="row justify-content-center">
+            <div class="u-container-layout u-valign-middle u-container-layout-1">
+                <!-- Добавьте стили width и height к img -->
+                <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1"
+                     src="{% if posts.images %}{{ posts.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}"
+                     style="max-width: 100%; height: auto;"> <!-- Измените значения width и height по вашему усмотрению -->
+                <h2 class="u-blog-control u-text u-text-1 text-center">{{ posts.title }}</h2>
+                <div class="u-align-justify u-blog-control u-post-content u-text u-text-2 fr-view">
+                    {{ posts.content|safe }}
+                </div>
+                <div class="u-blog-control u-metadata u-metadata-1">
+                    <span class="u-meta-date u-meta-icon">{{ posts.date_create }}</span>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
+
+<script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+<script src="{% static 'assets/ytplayer/index.js' %}"></script>
+<script src="{% static 'assets/dropdown/js/navbar-dropdown.js' %}"></script>
+<script src="{% static 'assets/theme/js/script.js' %}"></script>
+
+<style>
+    .blog-container {
+        max-width: 800px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+</style>
 {% endblock %}
+
 {% block script %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}

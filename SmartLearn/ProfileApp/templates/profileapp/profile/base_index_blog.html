@@ -63,9 +63,9 @@
 
                         {% if user.is_student %}
                         	<li class="nav-item">
-                                <a class="nav-link link text-black display-4" href="">
+                                <a class="nav-link link text-black display-4" href="{% url 'profile:services_pay' %}">
                                     Услуги
-                                    <span class="badge badge-primary rounded-circle">3</span>
+                                    <span class="badge badge-primary rounded-circle">{{ bas_quant }}</span>
                                 </a>
                             </li>
                         {% endif %}

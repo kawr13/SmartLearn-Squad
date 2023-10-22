@@ -17,17 +17,17 @@
     <br>
     <br>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="max-width: 100%; height: auto;">
             <div class="col-12 col-md-12 col-lg-5 image-wrapper">
-                <img class="w-100" src="{% if user.images %}{{ user.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" alt="Mobirise Website Builder">
+                <img class="w-100" src="{% if user_auth.images %}{{ user_auth.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" alt="Mobirise Website Builder">
             </div>
             <div class="col-12 col-md-12 col-lg">
                 <div class="text-wrapper align-left">
                     <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
-                        <strong>{{ user.first_name }}</strong>
+                        <strong>{{ user_auth.first_name }}</strong>
                     </h1>
                     <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
-                        {{ user.teacher.description }}
+                        {{ user_auth.teacher.description }}
                     </p>
                     <div class="mbr-section-btn align-left mt-3">
                         <a class="btn btn-success-outline display-7" href="https://mobiri.se">Get started</a>
@@ -95,14 +95,15 @@
 
 
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" style="max-width: 100%; height: auto;">
                 {% for post in posts %}
                     <div class="card col-md-12 col-lg-10">
+                    <a href="{% url 'profile:post_detailed' post.id %}">
                         <div class="card-wrapper">
-                            <div class="image-wrapper d-flex justify-content-center mb-4">
+                            <div class="image-wrapper d-flex justify-content-center mb-4 ">
                                 <img src="
                                         {% if post.images %}{{ post.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}"
-                                     alt="Mobirise Website Builder">
+                                     alt="Mobirise Website Builder" style="max-width: 100%; height: auto;">
                             </div>
                             <div class="card-content-text">
                                 <h3 class="card-title mbr-fonts-style mbr-white mt-3 mb-4 display-2">
@@ -111,11 +112,8 @@
                                 <div class="row card-box align-left">
                                     <div class="item features-without-image col-12">
                                         <div class="item-wrapper">
-                                            <h4 class="mbr-section-subtitle mbr-fonts-style mb-3 display-5">
-                                                <strong>Eligibility for returns</strong>
-                                            </h4>
                                             <p class="mbr-text mbr-fonts-style display-7">
-                                                {{ post.content }}
+                                                {{ post.content|safe }}
                                             </p>
                                             <p class="mbr-text mbr-fonts-style display-7">
                                                 {{ post.date_create }}

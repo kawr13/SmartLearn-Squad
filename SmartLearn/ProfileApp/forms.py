@@ -4,9 +4,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from CabinetApp.models import Cabinet
 from ProfileApp.models import User, EmailVerification, Service, Students
-from django.utils.timezone import now
-import uuid
-from datetime import timedelta
+from tinymce.widgets import TinyMCE
 
 
 class UserForm(AuthenticationForm):
@@ -59,7 +57,7 @@ class CabinetForm(forms.ModelForm):
 
 class BlogForm(forms.ModelForm):
     title = forms.CharField(label='Заголовок', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    content = forms.CharField(label='Текст', widget=forms.Textarea(attrs={'class': 'form-control'}))
+    content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
     images = forms.ImageField(label='Изображение', widget=forms.FileInput(attrs={'class': 'form-control'}), required=False)
     is_published = forms.BooleanField(label='Опубликовано', widget=forms.CheckboxInput(attrs={'class': 'form-check'}),
                                     required=False)

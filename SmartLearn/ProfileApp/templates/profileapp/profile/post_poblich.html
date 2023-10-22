@@ -4,7 +4,10 @@
 {% block title %}
 {{ title }}
 {% endblock %}
+
 {% block styles %}
+    <!-- Подключение стилей Editor.js -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest/dist/editorjs.min.css">
     <style>
         .sidenav {
             height: 100%;
@@ -40,14 +43,29 @@
     </style>
 {% endblock %}
 
+{% block scripts %}
+    <!-- Подключение скрипта Editor.js -->
+    <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({selector:'textarea'});
+    </script>
+{% endblock %}
+
 {% block content %}
     {% if teach %}
         <div class="blog-header">
             <form action="{% url 'profile:publish_post' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Сохранить пост</button>
+                <input type="submit" value="Отправить">
             </form>
         </div>
     {% endif %}
+</div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        tinymce.init({selector:'textarea'});
+    </script>
 {% endblock %}

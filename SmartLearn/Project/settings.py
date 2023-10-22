@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "ProfileApp.apps.ProfileappConfig",
     'CabinetApp.apps.CabinetConfig',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -73,6 +75,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Project.wsgi.application'
 
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 360,
+    'width': 1000,
+    'selector': 'textarea',
+    'plugins': 'advlist autolink lists link image charmap print preview anchor',
+    'toolbar': 'aundo redo | formatselect | bold italic backcolor | link image | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | code',
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
