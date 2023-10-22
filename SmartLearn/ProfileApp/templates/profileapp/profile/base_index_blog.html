@@ -12,7 +12,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <meta name="description" content="">
 
+  <style>
+    /* Ваши стили для матового эффекта */
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.5); /* Задайте фон с непрозрачностью */
+        backdrop-filter: blur(10px); /* Матовый эффект */
+    }
 
+    .navbar a {
+        color: #333; /* Цвет ссылок */
+    }
+  </style>
 
   <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons2/mobirise2.css' %}">
   <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
