@@ -18,15 +18,18 @@ from icecream import ic
 
 
 def index(request: HttpRequest) -> render:
+    if request.user.is_authenticated:
+        bas_quant = Baskets.objects.filter(user=request.user).total_quantity()
+    else:
+        bas_quant = 0
 
-    bas_quant = Baskets.objects.filter(user=request.user)
     context = {
         'title': 'Список учителей',
         'users': User.objects.prefetch_related('teacher'),
         'regis': request.user,
-        'autentic': ic(request.user.is_authenticated),
+        'autentic': request.user.is_authenticated,
         'categories': Tag.objects.all(),
-        'bas_quant': bas_quant.total_quantity(),
+        'bas_quant': bas_quant,
     }
     return render(request, 'profileapp/profile/index_start.html', context=context)
 
@@ -48,7 +51,10 @@ def blog(request: HttpRequest, user_id: int) -> render:
     user = User.objects.get(id=user_id)
     teach = False
     teacher = user.teacher
-    bas_quant = Baskets.objects.filter(user=user)
+    if request.user.is_authenticated:
+        bas_quant = Baskets.objects.filter(user=request.user).total_quantity()
+    else:
+        bas_quant = 0
     if user == request.user:
         teach = True
     context = {
@@ -58,7 +64,7 @@ def blog(request: HttpRequest, user_id: int) -> render:
         'teach': teach,
         'posts': Post.objects.filter(teacher=teacher, is_private=False).order_by('-date_create'),
         'prices': Service.objects.filter(teacher=teacher),
-        'bas_quant': bas_quant.total_quantity(),
+        'bas_quant': bas_quant,
     }
     return render(request, 'profileapp/profile/new_blog_page.html', context=context)
 
@@ -361,7 +367,7 @@ def sevices_pay(request, service_id):
     service = Service.objects.get(id=service_id)
     basket = Baskets.objects.filter(user=request.user, service=service)
     if not basket.exists():
-        Baskets.objects.create(user=request.user, service=service, quantity=0)
+        Baskets.objects.create(user=request.user, service=service, quantity=1)
     else:
         basket = basket.first()
         basket.quantity += 1
@@ -385,13 +391,19 @@ def post_detailed(request: HttpRequest, post_id: int) -> render:
 
 
 def services_order(request):
-    baskets = Baskets.objects.filter(user=request.user)
-    context = {
-        'title': 'Оформление',
-        'user_id': request.user.id,
-        'baskets': baskets,
-        'autentic': request.user.is_authenticated,
-    }
+    if request.user.is_authenticated:
+        baskets = Baskets.objects.filter(user=request.user)
+        context = {
+            'title': 'Оформление',
+            'user_id': request.user.id,
+            'baskets': baskets,
+            'autentic': request.user.is_authenticated,
+        }
+    else:
+        context = {
+            'title': 'Оформление',
+            'autentic': False,
+        }
     return render(request, 'profileapp/profile/services_pays.html', context=context)
 
 

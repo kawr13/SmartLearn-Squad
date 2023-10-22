@@ -44,7 +44,7 @@
 	<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
 		<div class="container">
 			<div class="navbar-brand">
-				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="{% url 'index' %}">SmartLearn</a></span>
+				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="{% url 'index' %}">Главная</a></span>
 			</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<div class="hamburger">
@@ -57,13 +57,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
 					<li class="nav-item">
-						<a class="nav-link link text-black display-4" href="https://mobiri.se">About</a>
+						<a class="nav-link link text-black display-4" href="#">О нас</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link link text-black display-4" href="https://mobiri.se" aria-expanded="false">Services</a>
+						<a class="nav-link link text-black display-4" href="#" aria-expanded="false">Прайс</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link link text-black display-4" href="https://mobiri.se">Contacts</a>
+						<a class="nav-link link text-black display-4" href="#">Контакты</a>
 					</li>
                     {% if autentic %}
                        <li class="nav-item">
@@ -92,7 +92,7 @@
 		</div>
 	</nav>
 </section>
-
+<body>
 {% block content %}
 {% endblock %}
 </body>

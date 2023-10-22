@@ -24,13 +24,22 @@
             <div class="col-12 col-md-12 col-lg">
                 <div class="text-wrapper align-left">
                     <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
+                        <strong>{{ user_auth.last_name }}</strong>
+                    </h1>
+                    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
                         <strong>{{ user_auth.first_name }}</strong>
                     </h1>
                     <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
                         {{ user_auth.teacher.description }}
                     </p>
+                    <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
+                        Телефон для связи: {{ user_auth.teacher.user_teacher.phone_number }}
+                    </p>
+                    <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
+                        Email для связи: {{ user_auth.teacher.user_teacher.email }}
+                    </p>
                     <div class="mbr-section-btn align-left mt-3">
-                        <a class="btn btn-success-outline display-7" href="{% url 'chatapp:chat_messages' %}">Get started</a>
+                        <a class="btn btn-success-outline display-7" href="{% url 'chatapp:chat_messages' %}">Написать сообщение</a>
                     </div>
                 </div>
             </div>
@@ -136,13 +145,6 @@
         </div>
     </section>
     <section class="display-7"
-             style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;">
-        <a href="https://mobiri.se/771791"
-           style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;"
-                                                                                          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-        <p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1"
-                                                                                 href="https://mobirise.com/drag-drop-website-builder.html">Drag
-        and Drop Website Builder</a></section>
     <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
     <script src="{% static 'assets/ytplayer/index.js' %}"></script>
