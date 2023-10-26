@@ -83,7 +83,6 @@ def logining(request):
 
 
 class UserRegisterViews(CreateView):
-    ic.disable()
     model = User
     form_class = UserRegisterForm
     template_name = 'profileapp/profile/register.html'

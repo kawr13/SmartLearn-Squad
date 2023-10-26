@@ -6,6 +6,7 @@ SmartLearn/CabinetApp/migrations/__pycache__/
 SmartLearn/Project/__pycache__/
 SmartLearn/ProfileApp/__pycache__/
 SmartLearn/ProfileApp/migrations/__pycache__/
+CabinetApp/__pycache__/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
