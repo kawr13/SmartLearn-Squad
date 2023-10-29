@@ -22,6 +22,7 @@ class User(AbstractUser):
     images = models.ImageField(upload_to='users/images', null=True, blank=True)
     requisites = models.OneToOneField('Requisites', on_delete=models.CASCADE, related_name='user_requisites', null=True, blank=True)
     is_verified_email = models.BooleanField(default=False)
+    is_online = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
 
     def __str__(self):

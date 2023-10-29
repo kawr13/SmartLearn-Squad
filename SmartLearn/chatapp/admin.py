@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from chatapp.models import Message, Chat
+from chatapp.models import Message
 
 
 # Register your models here.
@@ -8,9 +8,6 @@ from chatapp.models import Message, Chat
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('sender', 'content', 'timestamp')
+    pass
 
 
-@admin.register(Chat)
-class ChatAdmin(admin.ModelAdmin):
-    list_display = ('id',)
