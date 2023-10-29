@@ -29,7 +29,6 @@ urlpatterns = [
     path('profile/', include('ProfileApp.urls', namespace='profile')),
     path("chat/", include("ChatApp.urls")),
     path('', include('django.contrib.auth.urls')),
-    path('chat/', include('chatapp.urls', namespace='chatapp')),
 ]
 
 if settings.DEBUG:

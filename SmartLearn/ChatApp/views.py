@@ -42,6 +42,7 @@ def chat(request):
 #     return render(request, 'ChatApp/chat.html', {'results': results})
 
 
+@login_required()
 def create_chat_dialog(request, another_user_id):
     another_user = User.objects.get(id=another_user_id)
     chat = Chat.objects.filter(members=another_user).filter(members=request.user).first()
