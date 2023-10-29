@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Чат</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'ChatApp/css/chat.css' %}">
+</head>
+<body>
+ <div class="chat-container clearfix">
+    <div class="people-list" id="people-list">
+      <div class="search">
+        <input type="text" placeholder="search" />
+      </div>
+
+      <ul class="list">
+          {% if chat_list %}
+              {% for chat in chat_list %}
+                  <li class="clearfix">
+{#                    <img src="{{ chat.members }}" alt="avatar"/>#}
+                    <div class="about">
+                      <div class="name"><a href="{% url 'chat:room' chat.id %}">{{ chat }}</a></div>
+                    </div>
+                  </li>
+              {% endfor %}
+          {% else %}
+              У вас нету чата
+          {% endif %}
+
+{#        <li class="clearfix">#}
+{#          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />#}
+{#          <div class="about">#}
+{#            <div class="name">Vincent Porter</div>#}
+{#            <div class="status">#}
+{#              <i class="fa fa-circle online"></i> online#}
+{#            </div>#}
+{#          </div>#}
+{#        </li>#}
+      </ul>
+    </div>
+
+    <div class="chat">
+      <div class="chat-header clearfix">
+        <img src="{{ user.images }}" alt="avatar" />
+
+        <div class="chat-about">
+          <div class="chat-with">{{ user }}</div>
+        </div>
+
+      </div>
+        {% block chat_history %} {% endblock %}
+      <div class="chat-history" id="chat-history">
+
+
+      </div> <!-- end chat-history -->
+
+      <div class="chat-message clearfix">
+        <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+        <button id="chat-message-submit">Send</button>
+      </div> <!-- end chat-message -->
+    </div> <!-- end chat -->
+  </div> <!-- end container -->
+
+{% block script %} {% endblock %}
+</body>
+</html>

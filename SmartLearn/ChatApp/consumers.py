@@ -2,19 +2,22 @@ import json
 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
-from ChatApp.models import Message
+from ChatApp.models import Message, Chat
 from django.contrib.auth import get_user_model
+from icecream import ic
 
 User = get_user_model()
 
 
 class ChatConsumer(WebsocketConsumer):
-    def fetch_messages(self, data):
-        messages = Message.objects.all().order_by('-timestamp')[10]
+    def fetch_messages(self, chat_id):
+
+        messages = Message.objects.filter(chat=chat_id).order_by('timestamp')
+        ic(messages)
         content = {
             'messages': self.messages_to_json(messages)
         }
-        self.send_chat_message(content)
+        self.send_message(content)
 
     def messages_to_json(self, messages):
         result = []
@@ -30,9 +33,10 @@ class ChatConsumer(WebsocketConsumer):
         }
 
     def new_message(self, data):
+        chat = Chat.objects.get(id=data['chat_id'])
         author = data['from']
         author_user = User.objects.get(username=author)
-        message = Message.objects.create(author=author_user, content=data['message'])
+        message = Message.objects.create(chat=chat, author=author_user, content=data['message'])
         content = {
             'command': 'new_message',
             'message': self.message_to_json(message)
@@ -45,17 +49,24 @@ class ChatConsumer(WebsocketConsumer):
     }
 
     def connect(self):
-        self.room_name = self.scope["url_route"]["kwargs"]["room_name"]
-        self.room_group_name = f"chat_{self.room_name}"
+        """
+        Вызывается при установлении WebSocket-соединения.
+        """
+        self.chat_id = self.scope["url_route"]["kwargs"]["chat_id"]
+        self.room_group_name = f"chat_{self.chat_id}"
 
-        # Join room group
+        # Добавляет соединение к группе
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name, self.channel_name
         )
 
         self.accept()
+        self.fetch_messages(self.chat_id)
 
     def disconnect(self, close_code):
+        """
+        Вызывается при разрыве WebSocket-соединения.
+        """
         # Leave room group
         async_to_sync(self.channel_layer.group_discard)(
             self.room_group_name, self.channel_name
@@ -63,6 +74,10 @@ class ChatConsumer(WebsocketConsumer):
 
     # Receive message from WebSocket
     def receive(self, text_data):
+        """
+        Метод receive вызывается при получении сообщения через WebSocket.
+        Он извлекает текстовое сообщение из text_data и отправляет его в группу каналов для распространения среди всех участников комнаты.
+        """
         data = json.loads(text_data)
         self.commands[data["command"]](self, data)
 
@@ -73,7 +88,7 @@ class ChatConsumer(WebsocketConsumer):
         )
 
     def send_message(self, message):
-        self.send(text_data=json.dumps(message))
+        async_to_sync(self.send(text_data=json.dumps(message)))
     # Receive message from room group
 
     def chat_message(self, event):
