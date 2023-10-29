@@ -20,7 +20,7 @@
                   <li class="clearfix">
 {#                    <img src="{{ chat.members }}" alt="avatar"/>#}
                     <div class="about">
-                      <div class="name"><a href="{% url 'chat:room' chat.id %}">{{ chat }}</a></div>
+                      <div class="name"><a href="{% url 'chat:room' chat.id %}">{{ chat.name_chat }}</a></div>
                     </div>
                   </li>
               {% endfor %}

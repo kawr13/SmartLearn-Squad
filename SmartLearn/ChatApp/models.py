@@ -20,7 +20,7 @@ class Message(models.Model):
 
 
 class Chat(models.Model):
-    name_chat = models.CharField(max_length=100, verbose_name="Название", null=True, blank=True)
+    name_chat = models.CharField(max_length=100, verbose_name="Название")
     DIALOG = 'D'
     CHAT = 'C'
     CHAT_TYPE_CHOICES = (

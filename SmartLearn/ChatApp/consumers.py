@@ -13,7 +13,6 @@ class ChatConsumer(WebsocketConsumer):
     def fetch_messages(self, chat_id):
 
         messages = Message.objects.filter(chat=chat_id).order_by('timestamp')
-        ic(messages)
         content = {
             'messages': self.messages_to_json(messages)
         }
