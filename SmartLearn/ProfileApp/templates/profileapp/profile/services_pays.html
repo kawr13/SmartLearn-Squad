@@ -1,0 +1,47 @@
+{% extends 'profileapp/profile/base_cabinet_index.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'ProfileApp/css/services.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="column">
+        <h2>Оформление услуг</h2>
+        <table class="table">
+            <tr>
+                <th>Имя</th>
+                <th>Описание</th>
+                <th>Цена</th>
+                <th>количество</th>
+                <th>Удалить</th>
+            </tr>
+            {% for serv in baskets %}
+                <tr>
+                    <td>{{ serv.service.name }}</td>
+                    <td>{{ serv.service.description }}</td>
+                    <td>{{ serv.total }}</td>
+                    <td>{{ serv.quantity }}</td>
+                    <td>
+                        <a href="{% url 'profile:delete_bask' serv.id %}">
+                            <button class="btn btn-danger">
+                              <i class="bi bi-cart-fill"></i> dell
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="checkout">
+            <span class="total-price">Общая цена: {{ baskets.total_sum }}</span>
+            <a href="" class="btn btn-primary">Оформить</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

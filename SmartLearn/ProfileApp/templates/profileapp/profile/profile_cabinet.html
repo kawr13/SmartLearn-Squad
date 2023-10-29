@@ -1,49 +1,63 @@
-{% extends 'profileapp/profile/base_home.html' %}
+{% extends 'profileapp/profile/base_cabinet_index.html' %}
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
+
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'ProfileApp/css/profile_cabinet.css' %}">
-{% endblock %}
-
-
-{% block modals %}
-
+    <link rel="stylesheet" href="{% static 'ProfileApp/css/profile.css' %}">
 {% endblock %}
 
 {% block content %}
-    <!-- Боковая панель навигации -->
-    <div class="sidenav">
-        <a href="#" class="active">Статистика</a>
-        <a href="{%  url 'profile:services' %}">Услуги</a>
-        <a href="{%  url 'profile:profile_cabinet' user.id %}">Кабинеты</a>
-        {% if user.is_teacher %}
-            <a href="{%  url 'profile:publish_post' %}">Создать пост</a>
-            <a href="{%  url 'profile:users_list' %}">Пользователи</a>
+    {% block modals %}
+        {% if autentic %}
+            {% if title == 'Кабинеты' and user.is_teacher %}
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                        <button data-toggle="modal" data-target="#addCabinetModal" class="ml-auto">
+                            Добавить кабинет
+                        </button>
+                    </li>
+                </ul>
+                <div class="modal fade" id="addCabinetModal" tabindex="-1" role="dialog" aria-labelledby="addCabinetModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <!-- Здесь можно разместить вашу форму пост-запроса -->
+                        <form method="post" action="{% url 'profile:profile_cabinet' user.id %}">
+                            {% csrf_token %}
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addCabinetModalLabel">Добавить кабинет</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ form.as_p }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                                    <button type="submit" class="btn btn-success">Добавить</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
         {% endif %}
-    </div>
+        {% endblock %}
+    <div class="card">
+        <div class="card-body">
+        <h5 class="card-title">Учитель: </h5>
+        {% for cabinet, users in users_by_cab.items %}
+            <p><a href="{% url 'cabinet:cabinet' cab_id=cabinet.id %}" class="card-text">Кабинет: {{ cabinet.name }}</a></p>
 
-    <!-- Основной контент -->
-    <div class="content">
-        <h1>Добро пожаловать в ваш кабинет</h1>
-
-        <div class="card">
-            <div class="card-body">
-            <h5 class="card-title">Учитель: </h5>
-            {% for cabinet, users in users_by_cab.items %}
-                <p><a href="{% url 'cabinet:cabinet' cab_id=cabinet.id %}" class="card-text">Кабинет: {{ cabinet.name }}</a></p>
-
-                {% for user in users|dictsort:"is_teacher"|dictsort:"username" %}
-                    {% if user.is_teacher %}
-                        <p class="card-text">Учитель: {{ user.username }}</p>
-                    {% elif not user.is_teacher %}
-                        <p class="card-text">Пользователь: {{ user.username }}</p>
-                    {% endif %}
-                {% endfor %}
+            {% for user in users|dictsort:"is_teacher"|dictsort:"username" %}
+                {% if user.is_teacher %}
+                    <p class="card-text">Учитель: {{ user.username }}</p>
+                {% elif not user.is_teacher %}
+                    <p class="card-text">Пользователь: {{ user.username }}</p>
+                {% endif %}
             {% endfor %}
-            </div>
+        {% endfor %}
         </div>
     </div>
-
-
 {% endblock %}

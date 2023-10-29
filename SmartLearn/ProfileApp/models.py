@@ -22,6 +22,7 @@ class User(AbstractUser):
     images = models.ImageField(upload_to='users/images', null=True, blank=True)
     requisites = models.OneToOneField('Requisites', on_delete=models.CASCADE, related_name='user_requisites', null=True, blank=True)
     is_verified_email = models.BooleanField(default=False)
+    is_online = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
 
     def __str__(self):
@@ -117,6 +118,28 @@ class Students(models.Model):
         return f"Student {self.user.username}"
 
 
+class BasketQuerySet(models.QuerySet):
+
+    def total_sum(self):
+        return sum(basket.total() for basket in self)
+
+    def total_quantity(self):
+        return sum(basket.quantity for basket in self)
+
+
+class Baskets(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='basket')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='basket_service')
+    quantity = models.PositiveIntegerField(default=0)
+    create_date = models.DateTimeField(auto_now_add=True)
+
+    objects = BasketQuerySet.as_manager()
+
+    def __str__(self):
+        return f"Basket {self.service.name} for {self.user.username}"
+
+    def total(self):
+        return self.quantity * self.service.price
 
 
 

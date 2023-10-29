@@ -5,7 +5,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 from CabinetApp.models import Schedule, Cabinet
 from ProfileApp.forms import UserForm, UserRegisterForm, CabinetForm, BlogForm, ServiceForm, CabinetTransferForm
-from ProfileApp.models import Teacher, User, Tag, Post, EmailVerification, Service, Students
+from ProfileApp.models import Teacher, User, Tag, Post, EmailVerification, Service, Students, Baskets
 # from Cabinet.models import Schedule
 from django.contrib import auth
 from django.shortcuts import render
@@ -18,13 +18,18 @@ from icecream import ic
 
 
 def index(request: HttpRequest) -> render:
-    # ic.disable()
+    if request.user.is_authenticated:
+        bas_quant = Baskets.objects.filter(user=request.user).total_quantity()
+    else:
+        bas_quant = 0
+
     context = {
         'title': 'Список учителей',
         'users': User.objects.prefetch_related('teacher'),
         'regis': request.user,
-        'autentic': ic(request.user.is_authenticated),
+        'autentic': request.user.is_authenticated,
         'categories': Tag.objects.all(),
+        'bas_quant': bas_quant,
     }
     return render(request, 'profileapp/profile/index_start.html', context=context)
 
@@ -46,15 +51,20 @@ def blog(request: HttpRequest, user_id: int) -> render:
     user = User.objects.get(id=user_id)
     teach = False
     teacher = user.teacher
+    if request.user.is_authenticated:
+        bas_quant = Baskets.objects.filter(user=request.user).total_quantity()
+    else:
+        bas_quant = 0
     if user == request.user:
         teach = True
     context = {
         'title': 'Блог',
-        'user': user,
+        'user_auth': user,
         'autentic': request.user.is_authenticated,
         'teach': teach,
         'posts': Post.objects.filter(teacher=teacher, is_private=False).order_by('-date_create'),
         'prices': Service.objects.filter(teacher=teacher),
+        'bas_quant': bas_quant,
     }
     return render(request, 'profileapp/profile/new_blog_page.html', context=context)
 
@@ -137,16 +147,16 @@ def profiluser(request: HttpRequest, user_id: int) -> render:
 
 
 def profilusercabinet(request: HttpRequest, user_id: int) -> render:
-    if request.user.id:
-        pers = User.objects.get(id=request.user.id).is_authenticated
-    else:
-        pers = False
     if request.method == 'POST':
         form = CabinetForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('profile:profile_cabinet', kwargs={'user_id': user_id}))
 
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id).is_authenticated
+    else:
+        pers = False
     user = User.objects.get(id=user_id)
     teacher = None
     cabinets = None
@@ -248,6 +258,7 @@ def delete_service(request, service_id):
 
 def users_list(request: HttpRequest) -> render:
     teacher = request.user.teacher
+    ic(teacher)
 
     if request.method == 'POST':
         form = CabinetTransferForm(request.POST)
@@ -289,6 +300,8 @@ def users_list(request: HttpRequest) -> render:
     # Cache the result of the following query for 5 minutes
     cache_key = f"students_list:{teacher.pk}"
     lst_user = cache.get(cache_key)
+
+    ic(lst_user)
     if lst_user is None:
         with transaction.atomic():
             students = Students.objects.filter(teacher=teacher).select_related('user')
@@ -303,8 +316,6 @@ def users_list(request: HttpRequest) -> render:
         'autentic': pers,
     }
     return render(request, 'profileapp/profile/users_list.html', context=context)
-
-
 
 
 def publish_post(request):
@@ -349,3 +360,57 @@ def publish_post(request):
 #         'posts': posts,
 #     }
 #     return render(request, 'profileapp/profile/profile_info_teacher.html', context=context)
+
+
+def sevices_pay(request, service_id):
+    service = Service.objects.get(id=service_id)
+    basket = Baskets.objects.filter(user=request.user, service=service)
+    if not basket.exists():
+        Baskets.objects.create(user=request.user, service=service, quantity=1)
+    else:
+        basket = basket.first()
+        basket.quantity += 1
+        basket.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def post_detailed(request: HttpRequest, post_id: int) -> render:
+    if request.user.id:
+        pers = User.objects.get(id=request.user.id)
+    else:
+        pers = False
+    post = Post.objects.get(id=post_id)
+    context = {
+        'title': 'Полезная информация',
+        'user_id': pers.id,
+        'autentic': pers.is_authenticated,
+        'posts': post,
+    }
+    return render(request, 'profileapp/profile/blog.html', context=context)
+
+
+def services_order(request):
+    if request.user.is_authenticated:
+        baskets = Baskets.objects.filter(user=request.user)
+        context = {
+            'title': 'Оформление',
+            'user_id': request.user.id,
+            'baskets': baskets,
+            'autentic': request.user.is_authenticated,
+        }
+    else:
+        context = {
+            'title': 'Оформление',
+            'autentic': False,
+        }
+    return render(request, 'profileapp/profile/services_pays.html', context=context)
+
+
+def delete_basket(request, basket_id):
+    basket = Baskets.objects.get(id=basket_id)
+    if basket.quantity > 1:
+        basket.quantity -= 1
+        basket.save()
+    else:
+        basket.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

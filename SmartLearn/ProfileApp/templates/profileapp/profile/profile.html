@@ -1,4 +1,4 @@
-{% extends 'profileapp/profile/base_home.html' %}
+{% extends 'profileapp/profile/base_cabinet_index.html' %}
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
@@ -7,18 +7,6 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Боковая панель навигации -->
-    <div class="sidenav">
-        <a href="#" class="active">Статистика</a>
-        <a href="{%  url 'profile:services' %}">Услуги</a>
-        <a href="{%  url 'profile:profile_cabinet' user.id %}">Кабинеты</a>
-        {% if user.is_teacher %}
-            <a href="{%  url 'profile:publish_post' %}">Создать пост</a>
-            <a href="{%  url 'profile:users_list' %}">Пользователи</a>
-        {% endif %}
-    </div>
-
-    <!-- Основной контент -->
     <div class="content">
         <h1>Добро пожаловать в ваш кабинет</h1>
         <!-- Здесь будет отображаться контент для выбранного пункта меню -->

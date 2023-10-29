@@ -1,55 +1,36 @@
-{% extends 'profileapp/profile/base_home.html' %}
+{% extends 'profileapp/profile/base_index_blog.html' %}
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block styles %}
-    <link href="{% static 'ProfileApp/css/blog.css' %}" xmlns="http://www.w3.org/1999/html">
-{% endblock %}
-
-</head>
-<body>
-    <div class="blog-header">
 
 {% block content %}
-        <div class="header-wrapper">
-            <img src="{{ user.images.url }}" alt="Заголовочное изображение">
-        </div>
-    </div>
-    <div class="blog-header">
-        <div class="user-profile">
-            <img src="{{ user.images.url }}" alt="Фото профиля">
-            <div>
-                <h2>{{ user.username }}</h2>
-                <p>{{ user.teacher.description }}</p>
-            </div>
-        </div>
-    </div>
-    <div class="blog-header">
-        {% for post in posts %}
-            <div class="blog-header">
-                <div class="blog-post">
-                    <img src="{% if post.images %}{{ post.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" alt="Изображение поста">
-                    <div>
-                        <h3>{{ post.title }}</h3>
-                        <p>{{ post.content }}</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section data-bs-version="5.1" class="article8 cid-tT4ZBrVYs7" id="article08-8" style="max-width: 100%; height: auto;">
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1" style="max-width: 100%; height: auto;">
+                <div class="u-container-style u-expanded-width u-post-details u-post-details-1">
+                  <div class="u-container-layout u-valign-middle u-container-layout-1">
+                    <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" src="{% if posts.images %}{{ posts.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" style="max-width: 100%; height: auto;">
+                    <h2 class="u-blog-control u-text u-text-1 text-center">{{ posts.title }}</h2>
+                    <div class="u-align-justify u-blog-control u-post-content u-text u-text-2 fr-view">
+                        {{ posts.content|safe }}  <!-- Используем |safe для вывода HTML-кода -->
                     </div>
+                    <div class="u-blog-control u-metadata u-metadata-1">
+                      <span class="u-meta-date u-meta-icon">{{ posts.date_create }}</span>
+                    </div>
+                  </div>
                 </div>
-                <p>{{ post.date_create }}</p>
-                {% if teach %}
-                    <a href="{% url 'profile:delete_post' post.id %}">
-                        <button class="btn btn-primary">
-                          <i class="bi bi-cart-fill"></i> Удалить
-                        </button>
-                    </a>
-                {% endif %}
+              </div>
             </div>
-        {% endfor %}
-    </div>
-
+        </div>  <!-- Закрыли обертку "container" -->
+    </section>
     <!-- Добавьте больше блоков постов при необходимости -->
-
-</body>
 {% endblock %}
+
 {% block script %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

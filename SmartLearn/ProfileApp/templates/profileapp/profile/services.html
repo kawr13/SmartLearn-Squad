@@ -1,4 +1,4 @@
-{% extends 'profileapp/profile/base_home.html' %}
+{% extends 'profileapp/profile/base_cabinet_index.html' %}
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
@@ -6,66 +6,53 @@
     <link rel="stylesheet" href="{% static 'ProfileApp/css/services.css' %}">
 {% endblock %}
 {% block content %}
-    <!-- Боковая панель навигации -->
-    <div class="sidenav">
-        <a href="#" class="active">Статистика</a>
-        <a href="{%  url 'profile:services' %}">Услуги</a>
-        <a href="{%  url 'profile:profile_cabinet' user.id %}">Кабинеты</a>
+<div class="container">
+    <div class="column">
+        <h2>Таблица услуг</h2>
+        <table class="table">
+            <tr>
+                <th>Имя</th>
+                <th>Описание</th>
+                <th>Цена</th>
+                <th>Опции</th>
+            </tr>
+            {% for serv in service %}
+                <tr>
+                    <td>{{ serv.name }}</td>
+                    <td>{{ serv.description }}</td>
+                    <td>{{ serv.price }}</td>
+                    <td>
+                        <a href="{% url 'profile:edit_service' serv.id %}">
+                            <button class="btn btn-success">
+                              <i class="bi bi-cart-fill"></i> edit
+                            </button>
+                        </a>
+
+                        <a href="{% url 'profile:delete_serv' serv.id %}">
+                            <button class="btn btn-danger">
+                              <i class="bi bi-cart-fill"></i> dell
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
-
-    <div class="content">
-        <h1>Добро пожаловать в ваш кабинет</h1>
-        <div class="container">
-            <div class="column">
-                <h2>Таблица услуг</h2>
-                <table class="table">
-                    <tr>
-                        <th>Имя</th>
-                        <th>Описание</th>
-                        <th>Цена</th>
-                        <th>Опции</th>
-                    </tr>
-                    {% for serv in service %}
-                        <tr>
-                            <td>{{ serv.name }}</td>
-                            <td>{{ serv.description }}</td>
-                            <td>{{ serv.price }}</td>
-                            <td>
-                                <a href="{% url 'profile:edit_service' serv.id %}">
-                                    <button class="btn btn-success">
-                                      <i class="bi bi-cart-fill"></i> edit
-                                    </button>
-                                </a>
-
-                                <a href="{% url 'profile:delete_serv' serv.id %}">
-                                    <button class="btn btn-danger">
-                                      <i class="bi bi-cart-fill"></i> dell
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-
-                    <!-- Дополнительные строки с услугами -->
-                </table>
-            </div>
-            <div class="column">
-                <h2>Добавить новую услугу</h2>
-                <div class="form">
-                    <form action="{% url 'profile:services' %}" method="post">
-                        {% csrf_token %}
-                        <p>{{ form.name.label_tag }}
-                            {{ form.name }}</p>
-                        <p>{{ form.description.label_tag }}
-                            {{ form.description }}</p>
-                        <p>{{ form.price.label_tag }}
-                            {{ form.price }}</p>
-
-                        <button type="submit">Добавить</button>
-                </div>
-            </div>
+    <div class="column">
+        <h2>Добавить новую услугу</h2>
+        <div class="form">
+            <form action="{% url 'profile:services' %}" method="post">
+                {% csrf_token %}
+                <p>{{ form.name.label_tag }}
+                    {{ form.name }}</p>
+                <p>{{ form.description.label_tag }}
+                    {{ form.description }}</p>
+                <p>{{ form.price.label_tag }}
+                    {{ form.price }}</p>
+                <button type="submit">Добавить</button>
         </div>
     </div>
+</div>
 {% endblock %}
 {% block script %}
     <script>

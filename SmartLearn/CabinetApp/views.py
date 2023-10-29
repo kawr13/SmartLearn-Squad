@@ -1,7 +1,12 @@
+import asyncio
+
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from icecream import ic
 
 from CabinetApp.models import Cabinet, Schedule
+from CabinetApp.scrapper import starting_pars
 from ProfileApp.models import User, Post
 
 
@@ -88,3 +93,23 @@ def user_full_view(request: HttpRequest, post_id: int) -> render:
         'posts': post,
     }
     return render(request, 'Cabinet/userfull_detailed.html', context=context)
+
+
+def get_parser(request):
+    if request.method == 'POST':
+        answer = request.POST.get('answer')  # Используем .POST.get для получения значения 'answer'
+        ic(answer)
+        result = asyncio.run(starting_pars(answer))
+        ic(result)
+        context = {
+            'title': 'Парсинг',
+            'result': result,
+            'user_id': request.user.id,
+        }
+        return render(request, 'Cabinet/parsing.html', context)
+
+    context = {
+        'title': 'Парсинг',
+        'user_id': request.user.id,
+    }
+    return render(request, 'Cabinet/parsing.html', context)

@@ -1,7 +1,6 @@
 {% extends 'profileapp/profile/base_home.html' %}
 {% load static %}
 {% block content %}
-<body>
     <div class="container mt-5">
         <div class="btn-group" role="group" id="categoryButtons">
             <a href="{% url 'index' %}" class="btn btn-secondary">ALL</a>
@@ -12,7 +11,7 @@
     </div>
     <div class="container">
         <!-- Содержимое страницы -->
-        <h2>Список учителей</h2>
+        <h2>Наши преподаватели</h2>
         <div class="row">
             {% for user in users %}
                 {% if user.is_teacher %}

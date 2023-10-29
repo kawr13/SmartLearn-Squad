@@ -1,0 +1,25 @@
+{% extends 'chat/index.html' %}{% load static %}
+{% block body %}
+  <main>
+     <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4 mx-auto shadow p-0">
+            <div class=" btn-success block">
+                <h6 class="p-2">Edit profile</h6>
+            </div>
+              <div class="p-2">
+                  <form method="post">
+                    {% csrf_token %}
+                    {{form.username }} <br>
+                    {{form.first_name }} <br>
+                    {{form.last_name }}<br>
+                    {{form.email }} <br>
+                    {% comment %} {{ form | crispy  }} {% endcomment %}
+                  <button type="submit" class="btn-xm btn-success" value="Edit Profile"><i class="fa fa-edit">    Edit</i></button>
+                  </form>
+                </div>
+          </div>
+      </div>
+      
+  </main>
+{% endblock body %}

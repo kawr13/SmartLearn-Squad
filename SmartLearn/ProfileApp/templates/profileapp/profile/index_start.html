@@ -10,7 +10,12 @@
 
 <section data-bs-version="5.1" class="header6 cid-tT4YBJJ7nf" id="header06-1">
 	
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 	
 	<br>
 	<div class="container">
@@ -18,26 +23,25 @@
 			<div class="col-12 col-lg-5">
 				<div class="card-wrapper">
 					<h3 class="mbr-section-cardtitle mbr-fonts-style mb-2 display-5">
-						<strong>Unleash your genius</strong>
+						<strong>SmartLearn</strong>
 					</h3>
 
 					<p class="mbr-cardtext mbr-fonts-style mb-0 display-7">
-					Creating websites is like composing a symphony of pixels, colors, and code—a harmonious fusion of creativity and technical expertise that transforms ideas into visually stunning and user-friendly digital masterpieces.
+					Приветствуем вас на нашем сайте, здесь собралось много преподавателей которые смогут помочь вам с обучением!
 					</p>
 				</div>
 			</div>
 			<div class="col-12 col-lg-6">
 				<h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
-					<strong>Create your first website</strong>
+					<strong>Начинай учиться</strong>
 				</h1>
-				
+
 				<p class="mbr-text mbr-fonts-style mb-4 display-7">
-					Mobirise Free Website Maker is perfect for non-techies and great for pro-coders for fast prototyping
-					and small customers' projects.
+					Либо, начинай учить если ты специалист в своей сфере!
 				</p>
 				<div class="mbr-section-btn mt-4">
-					<a class="btn btn-primary display-7" href="https://mobiri.se">Create Website</a>
-					<a class="btn btn-success-outline display-7" href="https://mobiri.se">Read More</a>
+					<a class="btn btn-primary display-7" href="[{% url 'profile:login' %}]">Зарегистрируйся</a>
+					<a class="btn btn-success-outline display-7" href="#">О нас</a>
 				</div>
 			</div>
 		</div>
@@ -65,7 +69,7 @@
                         <div class="item-wrapper">
                             <a href="{% url 'profile:blog' user.id %}">
                                 <div class="item-img mb-3">
-                                    <img src="{{ user.images.url }}" alt="Mobirise Website Builder" title="">
+                                    <img src="{% if user.images %}{{ user.images.url }}{% else %}{% static 'image/profile_img/img.png' %}{% endif %}" alt="Mobirise Website Builder" title="">
                                 </div>
                                 <div class="item-content align-left">
                                     <h5 class="item-title mbr-fonts-style mb-3 display-7">
@@ -85,6 +89,4 @@
             {% endfor %}
 		</div>
 	</div>
-</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/771791" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com/builder/easiest-website-builder.html">Easy Website Builder</a></section><script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>  <script src="{% static 'assets/ytplayer/index.js' %}"></script>  <script src="{% static 'assets/dropdown/js/navbar-dropdown.js' %}"></script>  <script src="{% static 'assets/theme/js/script.js' %}"></script>
-
 {% endblock %}
