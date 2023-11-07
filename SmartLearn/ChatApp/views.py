@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+
 from .models import Message, Chat, User
 from icecream import ic
-from django.db.models import Q
 
 
 @login_required
@@ -34,12 +35,18 @@ def chat(request):
     return render(request, "ChatApp/chat.html", context=context)
 
 
-# @login_required()
-# def search_view(request):
-#     search_query = request.GET.get('search_query')
-#     results = User.objects.filter(name__icontains=search_query) if search_query else User.objects.all()
-#
-#     return render(request, 'ChatApp/chat.html', {'results': results})
+def user_search(request):
+    query = request.GET.get('query')
+    results = []
+
+    if query:
+        results = User.objects.filter(
+            Q(username__icontains=query) |
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query)
+        )
+
+    return render(request, 'ChatApp/user_search.html', {'results': results, 'query': query})
 
 
 def create_chat_dialog(request, another_user_id):

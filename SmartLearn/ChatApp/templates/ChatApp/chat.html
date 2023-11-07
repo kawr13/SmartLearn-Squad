@@ -9,35 +9,27 @@
  <div class="chat-container clearfix">
     <div class="people-list" id="people-list">
       <div class="search">
-        <input type="text" placeholder="search" />
+          <form method="get" action="{% url 'chat:user_search' %}">
+            <input type="text" name="query" value="{{ query }}">
+            <input type="submit" value="Искать">
+          </form>
       </div>
 
       <ul class="list">
           {% if chat_list %}
               {% for chat in chat_list %}
                   <li class="clearfix">
-{#                    <img src="{{ chat.members }}" alt="avatar"/>#}
+
                     <div class="about">
-                      <div class="name"><a href="{% url 'chat:room' chat.id %}">{{ chat }}</a></div>
+                      <div class="name"><a href="{% url 'chat:room' chat.id %}">{{ chat.name_chat }}</a></div>
                     </div>
                   </li>
               {% endfor %}
           {% else %}
               У вас нету чата
           {% endif %}
-
-{#        <li class="clearfix">#}
-{#          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />#}
-{#          <div class="about">#}
-{#            <div class="name">Vincent Porter</div>#}
-{#            <div class="status">#}
-{#              <i class="fa fa-circle online"></i> online#}
-{#            </div>#}
-{#          </div>#}
-{#        </li>#}
       </ul>
     </div>
-
     <div class="chat">
       <div class="chat-header clearfix">
         <img src="{{ user.images }}" alt="avatar" />

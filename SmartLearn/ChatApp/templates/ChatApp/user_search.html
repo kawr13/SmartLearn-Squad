@@ -1,0 +1,23 @@
+{% extends 'profileapp/profile/base_index_blog.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+{% for user in results %}
+    <div class="container">
+        <div class="card-body">
+            <a href="{% url 'chat:create_chat' user.id %}">
+                <p class="card-text text-wrap">Имя: {{ user.first_name }}</p>
+                <p class="card-text text-wrap">Фамилия: {{ user.last_name }}</p>
+                <p class="card-text text-wrap">{{ user.teacher.description }}</p>
+            </a>
+        </div>
+    </div>
+{% endfor %}
+</main>
+</body>
+</html>
