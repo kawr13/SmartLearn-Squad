@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="efddba98-fcd8-4f05-969f-385908745c1e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/SmartLearn/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLearn/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLearn/Project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLearn/Project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLearn/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLearn/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2XrXWDvWpekflGqqhaAtuuaST7Q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/PythonProject/SmartLearn-Squad/SmartLearn",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.django.DjangoModulesConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="efddba98-fcd8-4f05-969f-385908745c1e" name="Changes" comment="" />
+      <created>1699388202150</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699388202150</updated>
+      <workItem from="1699388203153" duration="1045000" />
+      <workItem from="1699389324801" duration="1013000" />
+      <workItem from="1699390351140" duration="80000" />
+      <workItem from="1699390442250" duration="211000" />
+      <workItem from="1699390679652" duration="129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

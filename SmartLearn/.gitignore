@@ -1,4 +1,5 @@
-.idea
+../.idea/
+.idea/
 SmartLearn/SmartLearn/__pycache__/
 SmartLearn/Cabinet/__pycache__/
 SmartLearn/Cabinet/migrations/__pycache__/
