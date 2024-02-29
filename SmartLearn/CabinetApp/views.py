@@ -4,11 +4,13 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils import timezone
 from django.views import View
+from icecream import ic
 
 from CabinetApp.forms import RecordsForms, SendEmailForm
 from CabinetApp.models import Cabinet, Schedule, Record
+from CabinetApp.tasks import send_mails
 from ProfileApp.models import User, Post
-from utilits.utilites_tools import SendMessages
+# from utilits.utilites_tools import SendMessages
 
 
 # Create your views her
@@ -169,10 +171,10 @@ class SendToEmailView(View):
                 if records_exist:
                     msg += '\n' + records_exist.url
             for user in users:
-                with SendMessages(email=user.email, subject=subject, message=msg) as send:
-                    if send.successful:
-                        messages.success(request, 'Сообщение отправлено')
-                        return HttpResponseRedirect(reverse('сabinet:send_mail', args=[cabinet_id]))
-                    else:
-                        messages.error(request, 'Сообщение не отправлено')
-                        return HttpResponseRedirect(reverse('сabinet:send_mail', args=[cabinet_id]))
+                result = send_mails(user.email, subject, msg)
+                # ic(result)
+                if result:
+                    messages.success(request, 'Сообщение отправлено')
+                else:
+                    messages.error(request, 'Сообщение не отправлено')
+            return HttpResponseRedirect(reverse('сabinet:send_mail', args=[cabinet_id]))
