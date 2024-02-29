@@ -40,12 +40,15 @@
             </a></li>
             <li class="nav-item"><a class="nav-link py-3 border-bottom rounded-0" href="{%  url 'profile:users_list' %}">Список пользователей
             </a></li>
+
         {% endif %}
         {% if cabinet_id %}
             <li class="nav-item"><a class="nav-link py-3 border-bottom rounded-0" href="{%  url 'cabinet:userfull_info_cab' cabinet_id %}">Полезные материалы</a>
             </li>
             <li class="nav-item"><a class="nav-link py-3 border-bottom rounded-0" href="{%  url 'cabinet:records_cab' cabinet_id %}">Ссылки на запись уроков</a>
             </li>
+            <li class="nav-item"><a class="nav-link py-3 border-bottom rounded-0" href="{%  url 'cabinet:send_mail' cabinet_id %}">Отправка писем
+            </a></li>
         {% endif %}
         {% if title != 'Полезная информация' %}
                 {% block url %}{% endblock %}

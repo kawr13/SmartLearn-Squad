@@ -188,7 +188,8 @@ def profilusercabinet(request: HttpRequest, user_id: int) -> render:
     cabinets = None
 
     if user.is_teacher:
-        teacher = Teacher.objects.get(user_teacher=user)
+        teacher = user.teacher
+        ic(teacher)
         cabinets = Cabinet.objects.filter(teacher=teacher)
     else:
         # Пользователь - студент, найдите связанных преподавателей и кабинеты
@@ -205,7 +206,7 @@ def profilusercabinet(request: HttpRequest, user_id: int) -> render:
     print(users_by_cabinet)
     context = {
         'title': 'Кабинеты',
-        'teach': 'teahs',
+        'teach': teacher,
         'autentic': pers,
         'users_by_cab': users_by_cabinet,
         'form': CabinetForm(),
@@ -418,19 +419,20 @@ def sevices_pay(request, service_id):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-def post_detailed(request: HttpRequest, post_id: int) -> render:
-    if request.user.id:
-        pers = User.objects.get(id=request.user.id)
-    else:
-        pers = False
-    post = Post.objects.get(id=post_id)
-    context = {
-        'title': 'Полезная информация',
-        'user_id': pers.id,
-        'autentic': pers.is_authenticated,
-        'posts': post,
-    }
-    return render(request, 'profileapp/profile/blog.html', context=context)
+class PostDetailed(View):
+    def get(request: HttpRequest, post_id: int) -> render:
+        if request.user.id:
+            pers = User.objects.get(id=request.user.id)
+        else:
+            pers = False
+        post = Post.objects.get(id=post_id)
+        context = {
+            'title': 'Полезная информация',
+            'user_id': pers.id,
+            'autentic': pers.is_authenticated,
+            'posts': post,
+        }
+        return render(request, 'profileapp/profile/blog.html', context=context)
 
 
 class ServiceOrderView(View):
@@ -469,11 +471,14 @@ class PaysView(View):
         return HttpResponse('Оплата прошла успешно')
 
 
-def delete_basket(request, basket_id):
-    basket = Baskets.objects.get(id=basket_id)
-    if basket.quantity > 1:
-        basket.quantity -= 1
-        basket.save()
-    else:
-        basket.delete()
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+class DeleteBasket(View):
+    def get(self, request, basket_id):
+        basket = Baskets.objects.get(id=basket_id)
+        if basket.quantity > 1:
+            basket.quantity -= 1
+            basket.save()
+        else:
+            basket.delete()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+

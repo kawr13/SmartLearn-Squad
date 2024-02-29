@@ -1,16 +1,14 @@
-import asyncio
-
-from django.http import HttpRequest, JsonResponse
+from django.contrib import messages
+from django.http import HttpRequest, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from icecream import ic
+from django.urls import reverse
 from django.utils import timezone
-
-from CabinetApp.forms import RecordsForms
-from CabinetApp.models import Cabinet, Schedule, Record
-from CabinetApp.scrapper import starting_pars
-from ProfileApp.models import User, Post
 from django.views import View
+
+from CabinetApp.forms import RecordsForms, SendEmailForm
+from CabinetApp.models import Cabinet, Schedule, Record
+from ProfileApp.models import User, Post
+from utilits.utilites_tools import SendMessages
 
 
 # Create your views her
@@ -133,3 +131,47 @@ def user_full_view(request: HttpRequest, post_id: int) -> render:
     }
     return render(request, 'Cabinet/userfull_detailed.html', context=context)
 
+
+class SendToEmailView(View):
+
+    def get(self, request, cabinet_id):
+        if request.user.id:
+            pers = User.objects.get(id=request.user.id)
+        else:
+            pers = False
+        cabinet = Cabinet.objects.get(pk=cabinet_id)
+        teachs = cabinet.teacher
+        users = Cabinet.objects.get(pk=cabinet_id).users.filter(is_student=True)
+        # form = SendEmailForm(initial={'user': users})
+        form = SendEmailForm()
+        form.fields['user'].queryset = users
+        context = {
+            'title': 'Архив записей видео',
+            'autentic': pers.is_authenticated,
+            'teach': teachs,
+            'user_id': pers.id,
+            'cabinet_id': cabinet_id,
+            'form': form,
+        }
+        return render(request, 'Cabinet/cabinet_send_email.html', context=context)
+
+    def post(self, request, cabinet_id):
+        form = SendEmailForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            users = form.cleaned_data['user']
+            msg = form.cleaned_data['message']
+            is_lesson = form.cleaned_data['is_lesson']
+            cabinet = Cabinet.objects.get(pk=cabinet_id)
+            if is_lesson:
+                records_exist = Record.objects.filter(cabinet=cabinet, teacher=cabinet.teacher).last()
+                if records_exist:
+                    msg += '\n' + records_exist.url
+            for user in users:
+                with SendMessages(email=user.email, subject=subject, message=msg) as send:
+                    if send.successful:
+                        messages.success(request, 'Сообщение отправлено')
+                        return HttpResponseRedirect(reverse('сabinet:send_mail', args=[cabinet_id]))
+                    else:
+                        messages.error(request, 'Сообщение не отправлено')
+                        return HttpResponseRedirect(reverse('сabinet:send_mail', args=[cabinet_id]))
