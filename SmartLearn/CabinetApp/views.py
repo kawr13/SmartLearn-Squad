@@ -153,6 +153,7 @@ class SendToEmailView(View):
             'cabinet_id': cabinet_id,
             'form': form,
         }
+
         return render(request, 'Cabinet/cabinet_send_email.html', context=context)
 
     def post(self, request, cabinet_id):
