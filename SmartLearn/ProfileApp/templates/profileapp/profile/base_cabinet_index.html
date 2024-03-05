@@ -76,7 +76,15 @@
         <div class="col-md-8 col-lg-1"></div>
         <br>
         <br>
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
         {% block content %}
+
         {% block modals %}{% endblock %}
         {% endblock %}
 

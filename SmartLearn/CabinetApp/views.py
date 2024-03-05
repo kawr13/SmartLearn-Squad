@@ -171,10 +171,5 @@ class SendToEmailView(View):
                 if records_exist:
                     msg += '\n' + records_exist.url
             for user in users:
-                result = send_mails(user.email, subject, msg)
-                # ic(result)
-                if result:
-                    messages.success(request, 'Сообщение отправлено')
-                else:
-                    messages.error(request, 'Сообщение не отправлено')
+                send_mails(request.user.id, user.email, subject, msg)
             return HttpResponseRedirect(reverse('сabinet:send_mail', args=[cabinet_id]))

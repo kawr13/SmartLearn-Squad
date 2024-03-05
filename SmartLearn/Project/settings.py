@@ -29,7 +29,10 @@ SECRET_KEY = 'django-insecure-z&j!n@+y30ble*y^_$1iea6t^*l%2j*us6o@k+v34buazn^))%
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*'
+    '*',
+    '127.0.0.1',
+    'localhost',
+    '192.168.0.139',
 ]
 
 DOMAIN_NAME = 'http://127.0.0.1:8000'
@@ -84,6 +87,7 @@ WSGI_APPLICATION = 'Project.wsgi.application'
 TINYMCE_DEFAULT_CONFIG = {
     'height': 360,
     'width': 1000,
+
     'selector': 'textarea',
     'plugins': 'advlist autolink lists link image charmap print preview anchor',
     'toolbar': 'aundo redo | formatselect | bold italic backcolor | link image | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | code',
@@ -150,7 +154,13 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+}
+
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 
 CELERY_TIMEZONE = 'UTC'

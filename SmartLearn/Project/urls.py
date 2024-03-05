@@ -24,6 +24,7 @@ from ProfileApp.views import IndexView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
+    path('<str:slug>/', IndexView.as_view(), name='tag'),
     path('admin/', admin.site.urls),
     path('cabinet/', include('CabinetApp.urls', namespace='сabinet')),
     path('profile/', include('ProfileApp.urls', namespace='profile')),

@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
+from unidecode import unidecode
 
 class Requisites(models.Model):
     card_number = models.CharField(max_length=16)
@@ -37,6 +39,16 @@ class Teacher(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(unidecode(self.name))
+        return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('tag', kwargs={'slug': self.slug})
+
 
     def __str__(self):
         return self.name
@@ -81,10 +93,25 @@ class Post(models.Model):
     is_pinned = models.BooleanField(default=False)
     is_private = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['-date_create']
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
+        indexes = (
+            models.Index(fields=['is_published', 'is_pinned']),
+            models.Index(fields=['-date_create']),
+            models.Index(fields=['title','slug']),
+        )
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'slug': self.slug,
+                                       'year': self.date_create.year,'month': self.date_create.month,
+                                       'day': self.date_create.day})
 
     def __str__(self):
         return self.title

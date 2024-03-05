@@ -1,0 +1,31 @@
+{% extends 'profileapp/profile/base_index_blog.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+
+<script>
+// Проверка поддержки Web Crypto API
+if (window.crypto) {
+    // Запрос сертификатов
+    window.crypto.subtle.getCerts().then(function (certs) {
+        // Обработка списка сертификатов
+        certs.forEach(function (cert) {
+            console.log("Subject: " + cert.subject);
+            console.log("Issuer: " + cert.issuer);
+            console.log("Serial Number: " + cert.serialNumber);
+            console.log("Valid From: " + cert.validFrom);
+            console.log("Valid To: " + cert.validTo);
+            console.log("Fingerprint: " + cert.fingerprint);
+            console.log("-----");
+        });
+    }).catch(function (err) {
+        console.error("Error:", err);
+    });
+} else {
+    console.error("Web Crypto API is not supported in this browser.");
+}
+</script>
+{% endblock %}

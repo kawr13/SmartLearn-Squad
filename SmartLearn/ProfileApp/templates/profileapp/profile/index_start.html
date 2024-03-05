@@ -54,7 +54,7 @@
         <div class="btn-group" role="group" id="categoryButtons">
             <a href="{% url 'index' %}" class="btn btn-secondary">ALL</a>
             {% for category in categories %}
-                <a href="{% url 'profile:tag' tag_id=category.id|urlencode %}" class="btn btn-primary">{{ category.name }}</a>
+                <a href="{{ category.get_absolute_url }}" class="btn btn-primary">{{ category.name }}</a>
             {% endfor %}
         </div>
     </div>

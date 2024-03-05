@@ -17,14 +17,14 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-from .views import sort_category, blog, logining, UserRegisterViews, logout, profilusercabinet, delete_post, \
+from .views import blog, logining, UserRegisterViews, logout, profilusercabinet, delete_post, \
     edit_service, users_list, publish_post, delete_service, sevices_pay, \
-    ProfileUserView, DeleteView, ProfileServices, ServiceOrderView, PaysView, DeleteBasket, PostDetailed
+    ProfileUserView, DeleteView, ProfileServices, ServiceOrderView, PaysView, DeleteBasket, PostDetailed, \
+    Cryptoprotection, IndexView
 
 app_name = 'profile'
 
 urlpatterns = [
-    path('tag/<int:tag_id>/', sort_category, name='tag'),
     path('blog/<int:user_id>/', blog, name='blog'),
     path('post_detailed/<int:post_id>/', PostDetailed.as_view(), name='post_detailed'),
     path('login/', logining, name='login'),
@@ -44,4 +44,8 @@ urlpatterns = [
     path('services_pay/', ServiceOrderView.as_view(), name='services_pay'),
     path('delete_bask/<int:basket_id>/', DeleteBasket.as_view(), name='delete_bask'),
     path('delete_cab/<int:cabinet_id>/', DeleteView.as_view(), name='delete_cab'),
+]
+
+urlpatterns += [
+    path('crypto/', Cryptoprotection.as_view(), name='cryptoprotection'),
 ]

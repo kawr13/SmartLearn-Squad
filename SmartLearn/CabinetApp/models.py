@@ -39,3 +39,12 @@ class Record(models.Model):
 
     def __str__(self):
         return self.url
+
+
+class Complete(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message_complete = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user
+

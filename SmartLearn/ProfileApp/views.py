@@ -1,18 +1,16 @@
-from http.client import HTTPResponse
-from django.http import JsonResponse, HttpRequest, HttpResponseRedirect, HttpResponse
+from django.http import HttpRequest, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, UpdateView
-from CabinetApp.models import Schedule, Cabinet
-from ProfileApp.forms import UserForm, UserRegisterForm, CabinetForm, BlogForm, ServiceForm, CabinetTransferForm, UserProfileForm
-from ProfileApp.models import Teacher, User, Tag, Post, EmailVerification, Service, Students, Baskets
-# from Cabinet.models import Schedule
+from django.views.generic import CreateView
+from CabinetApp.models import Cabinet
+from ProfileApp.forms import UserForm, UserRegisterForm, CabinetForm, BlogForm, ServiceForm, CabinetTransferForm,\
+    UserProfileForm
+from ProfileApp.models import Teacher, User, Tag, Post, Service, Students, Baskets
 from django.contrib import auth
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.db.models import Prefetch, Count
 from django.db import transaction
 from django.core.cache import cache
 from icecream import ic
@@ -20,42 +18,24 @@ from icecream import ic
 
 class IndexView(View):
 
-    def get(self, request: HttpRequest) -> render:
+    def get(self, request: HttpRequest, slug: str = None):
         if request.user.is_authenticated:
             bas_quant = Baskets.objects.filter(user=request.user).total_quantity()
         else:
             bas_quant = 0
-
+        if slug:
+            users = ic(User.objects.filter(teacher__tags__slug=slug).prefetch_related('teacher'))
+        else:
+            users = User.objects.select_related('teacher').prefetch_related('teacher')
         context = {
             'title': 'Список учителей',
-            'users': User.objects.prefetch_related('teacher'),
+            'users': users,
             'regis': request.user,
             'autentic': request.user.is_authenticated,
             'categories': Tag.objects.all(),
             'bas_quant': bas_quant,
         }
         return render(request, 'profileapp/profile/index_start.html', context=context)
-
-
-def sort_category(request: HttpRequest, tag_id: int = None) -> render:
-    if request.user.is_authenticated:
-        bas_quant = Baskets.objects.filter(user=request.user).total_quantity()
-    else:
-        bas_quant = 0
-    categories = Tag.objects.all()
-    if tag_id:
-        users = ic(User.objects.filter(teacher__tags__id=tag_id).prefetch_related('teacher'))
-    else:
-        users = User.objects.select_related('teacher').prefetch_related('teacher')
-    context = {
-        'users': users,
-        'categories': categories,
-        'title': 'Список учителей',
-        'regis': request.user,
-        'autentic': request.user.is_authenticated,
-        'bas_quant': bas_quant,
-    }
-    return render(request, 'profileapp/profile/index_start.html', context=context)
 
 
 def blog(request: HttpRequest, user_id: int) -> render:
@@ -482,3 +462,10 @@ class DeleteBasket(View):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
+class Cryptoprotection(View):
+    def get(self, request):
+        context = {
+            'title': 'Криптозащита',
+            'autentic': request.user.is_authenticated,
+        }
+        return render(request, 'profileapp/profile/detectcriptopro.html', context=context)
